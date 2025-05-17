@@ -212,9 +212,9 @@ export default function AfLynkLandingPage() {
           <a href="#advertisers" className="text-gray-700 hover:text-teal-600 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
             Advertisers
           </a>
-          <a href="#publishers" className="text-gray-700 hover:text-orange-500 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-            Publishers
-          </a>
+          <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
+  Publisher
+</Link>
           <a href="#case-studies" className="text-gray-700 hover:text-purple-600 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
             Case Studies
           </a>
