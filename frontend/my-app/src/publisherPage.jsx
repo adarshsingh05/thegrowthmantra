@@ -475,12 +475,16 @@ export default function AfLynkPublisherPage() {
                   className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 relative overflow-hidden group"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-50 transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom"></div>
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                  <div className="relative z-10 flex flex-row items-start">
+                    {/* Logo/icon now on the left side with proper alignment for all screen sizes */}
+                    <div className="w-12 h-12 flex-shrink-0 bg-gray-100 rounded-full flex items-center justify-center mr-4">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    {/* Text content now on the right side */}
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -551,7 +555,7 @@ export default function AfLynkPublisherPage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" ref={howItWorksRef} className="py-20 md:py-32 bg-white overflow-hidden">
+     <section id="how-it-works" ref={howItWorksRef} className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -567,7 +571,7 @@ export default function AfLynkPublisherPage() {
             </motion.div>
 
             <div className="relative">
-              {/* Connection Line */}
+              {/* Connection Line for desktop */}
               <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-blue-500 hidden md:block transform -translate-x-1/2"></div>
 
               <div className="space-y-12 relative">
@@ -602,10 +606,25 @@ export default function AfLynkPublisherPage() {
                       </div>
                     </div>
 
-                    <div className="md:w-12 relative">
+                    {/* Number circle with connecting elements for mobile */}
+                    <div className="md:w-12 relative flex flex-col items-center">
+                      {/* Top connector (not shown for first item) */}
+                      {index > 0 && (
+                        <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-orange-500 md:hidden"></div>
+                      )}
+                      
+                      {/* Number circle */}
                       <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-xl z-10 relative">
                         {index + 1}
                       </div>
+                      
+                      {/* Bottom connector (not shown for last item) */}
+                      {index < steps.length - 1 && (
+                        <div className="w-1 h-8 bg-gradient-to-b from-orange-500 to-blue-500 md:hidden"></div>
+                      )}
+                      
+                      {/* Horizontal connector to content (mobile only) */}
+                      <div className="absolute top-1/2 w-8 h-1 bg-gradient-to-r from-orange-500 to-red-500 -right-8 transform -translate-y-1/2 md:hidden"></div>
                     </div>
 
                     <div className="md:w-1/2"></div>
