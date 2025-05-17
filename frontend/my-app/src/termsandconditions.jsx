@@ -6,25 +6,29 @@ import {
   ChevronRight,
   Menu,
   X,
-  Shield,
-  Lock,
   FileText,
-  Eye,
-  Clock,
-  Globe,
+  Shield,
   User,
+  DollarSign,
   AlertCircle,
+  Globe,
+  Lock,
+  Check,
   ArrowRight,
+  Briefcase,
+  BookOpen,
+  Scale,
 } from "lucide-react"
+import { Link } from "react-router-dom"
 
-export default function AfLynkPrivacyPolicy() {
+export default function AfLynkTerms() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
   const [activeSection, setActiveSection] = useState(null)
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-"mainlogo.png",
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Teal%20Logo-%20Afflynk%20Media-a5lrBAJ9HCbT5rqELeamaqi5m96xOV.png", // Teal
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
@@ -76,19 +80,20 @@ export default function AfLynkPrivacyPolicy() {
 
   const sections = [
     { id: "introduction", title: "Introduction", icon: <FileText className="h-5 w-5" /> },
-    { id: "who-we-are", title: "Who We Are", icon: <User className="h-5 w-5" /> },
-    { id: "what-information", title: "Information We Collect", icon: <Eye className="h-5 w-5" /> },
-    { id: "how-we-collect", title: "How We Collect", icon: <Globe className="h-5 w-5" /> },
-    { id: "how-we-use", title: "How We Use", icon: <Shield className="h-5 w-5" /> },
-    { id: "legal-basis", title: "Legal Basis", icon: <FileText className="h-5 w-5" /> },
-    { id: "sharing", title: "Sharing Information", icon: <ArrowRight className="h-5 w-5" /> },
-    { id: "cookies", title: "Cookies", icon: <Lock className="h-5 w-5" /> },
-    { id: "data-retention", title: "Data Retention", icon: <Clock className="h-5 w-5" /> },
-    { id: "data-security", title: "Data Security", icon: <Shield className="h-5 w-5" /> },
-    { id: "international", title: "International Transfers", icon: <Globe className="h-5 w-5" /> },
-    { id: "your-rights", title: "Your Rights", icon: <User className="h-5 w-5" /> },
-    { id: "childrens-privacy", title: "Children's Privacy", icon: <AlertCircle className="h-5 w-5" /> },
-    { id: "changes", title: "Changes to Policy", icon: <FileText className="h-5 w-5" /> },
+    { id: "definitions", title: "Definitions", icon: <BookOpen className="h-5 w-5" /> },
+    { id: "eligibility", title: "Eligibility", icon: <Check className="h-5 w-5" /> },
+    { id: "account-registration", title: "Account Registration", icon: <User className="h-5 w-5" /> },
+    { id: "publisher-obligations", title: "Publisher Obligations", icon: <Briefcase className="h-5 w-5" /> },
+    { id: "advertiser-obligations", title: "Advertiser Obligations", icon: <Globe className="h-5 w-5" /> },
+    { id: "payment-terms", title: "Payment Terms", icon: <DollarSign className="h-5 w-5" /> },
+    { id: "intellectual-property", title: "Intellectual Property", icon: <Shield className="h-5 w-5" /> },
+    { id: "data-usage", title: "Data Usage", icon: <Lock className="h-5 w-5" /> },
+    { id: "prohibited-activities", title: "Prohibited Activities", icon: <AlertCircle className="h-5 w-5" /> },
+    { id: "termination", title: "Termination", icon: <X className="h-5 w-5" /> },
+    { id: "disclaimers", title: "Disclaimers", icon: <AlertCircle className="h-5 w-5" /> },
+    { id: "limitation-of-liability", title: "Limitation of Liability", icon: <Shield className="h-5 w-5" /> },
+    { id: "modifications", title: "Modifications", icon: <FileText className="h-5 w-5" /> },
+    { id: "governing-law", title: "Governing Law", icon: <Scale className="h-5 w-5" /> },
     { id: "contact", title: "Contact Us", icon: <User className="h-5 w-5" /> },
   ]
 
@@ -108,98 +113,112 @@ export default function AfLynkPrivacyPolicy() {
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-  <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
-    {/* Logo on the left */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="flex items-center z-10"
-    >
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={activeLogoIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          src={logos[1]}
-          alt="AfLynk Media Logo"
-          className="h-12 md:h-14"
-        />
-      </AnimatePresence>
-    </motion.div>
-
-    {/* Center Navigation Links */}
-    <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8">
-      <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Home
-      </a>
-      <a href="/publisher" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Publishers
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Advertisers
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Contact
-      </a>
-    </div>
-
-    {/* Right-aligned Get Started Button */}
-    <div className="hidden md:flex z-10">
-      <motion.a
-        href="#"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
-      >
-        Get Started <ChevronRight className="ml-1 h-4 w-4 text-white " />
-      </motion.a>
-    </div>
-
-    {/* Mobile Menu Button */}
-    <div className="md:hidden z-10">
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
-        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-    </div>
-  </div>
-
-  {/* Mobile Dropdown Menu */}
-  <AnimatePresence>
-    {isMenuOpen && (
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden bg-white border-t"
-      >
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          {["Home", "Publishers", "Advertisers", "Contact"].map((item, idx) => (
-            <a
-              key={idx}
-              href={item === "Home" ? "/" : item === "Publishers" ? "/publisher-page" : "#"}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <a
-            href="#"
-            className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
-            onClick={() => setIsMenuOpen(false)}
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center"
           >
-            Get Started <ChevronRight className="ml-1 h-4 w-4" />
-          </a>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</nav>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeLogoIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                src={logos[activeLogoIndex]}
+                alt="AfLynk Media Logo"
+                className="h-12 md:h-14"
+              />
+            </AnimatePresence>
+          </motion.div>
 
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <span className="text-gray-700">Home</span>
+            </a>
+            <a href="/publisher-page" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <span className="text-gray-700">Publishers</span>
+            </a>
+            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <span className="text-gray-700">Advertisers</span>
+            </a>
+            <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <span className="text-gray-700">Contact</span>
+            </a>
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
+            >
+              <span className="text-white ">Get Started</span> <ChevronRight className="ml-1 h-4 w-4 text-white" />
+            </motion.a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white border-t"
+            >
+              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a
+                  href="/"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </a>
+                <a
+                  href="/publisher-page"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Publishers
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Advertisers
+                </a>
+                <a
+                  href="/contact"
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+
+
+                <a
+                  href="#"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started <ChevronRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
       {/* Header */}
       <header className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
@@ -211,14 +230,14 @@ export default function AfLynkPrivacyPolicy() {
             className="max-w-4xl mx-auto text-center"
           >
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Privacy Policy
+              Terms & Conditions
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-xl text-gray-700 mb-4">
               Effective Date: 24th May 2025
             </motion.p>
             <motion.div variants={fadeInUp} className="flex justify-center items-center space-x-2 text-blue-600">
-              <Shield className="h-5 w-5" />
-              <span className="text-sm font-medium ">Your privacy is our priority</span>
+              <Scale className="h-5 w-5" />
+              <span className="text-sm font-medium">Please read these terms carefully</span>
             </motion.div>
           </motion.div>
         </div>
@@ -257,172 +276,164 @@ export default function AfLynkPrivacyPolicy() {
                     Introduction
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media". We
-                    respect your privacy and are committed to protecting the personal information you share with us.
-                    This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit
-                    our website, use our services, or interact with our platform.
+                    Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media".
+                    These Terms and Conditions ("Terms") govern your use of our website, platform, and affiliate
+                    services. By using our services, you agree to comply with these Terms.
                   </motion.p>
                 </section>
 
-                <section id="who-we-are" className="mb-12">
+                <section id="definitions" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Who We Are
+                    Definitions
                   </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    AfLynk Media is a global performance marketing and affiliate network operating across multiple
-                    verticals including Gaming, Crypto, BFSI, Ecommerce, Nutra, Education, and Travel. Our domain is
-                    www.aflynk.com.
-                  </motion.p>
-                </section>
-
-                <section id="what-information" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    What Information We Collect
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We collect both personal and non-personal information from advertisers, publishers, and website
-                    visitors, including:
-                  </motion.p>
                   <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Contact Information (name, email address, phone number)</li>
-                    <li>Business Information (company name, vertical, campaign goals)</li>
-                    <li>Technical Data (IP address, browser type, device ID)</li>
-                    <li>Behavioral Data (pages visited, links clicked, conversions)</li>
-                    <li>Affiliate Tracking Data (referrals, cookies, subIDs, postbacks)</li>
+                    <li>"We," "our," or "AfLynk" refers to AfLynk Media.</li>
+                    <li>"User" means any visitor, advertiser, publisher, or partner using our services.</li>
+                    <li>
+                      "Services" refers to affiliate tracking, campaign management, reporting tools, and platform
+                      utilities.
+                    </li>
                   </motion.ul>
                 </section>
 
-                <section id="how-we-collect" className="mb-12">
+                <section id="eligibility" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    How We Collect Your Information
+                    Eligibility
+                  </motion.h2>
+                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                    To use AfLynk, you must be at least 18 years old and legally able to enter into contracts. You
+                    represent that all registration information you submit is truthful and accurate.
+                  </motion.p>
+                </section>
+
+                <section id="account-registration" className="mb-12">
+                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                    Account Registration
+                  </motion.h2>
+                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                    You agree to provide complete and accurate information when creating an account. You are responsible
+                    for maintaining the confidentiality of your account credentials.
+                  </motion.p>
+                </section>
+
+                <section id="publisher-obligations" className="mb-12">
+                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                    Publisher Obligations
                   </motion.h2>
                   <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Information you provide when filling out forms on our site</li>
-                    <li>Data collected via cookies, pixels, tracking scripts, or analytics tools</li>
-                    <li>Information exchanged during email, chat, or phone communications</li>
-                    <li>Affiliate or advertiser data shared during onboarding or campaign setup</li>
+                    <li>Promote offers through approved and ethical channels only.</li>
+                    <li>No incentivized, spam, or misleading traffic is permitted.</li>
+                    <li>Traffic must comply with local advertising laws and industry standards.</li>
+                    <li>Violations may result in termination and forfeiture of earnings.</li>
                   </motion.ul>
                 </section>
 
-                <section id="how-we-use" className="mb-12">
+                <section id="advertiser-obligations" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    How We Use Your Information
+                    Advertiser Obligations
                   </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We use your data to:
-                  </motion.p>
                   <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Onboard publishers and advertisers</li>
-                    <li>Optimize affiliate campaigns and offer matching</li>
-                    <li>Improve platform performance and user experience</li>
-                    <li>Prevent fraud, abuse, or misuse of our services</li>
-                    <li>Send updates, promotional materials, or newsletters (you may opt-out)</li>
+                    <li>Offers must be valid, legal, and accurately described.</li>
+                    <li>Clear creatives, targeting, and T&Cs must be provided.</li>
+                    <li>Advertisers are responsible for verifying affiliate placements and performance.</li>
+                    <li>AfLynk is not liable for third-party actions or user-generated content.</li>
                   </motion.ul>
                 </section>
 
-                <section id="legal-basis" className="mb-12">
+                <section id="payment-terms" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Legal Basis for Processing (for EU users)
+                    Payment Terms
                   </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    If you are in the EU, we process your data under one of the following lawful bases:
-                  </motion.p>
                   <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Your consent</li>
-                    <li>Performance of a contract</li>
-                    <li>Compliance with legal obligations</li>
-                    <li>Legitimate business interests (e.g., fraud prevention, marketing)</li>
+                    <li>Publishers are paid based on validated conversions and approved invoices.</li>
+                    <li>Payout frequency, threshold, and method are stated in your account.</li>
+                    <li>Fraudulent activity may lead to delayed or denied payments.</li>
                   </motion.ul>
                 </section>
 
-                <section id="sharing" className="mb-12">
+                <section id="intellectual-property" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Sharing Your Information
+                    Intellectual Property
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We do not sell your personal data. We may share your information with:
+                    All content on our platform (logos, content, platform UI, tech) is owned by AfLynk or its licensors.
+                    Unauthorized use is prohibited.
+                  </motion.p>
+                </section>
+
+                <section id="data-usage" className="mb-12">
+                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                    Data Usage
+                  </motion.h2>
+                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                    We collect data in accordance with our Privacy Policy. Users agree not to misuse any campaign data
+                    or platform analytics.
+                  </motion.p>
+                </section>
+
+                <section id="prohibited-activities" className="mb-12">
+                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                    Prohibited Activities
+                  </motion.h2>
+                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                    Users may not:
                   </motion.p>
                   <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Service providers (hosting, analytics, payment processors)</li>
-                    <li>Affiliates or advertisers for campaign fulfillment</li>
-                    <li>Legal or regulatory bodies, if required</li>
+                    <li>Use bots or automated traffic</li>
+                    <li>Misrepresent campaigns or brand partnerships</li>
+                    <li>Reverse engineer the platform</li>
+                    <li>Circumvent tracking or payment systems</li>
+                    <li>Violate local or international laws</li>
                   </motion.ul>
                 </section>
 
-                <section id="cookies" className="mb-12">
+                <section id="termination" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Cookies and Tracking Technologies
+                    Termination
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    AfLynk uses cookies and pixels for tracking conversions, optimizing campaigns, and analyzing user
-                    behavior. You may disable cookies via your browser settings, but this may affect functionality.
+                    We reserve the right to suspend or terminate your account at our discretion, with or without cause.
+                    Outstanding balances may be withheld if fraud or breach is detected.
                   </motion.p>
                 </section>
 
-                <section id="data-retention" className="mb-12">
+                <section id="disclaimers" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Data Retention
+                    Disclaimers
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We retain your data only as long as necessary for the purposes stated above or as required by law.
+                    AfLynk provides services "as-is." We do not guarantee specific earnings, traffic volume, or
+                    advertiser/publisher performance.
                   </motion.p>
                 </section>
 
-                <section id="data-security" className="mb-12">
+                <section id="limitation-of-liability" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Data Security
+                    Limitation of Liability
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We implement commercially reasonable safeguards (technical and organizational) to protect your
-                    personal information from unauthorized access, use, or disclosure.
+                    AfLynk is not liable for indirect, incidental, or consequential damages related to your use of our
+                    platform. Maximum liability shall not exceed the amount paid to you in the last 60 days.
                   </motion.p>
                 </section>
 
-                <section id="international" className="mb-12">
+                <section id="modifications" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    International Data Transfers
+                    Modifications
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    Your information may be processed outside your jurisdiction, including countries with different data
-                    protection laws. We ensure appropriate safeguards are in place (e.g., data processing agreements).
+                    We may update these Terms from time to time. Your continued use of the platform constitutes your
+                    acceptance of the revised Terms.
                   </motion.p>
                 </section>
 
-                <section id="your-rights" className="mb-12">
+                <section id="governing-law" className="mb-12">
                   <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Your Rights
+                    Governing Law
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    Depending on your jurisdiction, you may have rights such as:
-                  </motion.p>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Right to access or correct your data</li>
-                    <li>Right to request deletion of your data</li>
-                    <li>Right to object to processing</li>
-                    <li>Right to withdraw consent</li>
-                  </motion.ul>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    To exercise your rights, email us at privacy@aflynk.com.
-                  </motion.p>
-                </section>
-
-                <section id="childrens-privacy" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Children's Privacy
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    AfLynk Media is not intended for children under 18. We do not knowingly collect personal data from
-                    minors.
-                  </motion.p>
-                </section>
-
-                <section id="changes" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Changes to This Policy
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We may update this Privacy Policy from time to time. Updates will be posted on this page with a new
-                    effective date.
+                    These Terms are governed by the laws of India, and any disputes shall be subject to the exclusive
+                    jurisdiction of the courts of New Delhi.
                   </motion.p>
                 </section>
 
@@ -431,7 +442,7 @@ export default function AfLynkPrivacyPolicy() {
                     Contact Us
                   </motion.h2>
                   <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    For any privacy-related concerns or requests, contact:
+                    For questions or concerns, contact:
                   </motion.p>
                   <motion.div variants={fadeInUp} className="bg-blue-50 p-6 rounded-xl border border-blue-100">
                     <p className="font-medium text-gray-900 mb-2">AfLynk Media</p>
@@ -459,19 +470,30 @@ export default function AfLynkPrivacyPolicy() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Have Questions About Your Privacy?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Have Questions About Our Terms?</h2>
             <p className="text-lg text-gray-700 mb-8">
-              We're committed to transparency and protecting your data. If you have any questions about our privacy
-              practices, we're here to help.
+              Our team is here to help you understand your rights and obligations when using the AfLynk platform.
             </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg"
-            >
-              Contact Our Privacy Team
-            </motion.a>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg flex items-center justify-center"
+              >
+                <Link to='/contact' className="text-gray-700  transition-colors font-medium py-2" >Contact Our Team</Link>
+
+               <ArrowRight className="ml-2 h-5 w-5" />
+              </motion.a>
+              <motion.a
+                href="/privacy-policy"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center"
+              >
+                View Privacy Policy <ArrowRight className="ml-2 h-5 w-5" />
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -481,7 +503,7 @@ export default function AfLynkPrivacyPolicy() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img src={logos[1] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
+              <img src={logos[0] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
               <p className="text-gray-400 text-sm">AfLynk Media LLP, A venture by 93 Communications</p>
             </div>
 
@@ -509,7 +531,7 @@ export default function AfLynkPrivacyPolicy() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
@@ -525,7 +547,7 @@ export default function AfLynkPrivacyPolicy() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Terms and Conditions</span>
                   </a>
                 </li>

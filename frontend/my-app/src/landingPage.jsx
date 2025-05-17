@@ -302,12 +302,18 @@ export default function AfLynkLandingPage() {
             >
               Case Study
             </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
             >
               Contact
-            </a>
+            </Link>
+            <Link
+              to="/aboutus"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+                About Us
+            </Link>
           </div>
 
           {/* Get Started Button */}
