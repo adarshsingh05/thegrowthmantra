@@ -242,7 +242,7 @@ export default function AfLynkPublisherPage() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          src={logos[activeLogoIndex]}
+          src={logos[1]}
           alt="AfLynk Media Logo"
           className="h-12 md:h-14"
         />
@@ -887,7 +887,7 @@ export default function AfLynkPublisherPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img src={logos[0] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
+              <img src={logos[1] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
               <p className="text-gray-400 text-sm">AfLynk Media LLP, A venture by 93 Communications</p>
             </div>
 
