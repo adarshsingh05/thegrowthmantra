@@ -62,7 +62,7 @@ export default function AfLynkLandingPage() {
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Teal%20Logo-%20Afflynk%20Media-a5lrBAJ9HCbT5rqELeamaqi5m96xOV.png", // Teal
+    "mainlogo.png", // Teal
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ];
 
@@ -254,7 +254,7 @@ export default function AfLynkLandingPage() {
             alt="AfLynk Media Logo"
             initial={{ opacity: 1 }}
             animate={{
-              marginTop: hasScrolled ? 0 : -30,
+              marginTop: hasScrolled ? -10 : -50,
               height: hasScrolled ? 90 : 220,
               width: hasScrolled ? "auto" : 360,
               marginLeft: hasScrolled ? 0 : -20,
@@ -1360,12 +1360,9 @@ export default function AfLynkLandingPage() {
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Privacy and Policy</span>
-                  </a>
+                  
+                  <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+                    <span className="text-gray-400">Privacy and Policy</span> </Link>
                 </li>
                 <li>
                   <a
