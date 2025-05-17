@@ -1,4 +1,5 @@
 "use client"
+import { Link } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useScroll, useInView } from "framer-motion"
@@ -18,7 +19,8 @@ import {
   CreditCard,
   UserPlus,
   BarChart2,
-} from "lucide-react"
+ 
+} from "lucide-react";
 
 export default function AfLynkPublisherPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -250,6 +252,8 @@ export default function AfLynkPublisherPage() {
     {/* Desktop Navigation + CTA */}
     <div className="hidden md:flex items-center justify-center flex-1">
       <div className="flex space-x-8">
+        <Link to='/' className="text-gray-700 hover:text-purple-600 font-medium">Home</Link>
+
         <a href="#features" className="text-gray-700 hover:text-orange-500 font-medium">Features</a>
         <a href="#how-it-works" className="text-gray-700 hover:text-teal-600 font-medium">How It Works</a>
         <a href="#faq" className="text-gray-700 hover:text-blue-600 font-medium">FAQ</a>
@@ -287,6 +291,8 @@ export default function AfLynkPublisherPage() {
         className="md:hidden bg-white border-t"
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <Link to='/'  onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Home</Link>
+
           <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Features</a>
           <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">How It Works</a>
           <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">FAQ</a>
