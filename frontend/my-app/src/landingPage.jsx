@@ -36,6 +36,15 @@ export default function AfLynkLandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+
+  const sectionRef = useRef(null)
+  const inView = useInView(sectionRef, { once: false, amount: 0.2 })
+
+  // Animation variants
+ 
+
+
+  
   // Refs for scroll animations
   const heroRef = useRef(null);
   const statsRef = useRef(null);
@@ -469,33 +478,7 @@ export default function AfLynkLandingPage() {
           <div className="w-full py-16 px-4 bg-gray-50">
             <div className="max-w-7xl mx-auto">
               {/* Heading */}
-              <h2 className="text-4xl md:text-5xl font-bold text-center text-olive-700 mb-16">
-                Our Impact in Numbers
-              </h2>
-
-              {/* Stats grid */}
-              <div
-                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className={`bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 ${
-                      isVisible ? "translate-y-0" : "translate-y-8"
-                    }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
-                      {stat.value}
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-base">
-                      {stat.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              
 
               {/* Banner */}
               <div className="mt-12 bg-gradient-to-r from-red-400 via-red-500 to-yellow-500 rounded-2xl shadow-2xl p-10 text-center relative text-white">
@@ -520,6 +503,33 @@ export default function AfLynkLandingPage() {
                   </button>
                 </div>
               </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-center text-olive-700 mb-16 mt-14">
+                Our Impact in Numbers
+              </h2>
+
+              {/* Stats grid */}
+              <div
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000  ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className={`bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 ${
+                      isVisible ? "translate-y-0" : "translate-y-8"
+                    }`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
+                      {stat.value}
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base">
+                      {stat.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -527,344 +537,480 @@ export default function AfLynkLandingPage() {
 
       {/* Advertisers Section */}
       <section
-        id="advertisers"
-        ref={advertisersRef}
-        className="py-20 md:py-32 bg-white overflow-hidden"
+  id="advertisers"
+  ref={advertisersRef}
+  className="py-20 md:py-32 bg-white overflow-hidden"
+>
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial="hidden"
+      animate={advertisersInView ? "visible" : "hidden"}
+      variants={staggerContainer}
+      className="max-w-6xl mx-auto"
+    >
+      {/* Keep banner position unchanged */}
+      <motion.div
+        variants={fadeInUp}
+        className="text-center mb-16 relative"
       >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={advertisersInView ? "visible" : "hidden"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            {/* More visually impactful heading with gradient background */}
-            <motion.div
-              variants={fadeInUp}
-              className="text-center mb-16 relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-blue-50 rounded-3xl transform -skew-y-1 shadow-lg"></div>
-              <div className="relative py-8">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">
-                  Built for Advertisers Who Demand More
-                </h2>
-                <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-teal-600">
-                  You Don't Just Want Clicks. You Want Customers. We Deliver
-                  Them.
-                </h3>
-              </div>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left side content */}
-              <motion.div variants={slideInLeft} className="relative">
-                <div className="bg-gradient-to-br from-teal-50 to-blue-50 p-8 rounded-2xl border border-teal-100 relative z-10">
-                  <h4 className="text-xl font-semibold mb-4 text-gray-800">
-                    You're tired of spending big for traffic that doesn't
-                    convert. Tired of vanity metrics, fraudulent traffic, slow
-                    campaign launches, and limited reach. At AfLynk, we know
-                    what you want — measurable ROI, fraud-free scale, and
-                    precision targeting.
-                  </h4>
-                  <p className="text-gray-600 mb-6">
-                    We don't just run campaigns. We architect performance.
-                    Whether you're launching a new app, promoting a gaming
-                    brand, or scaling a D2C product, AfLynk brings you
-                    hyper-targeted distribution across:
-                  </p>
-
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                    {verticals.map((vertical, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={
-                          advertisersInView
-                            ? { opacity: 1, x: 0 }
-                            : { opacity: 0, x: -20 }
-                        }
-                        transition={{ delay: 0.1 * index }}
-                        className="flex items-center"
-                      >
-                        <CheckCircle className="h-5 w-5 text-teal-500 mr-2 flex-shrink-0" />
-                        <span className="text-gray-700">{vertical}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-
-                  <p className="text-gray-600 mb-6">
-                    With customizable models (CPA, CPL, CPS, CPI, CPT) and
-                    granular geo-targeting across India, MENA, SEA, LATAM, EU &
-                    the US, we help you break into new markets, safely and
-                    profitably.
-                  </p>
-                </div>
-
-                <motion.img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/zanag960-Zr7tEHCBdkUO7Lx1v5wisnGxpq9dFy.png"
-                  alt="Strategic chess pieces"
-                  className="absolute -bottom-16 -right-16 w-32 h-32 md:w-40 md:h-40 object-contain z-0 opacity-80"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={
-                    advertisersInView
-                      ? { opacity: 0.8, scale: 1, rotate: 10 }
-                      : { opacity: 0, scale: 0.8 }
-                  }
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
-              </motion.div>
-
-              {/* Right side auto-scrolling features container */}
-              <motion.div variants={slideInRight} className="relative">
-                <h4 className="text-2xl font-semibold mb-6 text-teal-600 pl-4 border-l-4 border-teal-500">
-                  Features:
-                </h4>
-
-                {/* Auto-scrolling features container */}
-                <div className="relative h-96 overflow-hidden rounded-xl border border-gray-100 shadow-md">
-                  <motion.div
-                    animate={{
-                      y: [0, -advertisersFeatures.length * 100 + 400],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                      duration: 6, // Increased animation speed by reducing duration
-                      ease: "linear",
-                    }}
-                    className="space-y-4 p-4"
-                  >
-                    {advertisersFeatures.map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={
-                          advertisersInView
-                            ? { opacity: 1, y: 0 }
-                            : { opacity: 0, y: 20 }
-                        }
-                        transition={{ delay: 0.1 * index }}
-                        className="flex items-start p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                      >
-                        <div className="mr-4 mt-1 text-teal-500">
-                          {feature.icon}
-                        </div>
-                        <p className="text-gray-700">{feature.text}</p>
-                      </motion.div>
-                    ))}
-
-                    {/* Duplicate first few items to create seamless loop */}
-                    {advertisersFeatures.slice(0, 3).map((feature, index) => (
-                      <motion.div
-                        key={`duplicate-${index}`}
-                        className="flex items-start p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                      >
-                        <div className="mr-4 mt-1 text-teal-500">
-                          {feature.icon}
-                        </div>
-                        <p className="text-gray-700">{feature.text}</p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-
-                  {/* Gradient overlay for smooth fade effect */}
-                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-                </div>
-
-                {/* Updated CTA button that matches the image shown */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-8 text-center"
-                >
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-8 py-2 rounded-full font-medium text-lg shadow-lg"
-                  >
-                    <span className="text-white mr-2">
-                      Experience the ELEVATE Advantage – Book Your Strategy
-                      Session Today!
-                    </span>
-                    <div className="bg-white rounded-full p-2 transform group-hover:translate-x-1 transition-transform">
-                      <svg
-                        className="w-5 h-5 text-green-700"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </motion.div>
-
-                <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
-                  <p className="text-gray-700 font-medium">
-                    We've helped scale brands from $0 to $100K+/mo— and we're
-                    just getting started.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-blue-50 rounded-3xl transform -skew-y-1 shadow-lg"></div>
+        <div className="relative py-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">
+            Built for Advertisers Who Demand More
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-teal-600">
+            You Don't Just Want Clicks. You Want Customers. We Deliver
+            Them.
+          </h3>
         </div>
-      </section>
+      </motion.div>
+
+      {/* Centered "You're tired of" section with more impact */}
+      <motion.div 
+        variants={fadeInUp} 
+        className="max-w-4xl mx-auto mb-16 bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg border border-teal-100 overflow-hidden"
+      >
+        <div className="p-8 md:p-10">
+          <div className="marketing-content space-y-8">
+            {/* Problem Statement Section - more impactful */}
+            <h4 className="text-2xl font-bold text-gray-800 text-center mb-6 border-b-2 border-teal-200 pb-4">
+              You're tired of:
+            </h4>
+            
+            <ul className="space-y-4 pl-1">
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium">Spending big for traffic that <span className="text-red-600 font-bold">doesn't convert</span></span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium">Chasing <span className="text-red-600 font-bold">vanity metrics</span> with no real value</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium">Fighting <span className="text-red-600 font-bold">fraudulent traffic</span> that drains your budget</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium"><span className="text-red-600 font-bold">Slow campaign launches</span> that miss market opportunities</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium">Platforms with <span className="text-red-600 font-bold">limited reach</span> and targeting capabilities</span>
+              </li>
+            </ul>
+
+            {/* Solution Statement Section */}
+            <h4 className="text-2xl font-bold text-gray-800 text-center mt-8 mb-6 border-b-2 border-teal-200 pb-4">
+              At AfLynk, we deliver what you want:
+            </h4>
+            
+            <ul className="space-y-4 pl-1">
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Measurable ROI</span> you can track and scale</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Fraud-free scale</span> with verified traffic sources</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </span>
+                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Precision targeting</span> that reaches your ideal audience</span>
+              </li>
+            </ul>
+
+            <p className="text-gray-700 font-medium text-lg pt-4 text-center">
+              We don't just run campaigns. <span className="text-blue-600 font-bold">We architect performance.</span> Whether you're launching a new app, promoting a gaming brand, or scaling a D2C product, AfLynk brings you hyper-targeted distribution.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Features section below the main content */}
+      <motion.div variants={fadeInUp} className="mb-12">
+        <h4 className="text-2xl font-semibold mb-6 text-teal-600 text-center">
+          Features That Drive Results:
+        </h4>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {advertisersFeatures.slice(0, 6).map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                advertisersInView
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
+              }
+              transition={{ delay: 0.1 * index }}
+              className="flex items-start p-5 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+            >
+              <div className="mr-4 mt-1 text-teal-500">
+                {feature.icon}
+              </div>
+              <p className="text-gray-700">{feature.text}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          {verticals.map((vertical, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={
+                advertisersInView
+                  ? { opacity: 1, x: 0 }
+                  : { opacity: 0, x: -20 }
+              }
+              transition={{ delay: 0.05 * index }}
+              className="flex items-center bg-gray-50 p-3 rounded-lg"
+            >
+              <CheckCircle className="h-5 w-5 text-teal-500 mr-2 flex-shrink-0" />
+              <span className="text-gray-700">{vertical}</span>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mt-6">
+          <p className="text-gray-600">
+            With customizable models (CPA, CPL, CPS, CPI, CPT) and
+            granular geo-targeting across India, MENA, SEA, LATAM, EU &
+            the US, we help you break into new markets, safely and
+            profitably.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* CTA Button */}
+      <motion.div
+        variants={fadeInUp}
+        className="text-center mb-16"
+      >
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl"
+          >
+            <span className="text-white mr-3">
+              🚀 I'm an Advertiser — Let's Talk Scale
+            </span>
+            <div className="bg-white rounded-full p-2 transform group-hover:translate-x-1 transition-transform">
+              <svg
+                className="w-6 h-6 text-green-700"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* New impactful banner for $0 to $100K */}
+      <motion.div 
+        variants={fadeInUp}
+        className="relative overflow-hidden rounded-2xl shadow-2xl"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-700 opacity-90"></div>
+        <div className="absolute -right-8 -bottom-8 opacity-10">
+          <svg width="240" height="240" viewBox="0 0 24 24" fill="white">
+            <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+          </svg>
+        </div>
+        <div className="relative py-12 px-8 md:px-12 text-center">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            We've helped scale brands from 
+            <div className="mt-3 mb-3">
+              <span className="bg-white text-blue-700 px-4 py-2 rounded-lg inline-block transform -rotate-1 shadow-lg">
+                $0 to $100K+/mo
+              </span>
+            </div>
+            — and we're just getting started.
+          </h3>
+          <p className="text-white text-xl mt-4 max-w-3xl mx-auto opacity-90">
+            Join the brands who've multiplied their growth with our performance-focused approach.
+          </p>
+        </div>
+      </motion.div>
+      
+    </motion.div>
+  </div>
+</section>
 
       {/* Publishers Section */}
       <section
+        ref={sectionRef}
         id="publishers"
-        ref={publishersRef}
         className="py-20 md:py-32 bg-gradient-to-br from-orange-50 to-gray-50 overflow-hidden"
       >
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
-            animate={publishersInView ? "visible" : "hidden"}
+            animate={inView ? "visible" : "hidden"}
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                For Publishers Who Want Freedom & Fortune
-              </h2>
-              <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-500">
-                Turn Your Traffic into Real Income — Not Excuses.
-              </h3>
+            {/* Header - Positioned at the top */}
+            <motion.div variants={fadeInUp} className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">For Publishers Who Want Freedom & Fortune</h2>
+              <div className="h-1 w-32 bg-orange-500 mx-auto mb-8"></div>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                Join hundreds of successful publishers who are maximizing their revenue with AfLynk Media's premium
+                affiliate network.
+              </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div variants={slideInLeft} className="order-2 md:order-1">
-                <h4 className="text-xl font-semibold mb-6 text-orange-500">
-                  What You Get:
-                </h4>
-                <ul className="space-y-4 mb-8">
-                  {publishersFeatures.map((feature, index) => (
-                    <motion.li
+            {/* What You Get - Positioned in the middle with adjusted size */}
+            <motion.div variants={fadeInUp} className="mb-20">
+              <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-500">
+                What You Get
+              </h3>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {publishersFeatures.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ delay: 0.1 * index }}
+                    className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                      {feature.icon}
+                    </div>
+                    <p className="text-gray-700 text-center">{feature.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-12 bg-white p-8 rounded-xl shadow-md">
+                <h4 className="text-2xl font-semibold mb-6 text-center text-gray-800">Best For</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {publisherTypes.map((type, index) => (
+                    <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={
-                        publishersInView
-                          ? { opacity: 1, y: 0 }
-                          : { opacity: 0, y: 20 }
-                      }
-                      transition={{ delay: 0.1 * index }}
-                      className="flex items-start p-4 bg-white rounded-lg shadow-sm"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{ delay: 0.05 * index }}
+                      className="flex items-center bg-orange-50 p-3 rounded-lg"
                     >
-                      <div className="mr-4 mt-1">{feature.icon}</div>
-                      <p className="text-gray-700">{feature.text}</p>
-                    </motion.li>
+                      <CheckCircle className="h-5 w-5 text-orange-500 mr-2 flex-shrink-0" />
+                      <span className="text-gray-700 font-medium">{type}</span>
+                    </motion.div>
                   ))}
+                </div>
+              </div>
+
+              <div className="mt-12 text-center">
+                <motion.a
+                  href="#contact"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg"
+                >
+                  <span className="text-white">💼 Become a Publisher Today</span>
+                </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Turn Your Traffic Section - Full screen with image icons */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-blue-600 text-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              Turn Your Traffic into Real Income — Not Excuses
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-16">
+              {/* Pain Points Column */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="flex items-center mb-8">
+                  <div className="w-16 h-16 bg-red-500/20 backdrop-blur-sm rounded-full flex items-center justify-center mr-4">
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold">You've tried the rest. Here's what you're facing:</h3>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-red-300 mr-3 text-xl">✗</span>
+                    <span className="text-white font-medium">Slow payouts that leave you cashflow constrained</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-red-300 mr-3 text-xl">✗</span>
+                    <span className="text-white font-medium">Dead offers wasting your traffic and effort</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-red-300 mr-3 text-xl">✗</span>
+                    <span className="text-white font-medium">Poor support when you need answers fast</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-red-300 mr-3 text-xl">✗</span>
+                    <span className="text-white font-medium">Campaigns that tank your credibility with audiences</span>
+                  </li>
                 </ul>
 
-                <div className="bg-white p-6 rounded-xl shadow-sm mb-8">
-                  <h4 className="text-xl font-semibold mb-4 text-gray-800">
-                    Best For:
-                  </h4>
-                  <ul className="grid grid-cols-2 gap-3">
-                    {publisherTypes.map((type, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={
-                          publishersInView
-                            ? { opacity: 1, x: 0 }
-                            : { opacity: 0, x: -20 }
-                        }
-                        transition={{ delay: 0.1 * index }}
-                        className="flex items-center"
-                      >
-                        <CheckCircle className="h-5 w-5 text-orange-500 mr-2 flex-shrink-0" />
-                        <span className="text-gray-700">{type}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                <div className="border-l-4 border-white/40 pl-4 py-3 bg-white/10 rounded-r-lg backdrop-blur-sm">
+                  <p className="text-white font-bold text-xl">You deserve better.</p>
+                </div>
+              </div>
+
+              {/* Solution Column */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="flex items-center mb-8">
+                  <div className="w-16 h-16 bg-green-500/20 backdrop-blur-sm rounded-full flex items-center justify-center mr-4">
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold">Enter AfLynk Media.</h3>
                 </div>
 
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="text-center"
-                >
-                  <a
-                    href="#contact"
-                    className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-medium text-lg"
-                  >
-                    <span className="text-white">
-                      💼 Become a Publisher Today
-                    </span>
-                  </a>
-                </motion.div>
-              </motion.div>
+                <p className="mb-6 text-white font-medium">
+                  We hand-curate the highest-converting, fastest-paying, evergreen, and exclusive offers in the world —
+                  so your content finally pays you what it's worth.
+                </p>
 
-              <motion.div
-                variants={slideInRight}
-                className="order-1 md:order-2 relative"
-              >
-                <div className="bg-white p-8 rounded-2xl shadow-md relative z-10">
-                  <h4 className="text-xl font-semibold mb-4 text-gray-800">
-                    You've tried the rest. Slow payouts, dead offers, poor
-                    support, and campaigns that tank your credibility. You
-                    deserve better.
-                  </h4>
-                  <p className="text-gray-600 mb-6">
-                    Enter AfLynk. We hand-curate the highest-converting,
-                    fastest-paying, evergreen, and exclusive offers in the world
-                    — so your content finally pays you what it's worth. No more
-                    guesswork. No more generic dashboards. Just real tools, real
-                    payouts, and real success.
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-green-300 mr-3 text-xl">✓</span>
+                    <span className="text-white font-medium">No more guesswork with transparent metrics</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-green-300 mr-3 text-xl">✓</span>
+                    <span className="text-white font-medium">No more generic dashboards that hide what matters</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-green-300 mr-3 text-xl">✓</span>
+                    <span className="text-white font-medium">Just real tools that drive performance</span>
+                  </li>
+                  <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
+                    <span className="text-green-300 mr-3 text-xl">✓</span>
+                    <span className="text-white font-medium">Real payouts that arrive on time, every time</span>
+                  </li>
+                </ul>
+
+                <div className="p-5 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm text-center">
+                  <p className="text-white font-bold text-xl">
+                    "Freedom isn't just a word. It's what happens when your traffic earns what it should."
                   </p>
+                </div>
+              </div>
+            </div>
 
-                  <div className="p-6 bg-orange-50 rounded-xl border border-orange-100 mb-6">
-                    <p className="text-gray-700 font-medium">
-                      Freedom isn't just a word. It's what happens when your
-                      traffic earns what it should.
+            {/* Results Banner */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="mt-16 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 relative overflow-hidden"
+            >
+              {/* Dollar sign decorative elements */}
+              <div className="absolute -top-6 -left-6 text-6xl text-white/10 font-bold">$</div>
+              <div className="absolute -bottom-6 -right-6 text-6xl text-white/10 font-bold">$</div>
+
+              <div className="relative z-10 text-center py-4">
+                <div className="flex flex-wrap justify-center items-center gap-8">
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <DollarSign className="h-10 w-10 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-3xl md:text-4xl mb-2">
+                      Top 5% of AfLynk publishers earn <span className="text-yellow-300">$50K+ monthly</span>.
+                    </p>
+                    <p className="text-white/80 font-semibold text-xl md:text-2xl">
+                      You could be next. <span className="inline-block animate-pulse">→</span>
                     </p>
                   </div>
-
-                  <div className="mt-8 p-6 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-xl border border-teal-200 shadow-md relative overflow-hidden">
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern"></div>
-                    </div>
-
-                    {/* Dollar sign decorative elements */}
-                    <div className="absolute -top-4 -left-4 text-4xl text-teal-300/30 font-bold">
-                      $
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 text-4xl text-blue-300/30 font-bold">
-                      $
-                    </div>
-
-                    <div className="relative z-10 text-center py-2">
-                      <p className="text-gray-800 font-bold text-xl md:text-2xl mb-1">
-                        Top 5% of AfLynk publishers earn{" "}
-                        <span className="text-teal-600">$50K+ monthly</span>.
-                      </p>
-                      <p className="text-teal-700 font-semibold text-lg md:text-xl">
-                        You could be next.{" "}
-                        <span className="inline-block animate-pulse">→</span>
-                      </p>
-                    </div>
-                  </div>
                 </div>
+              </div>
+            </motion.div>
 
-                <motion.img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6m7p29bv-UbQMTir7UzydbIeAJVDr598AJf838i.png"
-                  alt="Growth figure"
-                  className="absolute -top-10 -right-45 w-32 h-32 md:w-60 md:h-60 object-contain z-0 ml-10"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    publishersInView
-                      ? { opacity: 1, y: 0 }
-                      : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
-              </motion.div>
+            <div className="mt-12 text-center">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block bg-white text-orange-600 px-10 py-5 rounded-full font-bold text-xl shadow-lg"
+              >
+                Start Monetizing Your Traffic Today
+              </motion.a>
             </div>
           </motion.div>
         </div>
