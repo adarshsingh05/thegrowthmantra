@@ -1417,6 +1417,20 @@ export default function AfLynkLandingPage() {
                         placeholder="Your email"
                       />
                     </div>
+                    <div>
+                      <label
+                        htmlFor="mobile"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
+                        Phone no
+                      </label>
+                      <input
+                        type="number"
+                        id="number"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        placeholder="your phone no"
+                      />
+                    </div>
 
                     <div>
                       <label
@@ -1457,7 +1471,7 @@ export default function AfLynkLandingPage() {
         <img
           src={logos[1] || "/placeholder.svg"}
           alt="AfLynk Media Logo"
-          className="h-22 w-32 mb-4"
+          className="h-18 w-52 mb-4"
         />
         <p className="text-gray-400 text-sm">
           AfLynk Media LLP, a 93 Communications Venture
