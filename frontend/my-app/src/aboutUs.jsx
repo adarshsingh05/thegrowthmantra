@@ -56,6 +56,31 @@ export default function AfLynkAbout() {
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+  
+  // const fadeInUp = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: { 
+  //     opacity: 1, 
+  //     y: 0,
+  //     transition: { duration: 0.8 }
+  //   }
+  // };
+  
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveLogoIndex((prev) => (prev + 1) % logos.length)
@@ -863,13 +888,46 @@ export default function AfLynkAbout() {
               ))}
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-12 text-center">
-              <p className="text-lg text-gray-700 mb-4">
-                Whether you're an emerging D2C brand, a global fintech advertiser, or a seasoned publisher—we have the
-                tools, talent, and tech to get you to the next level.
-              </p>
-              <p className="text-xl font-semibold text-gray-900">We're not a network. We're your growth partner.</p>
-            </motion.div>
+             <motion.div 
+      initial="hidden"
+      animate={isVisible ? "visible" : "hidden"}
+      variants={staggerChildren}
+      className="mt-12 relative overflow-hidden bg-gradient-to-r from-blue-900 to-blue-600 rounded-xl p-8 text-white shadow-2xl"
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-700"></div>
+      
+      <div className="relative z-10">
+        <motion.p 
+          variants={fadeInUp}
+          className="text-xl md:text-2xl font-medium text-blue-100 mb-6 max-w-3xl mx-auto leading-relaxed text-center"
+        >
+          Whether you're an <span className="font-bold text-white">emerging D2C brand</span>, a <span className="font-bold text-white">global fintech advertiser</span>, or a <span className="font-bold text-white">seasoned publisher</span>—we have the tools, talent, and tech to get you to the next level.
+        </motion.p>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="flex justify-center items-center"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-center bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400 text-transparent py-2 px-4 border-t-2 border-b-2 border-yellow-300/30 my-2">
+            We're not a network. We're your growth partner.
+          </h2>
+        </motion.div>
+        
+        <motion.div
+          variants={fadeInUp} 
+          className="mt-8 flex justify-center space-x-4"
+        >
+          <button className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:-translate-y-1">
+            Partner With Us
+          </button>
+          <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transform transition hover:-translate-y-1">
+            Learn More
+          </button>
+        </motion.div>
+      </div>
+    </motion.div>
           </motion.div>
         </div>
       </section>

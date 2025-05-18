@@ -490,14 +490,50 @@ export default function AfLynkPublisherPage() {
               ))}
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-16 text-center">
-              <p className="text-xl font-semibold mb-6">
-                AfLynk isn't just another affiliate network. It's your unfair advantage.
-              </p>
-              <p className="text-lg text-gray-700">
-                Ready to scale smarter, faster, and with partners who actually get it? Let's grow together.
-              </p>
-            </motion.div>
+            
+<motion.div 
+  variants={fadeInUp} 
+  className="mt-16 relative overflow-hidden rounded-xl"
+>
+  {/* Background gradient with pattern overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 opacity-95"></div>
+  <div className="absolute inset-0 opacity-20" 
+       style={{
+         backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+         backgroundSize: "30px 30px"
+       }}
+  ></div>
+  
+  {/* Content container */}
+  <div className="relative py-10 md:py-14 px-6 md:px-10 rounded-xl text-center text-white shadow-lg z-10">
+    {/* Decorative elements */}
+    <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-white opacity-60 rounded-tl-lg"></div>
+    <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-white opacity-60 rounded-br-lg"></div>
+    
+    {/* Main content */}
+    <h3 className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
+      AfLynk isn't just another affiliate network.
+      <span className="block mt-2 text-yellow-300 text-3xl md:text-4xl">It's your unfair advantage.</span>
+    </h3>
+    
+    <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white/90">
+      Ready to scale smarter, faster, and with partners who actually get it? Let's grow together.
+    </p>
+    
+    {/* CTA button */}
+    <motion.button
+      whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#f97316" }}
+      whileTap={{ scale: 0.98 }}
+      className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-white hover:text-orange-500"
+    >
+      Join AfLynk Today
+    </motion.button>
+  </div>
+  
+  {/* Accent corners */}
+  <div className="absolute top-0 right-0 w-16 h-16 bg-yellow-300 opacity-80 transform translate-x-1/2 -translate-y-1/2 rounded-full blur-lg"></div>
+  <div className="absolute bottom-0 left-0 w-12 h-12 bg-purple-400 opacity-70 transform -translate-x-1/3 translate-y-1/3 rounded-full blur-md"></div>
+</motion.div>
           </motion.div>
         </div>
       </section>
@@ -525,6 +561,14 @@ export default function AfLynkPublisherPage() {
                 <span className="bg-red-800/50 px-4 py-2 rounded-full text-sm">Nutra</span>
                 <span className="bg-yellow-800/50 px-4 py-2 rounded-full text-sm">BFSI</span>
                 <span className="bg-teal-800/50 px-4 py-2 rounded-full text-sm">Travel</span>
+                <span className="bg-blue-800/50 px-4 py-2 rounded-full text-sm">FMCG</span>
+                <span className="bg-purple-800/50 px-4 py-2 rounded-full text-sm">EduTech</span>
+                <span className="bg-green-800/50 px-4 py-2 rounded-full text-sm">Web3</span>
+                <span className="bg-red-800/50 px-4 py-2 rounded-full text-sm">CPG</span>
+                <span className="bg-yellow-800/50 px-4 py-2 rounded-full text-sm">HealthTech</span>
+                <span className="bg-teal-800/50 px-4 py-2 rounded-full text-sm">HelathCare</span>
+
+
               </div>
             </motion.div>
 
@@ -555,97 +599,105 @@ export default function AfLynkPublisherPage() {
       </section>
 
       {/* How It Works Section */}
-     <section id="how-it-works" ref={howItWorksRef} className="py-20 md:py-32 bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={howItWorksInView ? "visible" : "hidden"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">How It Works</h2>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Becoming a publisher with AfLynk is simple and fast. Here's how to get started:
-              </p>
+   <section id="how-it-works" ref={howItWorksRef} className="py-20 md:py-32 bg-white overflow-hidden">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial="hidden"
+      animate={howItWorksInView ? "visible" : "hidden"}
+      variants={staggerContainer}
+      className="max-w-6xl mx-auto"
+    >
+      <motion.div variants={fadeInUp} className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">How It Works</h2>
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          Becoming a publisher with AfLynk is simple and fast. Here's how to get started:
+        </p>
+      </motion.div>
+
+      {/* Only show desktop layout on md screens and up */}
+      <div className="relative hidden md:block">
+        {/* Connection Line for desktop */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-blue-500 transform -translate-x-1/2"></div>
+
+        <div className="space-y-12 relative">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ delay: 0.2 * index, duration: 0.6 }}
+              className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center gap-8`}
+            >
+              <div className={`w-1/2 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                <div className="bg-white p-6 rounded-xl shadow-md inline-block">
+                  <h3 className="text-2xl font-semibold mb-3 flex items-center gap-3">
+                    {index % 2 === 0 ? (
+                      <>
+                        <span>{step.title}</span>
+                        <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                          {step.icon}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                          {step.icon}
+                        </div>
+                        <span>{step.title}</span>
+                      </>
+                    )}
+                  </h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+
+              {/* Number circle for desktop */}
+              <div className="w-12 relative">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-xl z-10 relative">
+                  {index + 1}
+                </div>
+              </div>
+
+              <div className="w-1/2"></div>
             </motion.div>
+          ))}
+        </div>
+      </div>
 
-            <div className="relative">
-              {/* Connection Line for desktop */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-blue-500 hidden md:block transform -translate-x-1/2"></div>
-
-              <div className="space-y-12 relative">
-                {steps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ delay: 0.2 * index, duration: 0.6 }}
-                    className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}
-                  >
-                    <div className={`md:w-1/2 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <div className="bg-white p-6 rounded-xl shadow-md inline-block">
-                        <h3 className="text-2xl font-semibold mb-3 flex items-center gap-3">
-                          {index % 2 === 0 ? (
-                            <>
-                              <span>{step.title}</span>
-                              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                {step.icon}
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                {step.icon}
-                              </div>
-                              <span>{step.title}</span>
-                            </>
-                          )}
-                        </h3>
-                        <p className="text-gray-600">{step.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Number circle with connecting elements for mobile */}
-                    <div className="md:w-12 relative flex flex-col items-center">
-                      {/* Top connector (not shown for first item) */}
-                      {index > 0 && (
-                        <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-orange-500 md:hidden"></div>
-                      )}
-                      
-                      {/* Number circle */}
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-xl z-10 relative">
-                        {index + 1}
-                      </div>
-                      
-                      {/* Bottom connector (not shown for last item) */}
-                      {index < steps.length - 1 && (
-                        <div className="w-1 h-8 bg-gradient-to-b from-orange-500 to-blue-500 md:hidden"></div>
-                      )}
-                      
-                      {/* Horizontal connector to content (mobile only) */}
-                      <div className="absolute top-1/2 w-8 h-1 bg-gradient-to-r from-orange-500 to-red-500 -right-8 transform -translate-y-1/2 md:hidden"></div>
-                    </div>
-
-                    <div className="md:w-1/2"></div>
-                  </motion.div>
-                ))}
+      {/* Simple mobile view */}
+      <div className="md:hidden mt-6">
+        <div className="space-y-2">
+          {steps.map((step, index) => (
+            <div key={`mobile-${index}`}>
+              {/* Card with number inside */}
+              <div className="bg-white p-3 rounded-lg shadow-sm">
+                <h4 className="text-lg font-semibold flex items-center gap-2 mb-1">
+                  {/* Number circle inside card */}
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm">
+                    {index + 1}
+                  </div>
+                  <span>{step.title}</span>
+                </h4>
+                <p className="text-gray-600 text-sm pl-9">{step.description}</p>
               </div>
             </div>
-
-            <motion.div variants={fadeInUp} className="mt-20 text-center">
-              <motion.a
-                href="#cta"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-medium text-lg"
-              >
-                <span className="text-white">Sign Up and Start Earning Now</span>
-              </motion.a>
-            </motion.div>
-          </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      <motion.div variants={fadeInUp} className="mt-20 text-center">
+        <motion.a
+          href="#cta"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-medium text-lg"
+        >
+          <span className="text-white">Sign Up and Start Earning Now</span>
+        </motion.a>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
       {/* FAQ Section */}
       <section
@@ -835,7 +887,7 @@ export default function AfLynkPublisherPage() {
                     <div>
                       <h4 className="text-lg font-medium text-gray-800">Address</h4>
                       <p className="text-gray-600">
-                        AfLynk Media LLP, A venture by 93 Communications
+                        AfLynk Media LLP, A 93 Venture Communications
                         <br />
                         Plot No 20, Block H-1/A, Sec-63, Noida
                       </p>
@@ -907,7 +959,7 @@ export default function AfLynkPublisherPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <img src={logos[1] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
-              <p className="text-gray-400 text-sm">AfLynk Media LLP, A venture by 93 Communications</p>
+              <p className="text-gray-400 text-sm">AfLynk Media LLP, A 93 Venture Communications</p>
             </div>
 
             <div>

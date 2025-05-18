@@ -202,37 +202,25 @@ export default function AfLynkLandingPage() {
 
   const stats = [
     {
-      value: "$300M+",
-      description: "Additional revenue generated for our clients.",
+      value: "10M+",
+      description: "  Qualified Leads Generated Laser-targeted, conversion-ready users across high-intent funnels..",
     },
     {
-      value: "500M+",
-      description: "New app downloads through our acquisition strategies.",
+      value: "100M+",
+      description: "App Downloads Driven Through smart performance campaigns across CPI and CPA models.",
     },
     {
-      value: "300%",
-      description: "Average ROI across all projects",
+      value: "10+",
+      description: "Years of Industry Mastery Built by veterans, optimized with innovation.",
     },
     {
-      value: "5M+",
-      description: "New leads generated through our acquisition strategies.",
+      value: "20+",
+      description: "High-Converting Verticals From iGaming to Ecommerce—scale where it counts.",
     },
     {
-      value: "3M+",
-      description: "transactions generated through our retention strategies.",
-    },
-    {
-      value: "65%",
-      description: "Additional revenue generated for our clients.",
-    },
-    {
-      value: "40%",
-      description: "Additional revenue generated for our clients.",
-    },
-    {
-      value: "85%",
-      description: "Additional revenue generated for our clients.",
-    },
+      value: "500+",
+      description: " Trusted Global Partners Partners that count on us for consistent performance and growth.",
+    }
   ];
 
   return (
@@ -254,9 +242,9 @@ export default function AfLynkLandingPage() {
             alt="AfLynk Media Logo"
             initial={{ opacity: 1 }}
             animate={{
-              marginTop: hasScrolled ? -10 : -50,
-              height: hasScrolled ? 90 : 220,
-              width: hasScrolled ? "auto" : 360,
+              marginTop: hasScrolled ? -3 : -3,
+              height: hasScrolled ? 70 : 117,
+              width: hasScrolled ? "auto" : 330,
               marginLeft: hasScrolled ? 0 : -20,
               opacity: 1,
             }}
@@ -407,12 +395,12 @@ export default function AfLynkLandingPage() {
               variants={staggerContainer}
               className="  mt-0 text-left md:mt-[-100px]"
             >
-              <motion.h1
-                variants={fadeInUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
-              >
-                Reimagine Affiliate Marketing with AfLynk
-              </motion.h1>
+               <motion.h1
+    variants={fadeInUp}
+    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
+  >
+    <span className="inline-block mb-0">Reimagine Affiliate Marketing with AfLynk</span>
+  </motion.h1>
 
               <motion.h2
                 variants={fadeInUp}
@@ -487,7 +475,7 @@ export default function AfLynkLandingPage() {
 
               {/* Stats grid */}
               <div
-                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-opacity duration-1000 ${
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000 ${
                   isVisible ? "opacity-100" : "opacity-0"
                 }`}
               >

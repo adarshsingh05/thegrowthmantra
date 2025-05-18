@@ -2,29 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import {
-  ChevronRight,
-  Menu,
-  X,
-  FileText,
-  Shield,
-  User,
-  DollarSign,
-  AlertCircle,
-  Globe,
-  Lock,
-  Check,
-  ArrowRight,
-  Briefcase,
-  BookOpen,
-  Scale,
-} from "lucide-react"
-import { Link } from "react-router-dom"
+import { ChevronRight, Menu, X, Scale, ArrowRight, ArrowUp } from "lucide-react"
 
 export default function AfLynkTerms() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
-  const [activeSection, setActiveSection] = useState(null)
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
@@ -41,27 +24,20 @@ export default function AfLynkTerms() {
   }, [])
 
   useEffect(() => {
-    // Set active section based on scroll position
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section[id]")
-      const scrollPosition = window.scrollY + 100
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.offsetHeight
-        const sectionId = section.getAttribute("id")
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(sectionId)
-        }
-      })
+      setShowBackToTop(window.scrollY > 300)
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Check on initial load
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -78,147 +54,101 @@ export default function AfLynkTerms() {
     },
   }
 
-  const sections = [
-    { id: "introduction", title: "Introduction", icon: <FileText className="h-5 w-5" /> },
-    { id: "definitions", title: "Definitions", icon: <BookOpen className="h-5 w-5" /> },
-    { id: "eligibility", title: "Eligibility", icon: <Check className="h-5 w-5" /> },
-    { id: "account-registration", title: "Account Registration", icon: <User className="h-5 w-5" /> },
-    { id: "publisher-obligations", title: "Publisher Obligations", icon: <Briefcase className="h-5 w-5" /> },
-    { id: "advertiser-obligations", title: "Advertiser Obligations", icon: <Globe className="h-5 w-5" /> },
-    { id: "payment-terms", title: "Payment Terms", icon: <DollarSign className="h-5 w-5" /> },
-    { id: "intellectual-property", title: "Intellectual Property", icon: <Shield className="h-5 w-5" /> },
-    { id: "data-usage", title: "Data Usage", icon: <Lock className="h-5 w-5" /> },
-    { id: "prohibited-activities", title: "Prohibited Activities", icon: <AlertCircle className="h-5 w-5" /> },
-    { id: "termination", title: "Termination", icon: <X className="h-5 w-5" /> },
-    { id: "disclaimers", title: "Disclaimers", icon: <AlertCircle className="h-5 w-5" /> },
-    { id: "limitation-of-liability", title: "Limitation of Liability", icon: <Shield className="h-5 w-5" /> },
-    { id: "modifications", title: "Modifications", icon: <FileText className="h-5 w-5" /> },
-    { id: "governing-law", title: "Governing Law", icon: <Scale className="h-5 w-5" /> },
-    { id: "contact", title: "Contact Us", icon: <User className="h-5 w-5" /> },
-  ]
-
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 100,
-        behavior: "smooth",
-      })
-      setActiveSection(sectionId)
-      setIsMenuOpen(false)
-    }
-  }
-
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center"
+       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
+    {/* Logo on the left */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="flex items-center z-10"
+    >
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={activeLogoIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          src={logos[1]}
+          alt="AfLynk Media Logo"
+          className="h-12 md:h-14"
+        />
+      </AnimatePresence>
+    </motion.div>
+
+    {/* Center Navigation Links */}
+    <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8">
+      <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+        Home
+      </a>
+      <a href="/publisher" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+        Publishers
+      </a>
+      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+        Advertisers
+      </a>
+      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+        Contact
+      </a>
+    </div>
+
+    {/* Right-aligned Get Started Button */}
+    <div className="hidden md:flex z-10">
+      <motion.a
+        href="#"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
+      >
+        Get Started <ChevronRight className="ml-1 h-4 w-4 text-white" />
+      </motion.a>
+    </div>
+
+    {/* Mobile Menu Button */}
+    <div className="md:hidden z-10">
+      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
+        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Dropdown Menu */}
+  <AnimatePresence>
+    {isMenuOpen && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="md:hidden bg-white border-t"
+      >
+        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          {["Home", "Publishers", "Advertisers", "Contact"].map((item, idx) => (
+            <a
+              key={idx}
+              href={item === "Home" ? "/" : item === "Publishers" ? "/publisher-page" : "#"}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="#"
+            className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeLogoIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                src={logos[activeLogoIndex]}
-                alt="AfLynk Media Logo"
-                className="h-12 md:h-14"
-              />
-            </AnimatePresence>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              <span className="text-gray-700">Home</span>
-            </a>
-            <a href="/publisher-page" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              <span className="text-gray-700">Publishers</span>
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              <span className="text-gray-700">Advertisers</span>
-            </a>
-            <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              <span className="text-gray-700">Contact</span>
-            </a>
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
-            >
-              <span className="text-white ">Get Started</span> <ChevronRight className="ml-1 h-4 w-4 text-white" />
-            </motion.a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+            Get Started <ChevronRight className="ml-1 h-4 w-4" />
+          </a>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-white border-t"
-            >
-              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a
-                  href="/"
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </a>
-                <a
-                  href="/publisher-page"
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Publishers
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Advertisers
-                </a>
-                <a
-                  href="/contact"
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </a>
-
-
-                <a
-                  href="#"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started <ChevronRight className="ml-1 h-4 w-4" />
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
 
       {/* Header */}
       <header className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
@@ -243,219 +173,243 @@ export default function AfLynkTerms() {
         </div>
       </header>
 
+      {/* Main Content - Clean Version */}
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Sidebar Navigation */}
-          <div className="md:w-1/4">
-            <div className="sticky top-32 bg-white rounded-xl shadow-md p-6 border border-gray-100">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Contents</h3>
-              <ul className="space-y-2">
-                {sections.map((section) => (
-                  <li key={section.id}>
-                    <button
-                      onClick={() => scrollToSection(section.id)}
-                      className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
-                        activeSection === section.id ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                    >
-                      <span className="mr-2">{section.icon}</span>
-                      <span className="text-sm font-medium">{section.title}</span>
-                    </button>
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
+            <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
+              <section id="introduction" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Introduction
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media".
+                  These Terms and Conditions ("Terms") govern your use of our website, platform, and affiliate services.
+                  By using our services, you agree to comply with these Terms.
+                </motion.p>
+              </section>
+
+              <section id="definitions" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Definitions
+                </motion.h2>
+                <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li>"We," "our," or "AfLynk" refers to AfLynk Media.</li>
+                  <li>"User" means any visitor, advertiser, publisher, or partner using our services.</li>
+                  <li>
+                    "Services" refers to affiliate tracking, campaign management, reporting tools, and platform
+                    utilities.
                   </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                </motion.ul>
+              </section>
 
-          {/* Main Content */}
-          <div className="md:w-3/4">
-            <div className="bg-white rounded-xl shadow-md p-6 md:p-8 border border-gray-100">
-              <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                <section id="introduction" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Introduction
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media".
-                    These Terms and Conditions ("Terms") govern your use of our website, platform, and affiliate
-                    services. By using our services, you agree to comply with these Terms.
-                  </motion.p>
-                </section>
+              <section id="eligibility" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Eligibility
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  To use AfLynk, you must be at least 18 years old and legally able to enter into contracts. You
+                  represent that all registration information you submit is truthful and accurate.
+                </motion.p>
+              </section>
 
-                <section id="definitions" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Definitions
-                  </motion.h2>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>"We," "our," or "AfLynk" refers to AfLynk Media.</li>
-                    <li>"User" means any visitor, advertiser, publisher, or partner using our services.</li>
-                    <li>
-                      "Services" refers to affiliate tracking, campaign management, reporting tools, and platform
-                      utilities.
-                    </li>
-                  </motion.ul>
-                </section>
+              <section id="account-registration" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Account Registration
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  You agree to provide complete and accurate information when creating an account. You are responsible
+                  for maintaining the confidentiality of your account credentials.
+                </motion.p>
+              </section>
 
-                <section id="eligibility" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Eligibility
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    To use AfLynk, you must be at least 18 years old and legally able to enter into contracts. You
-                    represent that all registration information you submit is truthful and accurate.
-                  </motion.p>
-                </section>
+              <section id="publisher-obligations" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Publisher Obligations
+                </motion.h2>
+                <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li>Promote offers through approved and ethical channels only.</li>
+                  <li>No incentivized, spam, or misleading traffic is permitted.</li>
+                  <li>Traffic must comply with local advertising laws and industry standards.</li>
+                  <li>Violations may result in termination and forfeiture of earnings.</li>
+                </motion.ul>
+              </section>
 
-                <section id="account-registration" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Account Registration
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    You agree to provide complete and accurate information when creating an account. You are responsible
-                    for maintaining the confidentiality of your account credentials.
-                  </motion.p>
-                </section>
+              <section id="advertiser-obligations" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Advertiser Obligations
+                </motion.h2>
+                <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li>Offers must be valid, legal, and accurately described.</li>
+                  <li>Clear creatives, targeting, and T&Cs must be provided.</li>
+                  <li>Advertisers are responsible for verifying affiliate placements and performance.</li>
+                  <li>AfLynk is not liable for third-party actions or user-generated content.</li>
+                </motion.ul>
+              </section>
 
-                <section id="publisher-obligations" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Publisher Obligations
-                  </motion.h2>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Promote offers through approved and ethical channels only.</li>
-                    <li>No incentivized, spam, or misleading traffic is permitted.</li>
-                    <li>Traffic must comply with local advertising laws and industry standards.</li>
-                    <li>Violations may result in termination and forfeiture of earnings.</li>
-                  </motion.ul>
-                </section>
+              <section id="payment-terms" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Payment Terms
+                </motion.h2>
+                <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li>Publishers are paid based on validated conversions and approved invoices.</li>
+                  <li>Payout frequency, threshold, and method are stated in your account.</li>
+                  <li>Fraudulent activity may lead to delayed or denied payments.</li>
+                </motion.ul>
+              </section>
 
-                <section id="advertiser-obligations" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Advertiser Obligations
-                  </motion.h2>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Offers must be valid, legal, and accurately described.</li>
-                    <li>Clear creatives, targeting, and T&Cs must be provided.</li>
-                    <li>Advertisers are responsible for verifying affiliate placements and performance.</li>
-                    <li>AfLynk is not liable for third-party actions or user-generated content.</li>
-                  </motion.ul>
-                </section>
+              <section id="intellectual-property" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Intellectual Property
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  All content on our platform (logos, content, platform UI, tech) is owned by AfLynk or its licensors.
+                  Unauthorized use is prohibited.
+                </motion.p>
+              </section>
 
-                <section id="payment-terms" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Payment Terms
-                  </motion.h2>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Publishers are paid based on validated conversions and approved invoices.</li>
-                    <li>Payout frequency, threshold, and method are stated in your account.</li>
-                    <li>Fraudulent activity may lead to delayed or denied payments.</li>
-                  </motion.ul>
-                </section>
+              <section id="data-usage" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Data Usage
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  We collect data in accordance with our Privacy Policy. Users agree not to misuse any campaign data or
+                  platform analytics.
+                </motion.p>
+              </section>
 
-                <section id="intellectual-property" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Intellectual Property
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    All content on our platform (logos, content, platform UI, tech) is owned by AfLynk or its licensors.
-                    Unauthorized use is prohibited.
-                  </motion.p>
-                </section>
+              <section id="prohibited-activities" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Prohibited Activities
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  Users may not:
+                </motion.p>
+                <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li>Use bots or automated traffic</li>
+                  <li>Misrepresent campaigns or brand partnerships</li>
+                  <li>Reverse engineer the platform</li>
+                  <li>Circumvent tracking or payment systems</li>
+                  <li>Violate local or international laws</li>
+                </motion.ul>
+              </section>
 
-                <section id="data-usage" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Data Usage
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We collect data in accordance with our Privacy Policy. Users agree not to misuse any campaign data
-                    or platform analytics.
-                  </motion.p>
-                </section>
+              <section id="termination" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Termination
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  We reserve the right to suspend or terminate your account at our discretion, with or without cause.
+                  Outstanding balances may be withheld if fraud or breach is detected.
+                </motion.p>
+              </section>
 
-                <section id="prohibited-activities" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Prohibited Activities
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    Users may not:
-                  </motion.p>
-                  <motion.ul variants={fadeInUp} className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                    <li>Use bots or automated traffic</li>
-                    <li>Misrepresent campaigns or brand partnerships</li>
-                    <li>Reverse engineer the platform</li>
-                    <li>Circumvent tracking or payment systems</li>
-                    <li>Violate local or international laws</li>
-                  </motion.ul>
-                </section>
+              <section id="disclaimers" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Disclaimers
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  AfLynk provides services "as-is." We do not guarantee specific earnings, traffic volume, or
+                  advertiser/publisher performance.
+                </motion.p>
+              </section>
 
-                <section id="termination" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Termination
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We reserve the right to suspend or terminate your account at our discretion, with or without cause.
-                    Outstanding balances may be withheld if fraud or breach is detected.
-                  </motion.p>
-                </section>
+              <section id="limitation-of-liability" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Limitation of Liability
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  AfLynk is not liable for indirect, incidental, or consequential damages related to your use of our
+                  platform. Maximum liability shall not exceed the amount paid to you in the last 60 days.
+                </motion.p>
+              </section>
 
-                <section id="disclaimers" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Disclaimers
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    AfLynk provides services "as-is." We do not guarantee specific earnings, traffic volume, or
-                    advertiser/publisher performance.
-                  </motion.p>
-                </section>
+              <section id="modifications" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Modifications
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  We may update these Terms from time to time. Your continued use of the platform constitutes your
+                  acceptance of the revised Terms.
+                </motion.p>
+              </section>
 
-                <section id="limitation-of-liability" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Limitation of Liability
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    AfLynk is not liable for indirect, incidental, or consequential damages related to your use of our
-                    platform. Maximum liability shall not exceed the amount paid to you in the last 60 days.
-                  </motion.p>
-                </section>
+              <section id="governing-law" className="mb-12">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Governing Law
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  These Terms are governed by the laws of India, and any disputes shall be subject to the exclusive
+                  jurisdiction of the courts of New Delhi.
+                </motion.p>
+              </section>
 
-                <section id="modifications" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Modifications
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    We may update these Terms from time to time. Your continued use of the platform constitutes your
-                    acceptance of the revised Terms.
-                  </motion.p>
-                </section>
-
-                <section id="governing-law" className="mb-12">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Governing Law
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    These Terms are governed by the laws of India, and any disputes shall be subject to the exclusive
-                    jurisdiction of the courts of New Delhi.
-                  </motion.p>
-                </section>
-
-                <section id="contact" className="mb-6">
-                  <motion.h2 variants={fadeInUp} className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Contact Us
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                    For questions or concerns, contact:
-                  </motion.p>
-                  <motion.div variants={fadeInUp} className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                    <p className="font-medium text-gray-900 mb-2">AfLynk Media</p>
-                    <p className="text-gray-700 mb-1">
-                      <span className="font-medium">Email:</span> contact@aflynk.com
-                    </p>
-                    <p className="text-gray-700">
-                      <span className="font-medium">Website:</span> www.aflynk.com
-                    </p>
-                  </motion.div>
-                </section>
-              </motion.div>
-            </div>
+              <section id="contact" className="mb-6">
+                <motion.h2
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2"
+                >
+                  Contact Us
+                </motion.h2>
+                <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
+                  For questions or concerns, contact:
+                </motion.p>
+                <motion.div variants={fadeInUp} className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                  <p className="font-medium text-gray-900 mb-2">AfLynk Media</p>
+                  <p className="text-gray-700 mb-1">
+                    <span className="font-medium">Email:</span> contact@aflynk.com
+                  </p>
+                  <p className="text-gray-700">
+                    <span className="font-medium">Website:</span> www.aflynk.com
+                  </p>
+                </motion.div>
+              </section>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -481,9 +435,7 @@ export default function AfLynkTerms() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg flex items-center justify-center"
               >
-                <Link to='/contact' className="text-gray-700  transition-colors font-medium py-2" >Contact Our Team</Link>
-
-               <ArrowRight className="ml-2 h-5 w-5" />
+                Contact Our Team <ArrowRight className="ml-2 h-5 w-5" />
               </motion.a>
               <motion.a
                 href="/privacy-policy"
@@ -630,23 +582,22 @@ export default function AfLynkTerms() {
         </div>
       </footer>
 
-      {/* Back to Top Button */}
-      <motion.a
-        href="#"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg z-50"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-        </svg>
-      </motion.a>
+      {/* Back to Top Button - Appears when scrolling down */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-gradient-to-r from-teal-500 to-blue-500 text-white p-3 rounded-full shadow-lg z-50 hover:shadow-xl transition-shadow"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-6 w-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

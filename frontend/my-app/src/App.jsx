@@ -6,6 +6,7 @@ import AfLynkPrivacyPolicy from './privacypolicy'
 import AfLynkContact from './contact'
 import AfLynkTerms from './termsandconditions'
 import AfLynkAbout from './aboutUs'
+import AfLynkAdvertiser from './advertising'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="contact" element={<AfLynkContact />} />
         <Route path="tandc" element={<AfLynkTerms />} />
         <Route path="aboutus" element={<AfLynkAbout />} />
+        <Route path="advertise" element={<AfLynkAdvertiser />} />
       </Routes>
     </>
   )
