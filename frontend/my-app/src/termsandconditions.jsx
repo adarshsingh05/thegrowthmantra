@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Menu, X, Scale, ArrowRight, ArrowUp } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function AfLynkTerms() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,98 +58,123 @@ export default function AfLynkTerms() {
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
       {/* Navigation */}
-       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-  <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
-    {/* Logo on the left */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="flex items-center z-10"
-    >
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={activeLogoIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          src={logos[1]}
-          alt="AfLynk Media Logo"
-          className="h-12 md:h-14"
-        />
-      </AnimatePresence>
-    </motion.div>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          {/* Mobile Logo (only visible on mobile) */}
+          <div className="sm:w-16 md:w-20 flex items-center">
+            <img
+              src={logos[1]}
+              alt="AfLynk Media Logo"
+              className="h-10 w-auto sm:hidden" // Only visible on mobile
+            />
+          </div>
 
-    {/* Center Navigation Links */}
-    <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8">
-      <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Home
-      </a>
-      <a href="/publisher" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Publishers
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Advertisers
-      </a>
-      <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-        Contact
-      </a>
-    </div>
-
-    {/* Right-aligned Get Started Button */}
-    <div className="hidden md:flex z-10">
-      <motion.a
-        href="#"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
-      >
-        Get Started <ChevronRight className="ml-1 h-4 w-4 text-white" />
-      </motion.a>
-    </div>
-
-    {/* Mobile Menu Button */}
-    <div className="md:hidden z-10">
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
-        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-    </div>
-  </div>
-
-  {/* Mobile Dropdown Menu */}
-  <AnimatePresence>
-    {isMenuOpen && (
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden bg-white border-t"
-      >
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          {["Home", "Publishers", "Advertisers", "Contact"].map((item, idx) => (
-            <a
-              key={idx}
-              href={item === "Home" ? "/" : item === "Publishers" ? "/publisher-page" : "#"}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
+          {/* Center Navigation */}
+          <div className="hidden md:flex flex-grow justify-center space-x-8">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
             >
-              {item}
+              Home
+            </Link>
+            <a
+              href="#advertisers"
+              className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
+            >
+              Advertisers
             </a>
-          ))}
-          <a
-            href="#"
-            className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Get Started <ChevronRight className="ml-1 h-4 w-4" />
-          </a>
+            <Link
+              to="/publisher"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+              Publisher
+            </Link>
+            
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/aboutus"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+                About Us
+            </Link>
+          </div>
+
+          {/* Get Started Button */}
+          <div className="hidden md:flex flex-shrink-0">
+            <motion.a
+              href="#get-started"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
+            >
+              Get Started <ChevronRight className="ml-1 h-4 w-4 text-white" />
+            </motion.a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</nav>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white border-t"
+            >
+              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a
+                  href="#advertisers"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Advertisers
+                </a>
+                <Link
+                  to="/publisher"
+                  className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                >
+                  Publisher
+                </Link>
+                
+                <a
+                  href="#contact"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+                <a
+                  href="#get-started"
+                  className="bg-gradient-to-r from-blue-700 to-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started <ChevronRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
       {/* Header */}
       <header className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
@@ -451,136 +477,154 @@ export default function AfLynkTerms() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 w-full">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <img src={logos[0] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
-              <p className="text-gray-400 text-sm">AfLynk Media LLP, A venture by 93 Communications</p>
-            </div>
+     <footer className="bg-gray-900 text-white py-12 w-full">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+      <div>
+        <img
+          src={logos[1] || "/placeholder.svg"}
+          alt="AfLynk Media Logo"
+          className="h-22 w-32 mb-4"
+        />
+        <p className="text-gray-400 text-sm">
+          AfLynk Media LLP, a 93 Communications Venture
+        </p>
+        <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+        <p className="text-gray-400 text-sm">contact@aflynk.com</p>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="/" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Home</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/publisher-page" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Publishers</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Advertisers</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Case Studies</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Contact Us</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul className="space-y-2">
+          <li>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Home</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#advertisers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Advertiser</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#publishers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Publisher</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#case-studies"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Case Studies</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Privacy Policy</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Terms and Conditions</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Cookie Policy</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">GDPR Compliance</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Legal</h4>
+        <ul className="space-y-2">
+          <li>
+            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Privacy and Policy</span> 
+            </Link>
+          </li>
+          <li>
+           <Link to ='/tandc' className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Terms and Conditions</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  contact@aflynk.com
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  +91-85058 465555
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                    />
-                  </svg>
-                  www.aflynk.com
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Contact</h4>
+        <ul className="space-y-2">
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            contact@aflynk.com
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            +91-85058 465555
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              />
+            </svg>
+            www.aflynk.com
+          </li>
+        </ul>
+      </div>
+    </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} AfLynk Media LLP. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+    <div className="border-t border-gray-800 mt-12 pt-8">
+      <div className="flex justify-between items-center">
+        <p className="text-gray-400 text-sm">
+          &copy; 2025 AfLynk Media LLP
+        </p>
+        <p className="text-gray-400 text-sm">
+          All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
       {/* Back to Top Button - Appears when scrolling down */}
       <AnimatePresence>

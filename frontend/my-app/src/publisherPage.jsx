@@ -48,7 +48,7 @@ export default function AfLynkPublisherPage() {
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Teal%20Logo-%20Afflynk%20Media-a5lrBAJ9HCbT5rqELeamaqi5m96xOV.png", // Teal
+    "mainlogo.png", // Teal
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
@@ -251,14 +251,40 @@ export default function AfLynkPublisherPage() {
 
     {/* Desktop Navigation + CTA */}
     <div className="hidden md:flex items-center justify-center flex-1">
-      <div className="flex space-x-8">
-        <Link to='/' className="text-gray-700 hover:text-purple-600 font-medium">Home</Link>
+      <div className="hidden md:flex flex-grow justify-center space-x-8">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+              Home
+            </Link>
+            <a
+              href="/advertise"
+              className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
+            >
+              Advertisers
+            </a>
+            <Link
+              to="/publisher"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+              Publisher
+            </Link>
+            
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/aboutus"
+              className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+            >
+                About Us
+            </Link>
+          </div>
 
-        <a href="#features" className="text-gray-700 hover:text-orange-500 font-medium">Features</a>
-        <a href="#how-it-works" className="text-gray-700 hover:text-teal-600 font-medium">How It Works</a>
-        <a href="#faq" className="text-gray-700 hover:text-blue-600 font-medium">FAQ</a>
-        <a href="#contact" className="text-gray-700 hover:text-purple-600 font-medium">Contact</a>
-      </div>
     </div>
 
     {/* CTA Button */}
@@ -953,127 +979,158 @@ export default function AfLynkPublisherPage() {
         </div>
       </section>
 
-      {/* Footer */}
+       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <img src={logos[1] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 mb-4" />
-              <p className="text-gray-400 text-sm">AfLynk Media LLP, A 93 Venture Communications</p>
-            </div>
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+      <div>
+        <img
+          src={logos[1] || "/placeholder.svg"}
+          alt="AfLynk Media Logo"
+          className="h-22 w-32 mb-4"
+        />
+        <p className="text-gray-400 text-sm">
+          AfLynk Media LLP, a 93 Communications Venture
+        </p>
+        <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+        <p className="text-gray-400 text-sm">contact@aflynk.com</p>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Home</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#features" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Features</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">How It Works</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#faq" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">FAQ</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Contact Us</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul className="space-y-2">
+          <li>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Home</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#advertisers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Advertiser</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#publishers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Publisher</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#case-studies"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Case Studies</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Privacy and Policy</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Terms and conditions</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Legal</h4>
+        <ul className="space-y-2">
+          <li>
+            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Privacy and Policy</span> 
+            </Link>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Terms and conditions</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  contact@aflynk.com
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  +91-85058 465555
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                    />
-                  </svg>
-                  www.aflynk.com
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Contact</h4>
+        <ul className="space-y-2">
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            contact@aflynk.com
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            +91-85058 465555
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              />
+            </svg>
+            www.aflynk.com
+          </li>
+        </ul>
+      </div>
+    </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} AfLynk Media LLP. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+    <div className="border-t border-gray-800 mt-12 pt-8">
+      <div className="flex justify-between items-center">
+        <p className="text-gray-400 text-sm">
+          &copy; 2025 AfLynk Media LLP
+        </p>
+        <p className="text-gray-400 text-sm">
+          All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
       {/* Back to Top Button */}
       <motion.a

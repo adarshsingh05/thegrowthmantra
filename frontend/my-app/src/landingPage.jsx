@@ -155,15 +155,19 @@ export default function AfLynkLandingPage() {
     },
     {
       icon: <Shield className="h-6 w-6 text-teal-500" />,
-      text: "Built-in fraud prevention (AI + human moderation)",
+      text: "Fraud prevention (AI + human moderation)",
     },
     {
       icon: <BarChart className="h-6 w-6 text-teal-500" />,
-      text: "Transparent tracking dashboard (real-time ROI)",
+      text: "Transparent tracking dashboard ",
     },
     {
       icon: <Users className="h-6 w-6 text-teal-500" />,
       text: "Dedicated performance managers",
+    },
+    {
+      icon: <Users className="h-6 w-6 text-teal-500" />,
+      text: "Multiple vertical expertise",
     },
   ];
 
@@ -188,6 +192,10 @@ export default function AfLynkLandingPage() {
       icon: <Users className="h-6 w-6 text-orange-500" />,
       text: "Referral bonus programs to earn more",
     },
+     {
+      icon: <Globe className="h-6 w-6 text-orange-500" />,
+      text: "Dedicated Account Manager",
+    },
   ];
 
   const verticals = [
@@ -197,7 +205,8 @@ export default function AfLynkLandingPage() {
     "BFSI & Fintech",
     "E-commerce & D2C",
     "Education & EdTech",
-    "Travel, Telecom, and Mobile Apps",
+    "Travel, Telecom,",
+    "Game and reward Apps"
   ];
 
   const publisherTypes = [
@@ -207,28 +216,30 @@ export default function AfLynkLandingPage() {
     "SEO affiliates",
     "Email marketers",
     "App & tool owners",
+    "YouTubers",
+    "TG/FB Group Owners"
   ];
 
   const stats = [
     {
       value: "10M+",
-      description: "  Qualified Leads Generated Laser-targeted, conversion-ready users across high-intent funnels..",
+      description: "   Qualified Leads Generated",
     },
     {
       value: "100M+",
-      description: "App Downloads Driven Through smart performance campaigns across CPI and CPA models.",
+      description: "App Downloads Driven",
     },
     {
-      value: "10+",
-      description: "Years of Industry Mastery Built by veterans, optimized with innovation.",
+      value: "3M+",
+      description: "Verified Transactions Tracked",
+    },
+    {
+      value: "12+",
+      description: " Years of Industry Mastery.",
     },
     {
       value: "20+",
-      description: "High-Converting Verticals From iGaming to Ecommerce—scale where it counts.",
-    },
-    {
-      value: "500+",
-      description: " Trusted Global Partners Partners that count on us for consistent performance and growth.",
+      description: "High-Converting Verticals.",
     }
   ];
 
@@ -251,11 +262,12 @@ export default function AfLynkLandingPage() {
             alt="AfLynk Media Logo"
             initial={{ opacity: 1 }}
             animate={{
-              marginTop: hasScrolled ? -3 : -3,
-              height: hasScrolled ? 70 : 117,
-              width: hasScrolled ? "auto" : 330,
+              marginTop: hasScrolled ? 1 : -2,
+              height: hasScrolled ? 62 : 117,
+              width: hasScrolled ? "auto" : 290,
               marginLeft: hasScrolled ? 0 : -20,
               opacity: 1,
+              marginBottom: hasScrolled ? 0 : 20,
             }}
             transition={{ duration: 0.5 }}
             className="hidden sm:block" // Hides on mobile (smaller than 640px)
@@ -282,7 +294,7 @@ export default function AfLynkLandingPage() {
           {/* Center Navigation */}
           <div className="hidden md:flex flex-grow justify-center space-x-8">
             <a
-              href="#advertisers"
+              href="/advertise"
               className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
             >
               Advertisers
@@ -408,7 +420,7 @@ export default function AfLynkLandingPage() {
     variants={fadeInUp}
     className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
   >
-    <span className="inline-block mb-0">Reimagine Affiliate Marketing with AfLynk</span>
+    <span className="inline-block mb-0 mt-6">Reimagine Affiliate Marketing with AfLynk</span>
   </motion.h1>
 
               <motion.h2
@@ -486,6 +498,8 @@ export default function AfLynkLandingPage() {
                   <StarIcon className="h-10 w-10 text-white drop-shadow-md" />
                   <StarIcon className="h-10 w-10 text-white drop-shadow-md" />
                   <StarIcon className="h-10 w-10 text-white drop-shadow-md" />
+                  <StarIcon className="h-10 w-10 text-white drop-shadow-md" />
+                  <StarIcon className="h-10 w-10 text-white drop-shadow-md" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold">
                   Are your campaigns just running? Or are they converting?
@@ -509,27 +523,27 @@ export default function AfLynkLandingPage() {
 
               {/* Stats grid */}
               <div
-                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000  ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className={`bg-white rounded-lg shadow-lg p-6 transform transition-all duration-500 ${
-                      isVisible ? "translate-y-0" : "translate-y-8"
-                    }`}
-                    style={{ transitionDelay: `${index * 100}ms` }}
-                  >
-                    <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
-                      {stat.value}
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-base">
-                      {stat.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      {stats.map((stat, index) => (
+        <div
+          key={index}
+          className={`bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center text-center h-40 transform transition-all duration-500 ${
+            isVisible ? "translate-y-0" : "translate-y-8"
+          }`}
+          style={{ transitionDelay: `${index * 100}ms` }}
+        >
+          <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
+            {stat.value}
+          </h3>
+          <p className="text-gray-600 text-sm md:text-base">
+            {stat.description}
+          </p>
+        </div>
+      ))}
+    </div>
             </div>
           </div>
         </div>
@@ -559,7 +573,7 @@ export default function AfLynkLandingPage() {
             Built for Advertisers Who Demand More
           </h2>
           <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-teal-600">
-            You Don't Just Want Clicks. You Want Customers. We Deliver
+            You Don't Just Want Clicks - You Want Customers. We Deliver
             Them.
           </h3>
         </div>
@@ -965,11 +979,11 @@ export default function AfLynkLandingPage() {
                   </li>
                 </ul>
 
-                <div className="p-5 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm text-center">
+                {/* <div className="p-5 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm text-center">
                   <p className="text-white font-bold text-xl">
                     "Freedom isn't just a word. It's what happens when your traffic earns what it should."
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -1358,7 +1372,7 @@ export default function AfLynkLandingPage() {
                         Address
                       </h4>
                       <p className="text-gray-600">
-                        AfLynk Media LLP, A venture by 93 Communications
+                        AfLynk Media LLP
                         <br />
                         Plot No 20, Block H-1/A, Sec-63, Noida
                       </p>
@@ -1437,150 +1451,156 @@ export default function AfLynkLandingPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <img
-                src={logos[1] || "/placeholder.svg"}
-                alt="AfLynk Media Logo"
-                className="h-22 w-22 mb-4"
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+      <div>
+        <img
+          src={logos[1] || "/placeholder.svg"}
+          alt="AfLynk Media Logo"
+          className="h-22 w-32 mb-4"
+        />
+        <p className="text-gray-400 text-sm">
+          AfLynk Media LLP, a 93 Communications Venture
+        </p>
+        <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+        <p className="text-gray-400 text-sm">contact@aflynk.com</p>
+      </div>
+
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul className="space-y-2">
+          <li>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Home</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#advertisers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Advertiser</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#publishers"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Publisher</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#case-studies"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Case Studies</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Legal</h4>
+        <ul className="space-y-2">
+          <li>
+            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Privacy and Policy</span> 
+            </Link>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">Terms and conditions</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="text-lg font-semibold mb-4">Contact</h4>
+        <ul className="space-y-2">
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
-              <p className="text-gray-400 text-sm">
-                AfLynk Media LLP, A venture by 93 Communications
-              </p>
-            </div>
+            </svg>
+            contact@aflynk.com
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            +91-85058 465555
+          </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              />
+            </svg>
+            www.aflynk.com
+          </li>
+        </ul>
+      </div>
+    </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Home</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#advertisers"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Advertiser</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#publishers"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Publisher</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#case-studies"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Case Studies</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Contact Us</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  
-                  <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
-                    <span className="text-gray-400">Privacy and Policy</span> </Link>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Terms and conditions</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  contact@aflynk.com
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  +91-85058 465555
-                </li>
-                <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                    />
-                  </svg>
-                  www.aflynk.com
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} AfLynk Media LLP. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+    <div className="border-t border-gray-800 mt-12 pt-8">
+      <div className="flex justify-between items-center">
+        <p className="text-gray-400 text-sm">
+          &copy; 2025 AfLynk Media LLP
+        </p>
+        <p className="text-gray-400 text-sm">
+          All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
       {/* Back to Top Button */}
       <motion.a
