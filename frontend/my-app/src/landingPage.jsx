@@ -265,7 +265,7 @@ export default function AfLynkLandingPage() {
               marginTop: hasScrolled ? 1 : -2,
               height: hasScrolled ? 62 : 117,
               width: hasScrolled ? "auto" : 290,
-              marginLeft: hasScrolled ? 0 : -20,
+              marginLeft: hasScrolled ? 0 : 53,
               opacity: 1,
               marginBottom: hasScrolled ? 0 : 20,
             }}
