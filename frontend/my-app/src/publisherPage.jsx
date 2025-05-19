@@ -1011,14 +1011,7 @@ export default function AfLynkPublisherPage() {
               <span className="text-gray-400">Publisher</span>
             </a>
           </li>
-          <li>
-            <a
-              href="#case-studies"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Case Studies</span>
-            </a>
-          </li>
+        
           <li>
             <a
               href="#contact"

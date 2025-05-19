@@ -14,7 +14,7 @@ export default function AfLynkContact() {
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-     "footer.png",// Main Logo
+    "footer.png", // Main Logo
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
@@ -65,20 +65,22 @@ export default function AfLynkContact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-x-hidden">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-white shadow-sm"}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-white shadow-sm"
+        }`}
       >
-        <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 relative flex items-center justify-between max-w-full">
           {/* Logo on the left */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center z-10"
+            className="flex items-center z-20"
           >
-            <AnimatePresence >
+            <AnimatePresence>
               <motion.img
                 key={activeLogoIndex}
                 initial={{ opacity: 0 }}
@@ -87,13 +89,13 @@ export default function AfLynkContact() {
                 transition={{ duration: 0.5 }}
                 src={logos[1]}
                 alt="AfLynk Media Logo"
-                className="h-12 md:h-14"
+                className="h-10 md:h-14"
               />
             </AnimatePresence>
           </motion.div>
 
           {/* Center Navigation Links */}
-          <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8">
+          <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8 z-10">
             <a href="/" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">
               Home
             </a>
@@ -112,7 +114,7 @@ export default function AfLynkContact() {
           </div>
 
           {/* Right-aligned Get Started Button */}
-          <div className="hidden md:flex z-10">
+          <div className="hidden md:flex z-20">
             <motion.a
               href="#"
               whileHover={{ scale: 1.05 }}
@@ -123,16 +125,19 @@ export default function AfLynkContact() {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden z-10">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
+          {/* Mobile Menu Button - Fixed position for visibility */}
+          <div className="md:hidden z-30 flex items-center mr-20">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 focus:outline-none p-2 bg-white rounded-md shadow-sm border border-gray-200"
+              aria-label="Toggle menu"
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
-         {/* Mobile Menu */}
+        {/* Mobile Menu - Fixed to take full width */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -140,43 +145,47 @@ export default function AfLynkContact() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden bg-white border-t"
+              className="md:hidden bg-white border-t w-full"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <a
-                  href="/advertiser"
-                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                  href="/"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2 flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Advertisers
+                  <ChevronRight className="mr-2 h-4 w-4" /> Home
                 </a>
-                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
-                  Publisher
-                </Link>
-                {/* <a
-                  href="#case-studies"
-                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Case Studies
-                </a> */}
                 <a
-                  href="/contact"
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  href="/advertiser"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2 flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact
+                  <ChevronRight className="mr-2 h-4 w-4" /> Advertisers
+                </a>
+                <a
+                  href="/publisher"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2 flex items-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <ChevronRight className="mr-2 h-4 w-4" /> Publishers
+                </a>
+                <a
+                  href="#"
+                  className="text-teal-600 font-medium py-2 flex items-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <ChevronRight className="mr-2 h-4 w-4" /> Contact
                 </a>
                 <a
                   href="/aboutus"
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2 flex items-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  About Us
+                  <ChevronRight className="mr-2 h-4 w-4" /> About Us
                 </a>
                 <a
                   href="#get-started"
-                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center mt-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started <ChevronRight className="ml-1 h-4 w-4" />
@@ -304,53 +313,58 @@ export default function AfLynkContact() {
             </motion.p>
           </motion.section>
 
-          {/* Contact Form Section with Zoho Forms */}
+          {/* Contact Form Section with Zoho Forms - Fixed the margin issue */}
           <motion.section
             id="contact-form"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="mb-16 relative ml-20"
+            className="mb-16 relative mx-auto px-2"
           >
             {/* Decorative elements */}
             <div className="absolute -top-10 -left-10 w-20 h-20 bg-teal-100 rounded-full opacity-50 blur-xl"></div>
             <div className="absolute bottom-10 -right-10 w-20 h-20 bg-cyan-100 rounded-full opacity-50 blur-xl"></div>
 
-            <motion.div variants={fadeInUp} className="flex items-center justify-center mb-8 md:mr-[140px]">
+            <motion.div variants={fadeInUp} className="flex items-center justify-center mb-8">
               <div className="h-0.5 w-12 bg-teal-500 mr-4"></div>
               <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
               <div className="h-0.5 w-12 bg-teal-500 ml-4"></div>
             </motion.div>
 
             {/* Form Type Selector */}
-            <motion.div variants={fadeInUp} className="mb-8 flex justify-center md:mr-[140px]">
+            <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
               <div className="bg-white rounded-full shadow-sm p-1.5 inline-flex">
                 <button
                   onClick={() => setFormType("contactPage")}
-                  className={`px-6 py-2.5 rounded-full transition-all ${formType === "contactPage" ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md" : "bg-transparent text-gray-700 hover:bg-gray-100"}`}
+                  className={`px-6 py-2.5 rounded-full transition-all ${
+                    formType === "contactPage"
+                      ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md"
+                      : "bg-transparent text-gray-700 hover:bg-gray-100"
+                  }`}
                 >
                   Full Contact Form
                 </button>
-               
               </div>
             </motion.div>
 
-            {/* Zoho Form Container */}
-            <motion.div variants={fadeInUp} className="flex justify-center">
-             <div className="bg-transparent p-6 rounded-2xl shadow-sm w-full">
-                  <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
+            {/* Zoho Form Container - Fixed the responsive issues */}
+            <motion.div variants={fadeInUp} className="flex justify-center w-full">
+              <div className="bg-transparent p-2 sm:p-6 rounded-2xl shadow-sm w-full">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">
+                  Send us a message
+                </h3>
 
-                  {/* Zoho Form Integration */}
-                     <div className="mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 2xl:mr-0" style={{ marginRight: '65px' }}>
-  <ZohoForm
-    formId="ContactUsBasic"
-    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
-    height="300px"
-    width="130%"
-  />
-</div>
+                {/* Zoho Form Integration - Fixed width for all screen sizes */}
+                <div className="w-full overflow-hidden">
+                  <ZohoForm
+                    formId="ContactUsBasic"
+                    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
+                    height="300px"
+                    width="100%"
+                  />
                 </div>
+              </div>
             </motion.div>
           </motion.section>
 
@@ -368,7 +382,7 @@ export default function AfLynkContact() {
               <div className="h-0.5 w-12 bg-teal-500 ml-4"></div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-3 gap-6">
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all hover:border-teal-200">
                 <div className="bg-teal-100 p-4 rounded-full inline-flex mb-6">
                   <Mail className="h-6 w-6 text-teal-600" />
@@ -389,11 +403,11 @@ export default function AfLynkContact() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Call Us</h3>
                 <a href="tel:+918505846555" className="text-teal-600 hover:underline block">
-    +91-85058 465555
-  </a>
-  <a href=" +91-7988540592" className="text-teal-600 hover:underline block">
-    +91-7988 540592
-  </a>
+                  +91-85058 465555
+                </a>
+                <a href="tel:+917988540592" className="text-teal-600 hover:underline block">
+                  +91-7988 540592
+                </a>
                 <p className="text-gray-600 mt-3">India</p>
               </div>
 
@@ -424,7 +438,7 @@ export default function AfLynkContact() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <img src="footer.png" alt="AfLynk Media Logo" className="h-22 w-36 mb-4" />
               <p className="text-gray-400 text-sm">AfLynk Media LLP</p>
@@ -521,7 +535,7 @@ export default function AfLynkContact() {
                   </svg>
                   +91-7988540592
                 </li>
-                 <li className="flex items-center text-gray-400">
+                <li className="flex items-center text-gray-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 mr-2"
@@ -561,17 +575,11 @@ export default function AfLynkContact() {
 
           <div className="relative border-t border-gray-800 mt-12 pt-8">
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-              <p className="text-gray-400 text-sm text-center md:text-left">
-                &copy; 2025 AfLynk Media LLP
-              </p>
+              <p className="text-gray-400 text-sm text-center md:text-left">&copy; 2025 AfLynk Media LLP</p>
 
-              <p className="text-gray-400 text-sm text-center order-3 md:order-none">
-                Made with ❤️ in India
-              </p>
+              <p className="text-gray-400 text-sm text-center order-3 md:order-none">Made with ❤️ in India</p>
 
-              <p className="text-gray-400 text-sm text-center md:text-right">
-                All rights reserved.
-              </p>
+              <p className="text-gray-400 text-sm text-center md:text-right">All rights reserved.</p>
             </div>
           </div>
         </div>

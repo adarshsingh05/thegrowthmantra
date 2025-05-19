@@ -556,7 +556,7 @@ export default function AfLynkAdvertiser() {
 
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12"
+                className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12 md:w-24"
               >
                 <motion.a
                   href="#cta"
@@ -1456,25 +1456,13 @@ export default function AfLynkAdvertiser() {
                     whileHover="hover"
                     whileTap="tap"
                     variants={buttonHover}
-                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group"
+                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group md:h-16 "
                   >
                     <span className="relative z-10">
                       Start Advertising with AfLynk
                     </span>
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <motion.div
-                      className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
-                      animate={{
-                        x: [0, 5, 0],
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "reverse",
-                      }}
-                    >
-                      <ArrowRight className="h-5 w-5 text-white" />
-                    </motion.div>
+                  
                   </motion.a>
                 </div>
               </div>
@@ -1807,7 +1795,7 @@ export default function AfLynkAdvertiser() {
 
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col md:flex-row justify-center gap-6"
+              className="flex flex-col md:flex-row justify-center gap-6 md:ml-0 ml-[-80px]"
             >
               <motion.a
                 href="/contact"
@@ -1817,7 +1805,7 @@ export default function AfLynkAdvertiser() {
                 variants={buttonHover}
                 className="relative overflow-hidden  text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group ml-20"
               >
-                <span className="relative z-10 mr-6">
+                <span className="relative z-10 md:mr-6 ">
                   Start Advertising Now
                 </span>
                 <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1945,14 +1933,7 @@ export default function AfLynkAdvertiser() {
                     <span className="text-gray-400">Publisher</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#case-studies"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <span className="text-gray-400">Case Studies</span>
-                  </a>
-                </li>
+                
                 <li>
                   <a
                     href="#contact"
