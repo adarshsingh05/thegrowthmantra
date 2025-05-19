@@ -312,6 +312,7 @@ export default function AfLynkContact() {
               Whether you have a quick question or a full-scale project in mind, we're here to listen—and deliver.
             </motion.p>
           </motion.section>
+          
 
           {/* Contact Form Section with Zoho Forms - Fixed the margin issue */}
           <motion.section
@@ -333,33 +334,19 @@ export default function AfLynkContact() {
             </motion.div>
 
             {/* Form Type Selector */}
-            <motion.div variants={fadeInUp} className="mb-8 flex justify-center">
-              <div className="bg-white rounded-full shadow-sm p-1.5 inline-flex">
-                <button
-                  onClick={() => setFormType("contactPage")}
-                  className={`px-6 py-2.5 rounded-full transition-all ${
-                    formType === "contactPage"
-                      ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md"
-                      : "bg-transparent text-gray-700 hover:bg-gray-100"
-                  }`}
-                >
-                  Full Contact Form
-                </button>
-              </div>
-            </motion.div>
+              
+
 
             {/* Zoho Form Container - Fixed the responsive issues */}
             <motion.div variants={fadeInUp} className="flex justify-center w-full">
               <div className="bg-transparent p-2 sm:p-6 rounded-2xl shadow-sm w-full">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">
-                  Send us a message
-                </h3>
+                
 
                 {/* Zoho Form Integration - Fixed width for all screen sizes */}
                 <div className="w-full overflow-hidden">
                   <ZohoForm
-                    formId="ContactUsBasic"
-                    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
+                    formId={formConfigs[formType].formId}
+                    divId="oQ5ljY9nYSFTxGl-0wl21OuBrlC7DC1WZb5Wd_3QIQI"
                     height="300px"
                     width="100%"
                   />
