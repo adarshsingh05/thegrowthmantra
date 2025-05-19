@@ -1342,12 +1342,15 @@ export default function AfLynkLandingPage() {
                   <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
 
                   {/* Zoho Form Integration */}
-                  <ZohoForm
-                    formId="ContactUsBasic"
-                    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
-                    height="300px"
-                    width="130%"
-                  />
+                  <div className="mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 2xl:mr-0" style={{ marginRight: '65px' }}>
+  <ZohoForm
+    formId="ContactUsBasic"
+    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
+    height="300px"
+    width="130%"
+  />
+</div>
+
                 </div>
               </motion.div>
             </div>

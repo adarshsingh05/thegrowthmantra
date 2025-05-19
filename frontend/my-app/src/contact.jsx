@@ -305,14 +305,14 @@ export default function AfLynkContact() {
             <div className="absolute -top-10 -left-10 w-20 h-20 bg-teal-100 rounded-full opacity-50 blur-xl"></div>
             <div className="absolute bottom-10 -right-10 w-20 h-20 bg-cyan-100 rounded-full opacity-50 blur-xl"></div>
 
-            <motion.div variants={fadeInUp} className="flex items-center justify-center mb-8 mr-[140px]">
+            <motion.div variants={fadeInUp} className="flex items-center justify-center mb-8 md:mr-[140px]">
               <div className="h-0.5 w-12 bg-teal-500 mr-4"></div>
               <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
               <div className="h-0.5 w-12 bg-teal-500 ml-4"></div>
             </motion.div>
 
             {/* Form Type Selector */}
-            <motion.div variants={fadeInUp} className="mb-8 flex justify-center mr-[140px]">
+            <motion.div variants={fadeInUp} className="mb-8 flex justify-center md:mr-[140px]">
               <div className="bg-white rounded-full shadow-sm p-1.5 inline-flex">
                 <button
                   onClick={() => setFormType("contactPage")}
@@ -326,13 +326,19 @@ export default function AfLynkContact() {
 
             {/* Zoho Form Container */}
             <motion.div variants={fadeInUp} className="flex justify-center">
-              <div className="w-full max-w-4xl">
-                <ZohoForm
-                  formId={formConfigs[formType].formId}
-                  divId={formConfigs[formType].divId}
-                  height={formConfigs[formType].height}
-                />
-              </div>
+             <div className="bg-transparent p-6 rounded-2xl shadow-sm w-full">
+                  <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
+
+                  {/* Zoho Form Integration */}
+                     <div className="mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 2xl:mr-0" style={{ marginRight: '65px' }}>
+  <ZohoForm
+    formId="ContactUsBasic"
+    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
+    height="300px"
+    width="130%"
+  />
+</div>
+                </div>
             </motion.div>
           </motion.section>
 

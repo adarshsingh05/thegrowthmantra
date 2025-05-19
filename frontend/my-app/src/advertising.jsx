@@ -273,6 +273,7 @@ export default function AfLynkAdvertiser() {
     { value: "1M+", label: "Monthly Conversions", icon: <TrendingUp className="h-6 w-6 text-indigo-500" /> },
     { value: "500+", label: "Active Advertisers", icon: <Users className="h-6 w-6 text-purple-500" /> },
         { value: "100M+", label: "App Downloads Driven", icon: <Globe className="h-6 w-6 text-teal-500" /> },
+        { value: "3M+", label: "Verified Transaction Tracked", icon: <Award className="h-6 w-6 text-teal-500" /> },
 
   ]
 
@@ -671,7 +672,7 @@ export default function AfLynkAdvertiser() {
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-10">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
