@@ -273,6 +273,13 @@ export default function AfLynkAbout() {
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <a
+                  href="/"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </a>
+                <a
                   href="/advertiser"
                   className="text-gray-700 hover:text-teal-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
