@@ -375,11 +375,11 @@ export default function AfLynkLandingPage() {
         ref={heroRef}
         className=" mt-24 md:mt-0 md:pt-64 md:pb-32 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden"
       >
-        <div className="container mx-auto px-4 md:mt-[-60px]">
+        <div className="container mx-auto px-4 md:mt-[-60px] ">
           <div className="grid md:grid-cols-2 gap-8 items-center ">
             <motion.div
               initial="hidden"
-              animate={heroInView ? "visible" : "hidden"}
+              animate={heroInView ? "visible" : "visible"}
               variants={staggerContainer}
               className="  mt-0 text-left md:mt-[-100px]"
             >

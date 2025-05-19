@@ -1,13 +1,7 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-  useInView,
-} from "framer-motion";
+import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
 import {
   StarIcon,
   CheckCircleIcon,
@@ -16,8 +10,8 @@ import {
   ShieldCheckIcon,
   ClockIcon,
   RefreshCcw,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+} from "lucide-react"
+import { Link } from "react-router-dom"
 import {
   ChevronRight,
   ArrowRight,
@@ -30,96 +24,94 @@ import {
   Award,
   Menu,
   X,
-  Target,
   TrendingUp,
-  PieChart,
   ChevronDown,
   Search,
   Rocket,
   Check,
   Star,
-} from "lucide-react";
+} from "lucide-react"
 
 export default function AfLynkAdvertiser() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLogoIndex, setActiveLogoIndex] = useState(0);
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [isVisible, setIsVisible] = useState({});
-  const [scrollY, setScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeLogoIndex, setActiveLogoIndex] = useState(0)
+  const [activeFaq, setActiveFaq] = useState(null)
+  const [isVisible, setIsVisible] = useState({})
+  const [scrollY, setScrollY] = useState(0)
 
   // Refs for scroll animations
-  const heroRef = useRef(null);
-  const statsRef = useRef(null);
-  const introRef = useRef(null);
-  const whyChooseRef = useRef(null);
-  const howItWorksRef = useRef(null);
-  const marketingRef = useRef(null);
-  const faqRef = useRef(null);
-  const ctaRef = useRef(null);
+  const heroRef = useRef(null)
+  const statsRef = useRef(null)
+  const introRef = useRef(null)
+  const whyChooseRef = useRef(null)
+  const howItWorksRef = useRef(null)
+  const marketingRef = useRef(null)
+  const faqRef = useRef(null)
+  const ctaRef = useRef(null)
 
-  const heroInView = useInView(heroRef, { once: false, amount: 0.3 });
-  const statsInView = useInView(statsRef, { once: false, amount: 0.3 });
-  const introInView = useInView(introRef, { once: false, amount: 0.3 });
-  const whyChooseInView = useInView(whyChooseRef, { once: false, amount: 0.2 });
+  const heroInView = useInView(heroRef, { once: false, amount: 0.3 })
+  const statsInView = useInView(statsRef, { once: false, amount: 0.3 })
+  const introInView = useInView(introRef, { once: false, amount: 0.3 })
+  const whyChooseInView = useInView(whyChooseRef, { once: false, amount: 0.2 })
   const howItWorksInView = useInView(howItWorksRef, {
     once: false,
     amount: 0.2,
-  });
-  const marketingInView = useInView(marketingRef, { once: false, amount: 0.2 });
-  const faqInView = useInView(faqRef, { once: false, amount: 0.2 });
-  const ctaInView = useInView(ctaRef, { once: false, amount: 0.2 });
+  })
+  const marketingInView = useInView(marketingRef, { once: false, amount: 0.2 })
+  const faqInView = useInView(faqRef, { once: false, amount: 0.2 })
+  const ctaInView = useInView(ctaRef, { once: false, amount: 0.2 })
 
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300])
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
     "footer.png", // Teal
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
-  ];
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveLogoIndex((prev) => (prev + 1) % logos.length);
-    }, 5000);
+      setActiveLogoIndex((prev) => (prev + 1) % logos.length)
+    }, 5000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-      const sections = document.querySelectorAll("section[id]");
+      setScrollY(window.scrollY)
+      const sections = document.querySelectorAll("section[id]")
       sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionId = section.id;
+        const sectionTop = section.getBoundingClientRect().top
+        const sectionId = section.id
         if (sectionTop < window.innerHeight * 0.75) {
-          setIsVisible((prev) => ({ ...prev, [sectionId]: true }));
+          setIsVisible((prev) => ({ ...prev, [sectionId]: true }))
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on initial load
+    window.addEventListener("scroll", handleScroll)
+    handleScroll() // Check on initial load
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
+    setActiveFaq(activeFaq === index ? null : index)
+  }
 
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  }
 
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } },
-  };
+  }
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -129,33 +121,32 @@ export default function AfLynkAdvertiser() {
         staggerChildren: 0.2,
       },
     },
-  };
+  }
 
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  };
+  }
 
   const slideInLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  };
+  }
 
   const slideInRight = {
     hidden: { opacity: 0, x: 100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  };
+  }
 
   const buttonHover = {
     rest: { scale: 1 },
     hover: {
       scale: 1.05,
-      boxShadow:
-        "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       transition: { duration: 0.3, ease: "easeOut" },
     },
     tap: { scale: 0.95 },
-  };
+  }
 
   const whyChooseItems = [
     {
@@ -193,7 +184,7 @@ export default function AfLynkAdvertiser() {
       icon: <Shield className="h-8 w-8 text-white" />,
       color: "from-rose-500 to-pink-600",
     },
-  ];
+  ]
 
   const howItWorksSteps = [
     {
@@ -231,7 +222,7 @@ export default function AfLynkAdvertiser() {
       icon: <Award className="h-8 w-8 text-white" />,
       color: "from-emerald-500 to-green-500",
     },
-  ];
+  ]
 
   const faqItems = [
     {
@@ -259,7 +250,7 @@ export default function AfLynkAdvertiser() {
       answer:
         "Yes, AfLynk offers granular targeting options including geographic targeting across 50+ countries. You can focus your campaigns on specific regions, countries, or even cities to maximize relevance and conversion rates.",
     },
-  ];
+  ]
 
   const painPoints = [
     {
@@ -283,7 +274,7 @@ export default function AfLynkAdvertiser() {
       icon: <Shield className="h-6 w-6 text-white" />,
       color: "from-amber-500 to-orange-600",
     },
-  ];
+  ]
 
   const stats = [
     {
@@ -316,7 +307,7 @@ export default function AfLynkAdvertiser() {
       label: "Verified Transaction Tracked",
       icon: <Award className="h-6 w-6 text-teal-500" />,
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
@@ -347,35 +338,20 @@ export default function AfLynkAdvertiser() {
           {/* Desktop Navigation + CTA */}
           <div className="hidden md:flex items-center justify-center flex-1">
             <div className="hidden md:flex flex-grow justify-center space-x-8">
-              <Link
-                to="/"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-              >
+              <Link to="/" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 Home
               </Link>
-              <a
-                href="/advertiser"
-                className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
-              >
+              <a href="/advertiser" className="text-gray-700 hover:text-teal-600 transition-colors font-medium">
                 Advertisers
               </a>
-              <Link
-                to="/publisher"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-              >
+              <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 Publisher
               </Link>
 
-              <Link
-                to="/contact"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-              >
+              <Link to="/contact" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 Contact
               </Link>
-              <Link
-                to="/aboutus"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-              >
+              <Link to="/aboutus" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 About Us
               </Link>
             </div>
@@ -394,15 +370,8 @@ export default function AfLynkAdvertiser() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 focus:outline-none"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -426,10 +395,7 @@ export default function AfLynkAdvertiser() {
                 >
                   Advertisers
                 </a>
-                <Link
-                  to="/publisher"
-                  className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-                >
+                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                   Publisher
                 </Link>
                 {/* <a
@@ -453,13 +419,30 @@ export default function AfLynkAdvertiser() {
                 >
                   About Us
                 </a>
-                <a
-                  href="#get-started"
-                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
-                  onClick={() => setIsMenuOpen(false)}
+                <motion.a
+                  href="/contact"
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonHover}
+                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm text-black border-2 border-white/20 px-8 py-4 rounded-full font-medium flex items-center justify-center group"
                 >
-                  Get Started <ChevronRight className="ml-1 h-4 w-4" />
-                </a>
+                  <span className="relative z-10">Schedule a Demo</span>
+                  <motion.div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <motion.div
+                    className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
+                    animate={{
+                      x: [0, 5, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "reverse",
+                    }}
+                  >
+                    <ArrowRight className="h-5 w-5 text-black" />
+                  </motion.div>
+                </motion.a>
               </div>
             </motion.div>
           )}
@@ -467,10 +450,7 @@ export default function AfLynkAdvertiser() {
       </nav>
 
       {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden"
-      >
+      <section ref={heroRef} className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-blue-50 to-indigo-50"></div>
@@ -533,9 +513,7 @@ export default function AfLynkAdvertiser() {
                 variants={fadeInUp}
                 className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20"
               >
-                <span className="text-teal-600 font-medium">
-                  Performance Marketing Excellence
-                </span>
+                <span className="text-teal-600 font-medium">Performance Marketing Excellence</span>
               </motion.div>
 
               <motion.h1
@@ -545,18 +523,14 @@ export default function AfLynkAdvertiser() {
                 Supercharge Your Brand's Growth with AfLynk Media
               </motion.h1>
 
-              <motion.h2
-                variants={fadeInUp}
-                className="text-xl md:text-2xl font-medium text-gray-700 mb-8"
-              >
-                Unlock a world of performance-driven marketing with
-                high-converting affiliates across multiple global verticals.
-                Your perfect advertising partner is just one click away.
+              <motion.h2 variants={fadeInUp} className="text-xl md:text-2xl font-medium text-gray-700 mb-8">
+                Unlock a world of performance-driven marketing with high-converting affiliates across multiple global
+                verticals. Your perfect advertising partner is just one click away.
               </motion.h2>
 
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12 md:w-24"
+                className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12"
               >
                 <motion.a
                   href="#cta"
@@ -566,9 +540,7 @@ export default function AfLynkAdvertiser() {
                   variants={buttonHover}
                   className="relative overflow-hidden bg-gradient-to-r from-teal-500 to-blue-500 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group"
                 >
-                  <span className="relative z-10 text-white mr-6">
-                    Start Advertising with AfLynk
-                  </span>
+                  <span className="relative z-10 text-white mr-6">Start Advertising with AfLynk</span>
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <motion.div
                     className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
@@ -614,7 +586,7 @@ export default function AfLynkAdvertiser() {
 
             <motion.div
               initial="hidden"
-              animate={heroInView ? "visible" : "hidden"}
+              animate={heroInView ? "visible" : "visible"}
               variants={fadeIn}
               className="relative hidden md:block"
             >
@@ -675,9 +647,7 @@ export default function AfLynkAdvertiser() {
                       transition={{ duration: 0.5, delay: 1 }}
                     >
                       <TrendingUp className="h-4 w-4 text-teal-500 mr-2" />
-                      <span className="text-gray-800">
-                        App Downloads: 100M+
-                      </span>
+                      <span className="text-gray-800">App Downloads: 100M+</span>
                     </motion.div>
                   </div>
                 </div>
@@ -689,17 +659,14 @@ export default function AfLynkAdvertiser() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
                   style={{
-                    boxShadow:
-                      "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   }}
                 >
                   <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
                     <Users className="h-4 w-4 text-indigo-600" />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-500">
-                      Verified Transactions
-                    </div>
+                    <div className="text-xs text-gray-500">Verified Transactions</div>
                     <div className="text-sm font-semibold ml-4">3M+</div>
                   </div>
                 </motion.div>
@@ -710,8 +677,7 @@ export default function AfLynkAdvertiser() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 1.4 }}
                   style={{
-                    boxShadow:
-                      "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   }}
                 >
                   <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
@@ -765,7 +731,7 @@ export default function AfLynkAdvertiser() {
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-10">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -779,9 +745,7 @@ export default function AfLynkAdvertiser() {
                     <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
                       {stat.icon}
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                      {stat.value}
-                    </div>
+                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                     <div className="text-gray-600">{stat.label}</div>
                   </div>
                 </motion.div>
@@ -800,33 +764,26 @@ export default function AfLynkAdvertiser() {
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
-            animate={introInView ? "visible" : "hidden"}
+            animate={introInView ? "visible" : "visible"}
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
               <div className="inline-block font-2xl mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
-                <span className="text-teal-600 font-bold">
-                  Why Choose AfLynk ?
-                </span>
+                <span className="text-teal-600 font-bold">Why Choose AfLynk ?</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
-                Welcome to AfLynk Media — The Premier Performance Marketing
-                Network
+                Welcome to AfLynk Media — The Premier Performance Marketing Network
               </h2>
               <p className="text-lg text-gray-700 mb-10 max-w-4xl mx-auto">
-                AfLynk gives you access to the world's most effective affiliate
-                marketers, equipped with tools that enable you to maximize your
-                ROI. Whether you're in iGaming, Crypto, e-commerce, BFSI, Nutra,
-                or Travel, we offer high-converting traffic and data-driven
-                insights to help you grow your brand and reach new heights.
+                AfLynk gives you access to the world's most effective affiliate marketers, equipped with tools that
+                enable you to maximize your ROI. Whether you're in iGaming, Crypto, e-commerce, BFSI, Nutra, or Travel,
+                we offer high-converting traffic and data-driven insights to help you grow your brand and reach new
+                heights.
               </p>
             </motion.div>
 
-            <motion.div
-              variants={fadeInUp}
-              className="grid md:grid-cols-3 gap-8"
-            >
+            <motion.div variants={fadeInUp} className="grid md:grid-cols-3 gap-8">
               {painPoints.map((point, index) => (
                 <motion.div
                   key={index}
@@ -839,9 +796,7 @@ export default function AfLynkAdvertiser() {
                     <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-4">
                       {point.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-2 text-white">
-                      {point.title}
-                    </h3>
+                    <h3 className="text-xl font-bold mb-2 text-white">{point.title}</h3>
                   </div>
                   <div className="p-6">
                     <p className="text-gray-700">{point.solution}</p>
@@ -856,17 +811,12 @@ export default function AfLynkAdvertiser() {
             >
               <div>
                 <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
-                  <span className="text-teal-600 font-medium">
-                    Data-Driven Approach
-                  </span>
+                  <span className="text-teal-600 font-medium">Data-Driven Approach</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">
-                  Real-Time Analytics & Insights
-                </h3>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">Real-Time Analytics & Insights</h3>
                 <p className="text-gray-700 mb-6">
-                  At AfLynk, we believe in the power of data to drive results.
-                  Our platform provides real-time insights and analytics that
-                  help you make informed decisions about your campaigns.
+                  At AfLynk, we believe in the power of data to drive results. Our platform provides real-time insights
+                  and analytics that help you make informed decisions about your campaigns.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start">
@@ -874,12 +824,8 @@ export default function AfLynkAdvertiser() {
                       <Check className="h-4 w-4 text-teal-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
-                        Transparent reporting
-                      </h4>
-                      <p className="text-gray-600 text-sm">
-                        Complete visibility into campaign performance metrics
-                      </p>
+                      <h4 className="font-semibold text-gray-900">Transparent reporting</h4>
+                      <p className="text-gray-600 text-sm">Complete visibility into campaign performance metrics</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -887,12 +833,9 @@ export default function AfLynkAdvertiser() {
                       <Check className="h-4 w-4 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
-                        AI-powered optimization
-                      </h4>
+                      <h4 className="font-semibold text-gray-900">AI-powered optimization</h4>
                       <p className="text-gray-600 text-sm">
-                        Machine learning algorithms that improve campaign
-                        performance
+                        Machine learning algorithms that improve campaign performance
                       </p>
                     </div>
                   </div>
@@ -901,12 +844,9 @@ export default function AfLynkAdvertiser() {
                       <Check className="h-4 w-4 text-indigo-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
-                        Fraud detection
-                      </h4>
+                      <h4 className="font-semibold text-gray-900">Fraud detection</h4>
                       <p className="text-gray-600 text-sm">
-                        Advanced systems to ensure traffic quality and protect
-                        your budget
+                        Advanced systems to ensure traffic quality and protect your budget
                       </p>
                     </div>
                   </div>
@@ -919,11 +859,7 @@ export default function AfLynkAdvertiser() {
                   transition={{ duration: 0.3 }}
                   className="relative bg-white p-1 rounded-xl shadow-xl overflow-hidden"
                 >
-                  <img
-                    src="graph.png"
-                    alt="Performance Analytics"
-                    className="w-full h-auto rounded-lg"
-                  />
+                  <img src="graph.png" alt="Performance Analytics" className="w-full h-auto rounded-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -bottom-5 -right-5 w-20 h-20"
@@ -949,11 +885,7 @@ export default function AfLynkAdvertiser() {
       </section>
 
       {/* Why Choose AfLynk Section - Enhanced UI */}
-      <section
-        ref={whyChooseRef}
-        id="why-choose"
-        className="py-24 md:py-36 overflow-hidden relative"
-      >
+      <section ref={whyChooseRef} id="why-choose" className="py-24 md:py-36 overflow-hidden relative">
         {/* Enhanced Background with deeper gradients */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950"></div>
@@ -1010,28 +942,19 @@ export default function AfLynkAdvertiser() {
         {/* Banner at the top of the section */}
         <div className="absolute top-0 left-0 w-full h-16 md:h-20 bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 opacity-90">
           <div className="h-full max-w-7xl mx-auto px-4 flex items-center justify-center md:justify-between">
-            <h3 className="text-white font-bold text-xl md:text-2xl tracking-wide hidden md:block">
-              AfLynk Advantage
-            </h3>
+            <h3 className="text-white font-bold text-xl md:text-2xl tracking-wide hidden md:block">AfLynk Advantage</h3>
             <div className="flex items-center space-x-2 md:space-x-4">
               <div className="flex items-center">
                 <StarIcon className="w-5 h-5 text-yellow-300 mr-1" />
-                <span className="text-white text-sm md:text-base font-medium">
-                  100M+ App Downloads Driven
-                </span>
+                <span className="text-white text-sm md:text-base font-medium">100M+ App Downloads Driven</span>
               </div>
               <div className="hidden md:flex items-center">
                 <CheckCircleIcon className="w-5 h-5 text-green-400 mr-1" />
-                <span className="text-white text-sm md:text-base font-medium">
-                  12+ Years of Industry Mastery
-                </span>
+                <span className="text-white text-sm md:text-base font-medium">12+ Years of Industry Mastery</span>
               </div>
               <div className="flex items-center">
                 <UsersIcon className="w-5 h-5 text-blue-300 mr-1" />
-                <span className="text-white text-sm md:text-base font-medium">
-                  {" "}
-                  3M+ Verified Transactions Tracked
-                </span>
+                <span className="text-white text-sm md:text-base font-medium"> 3M+ Verified Transactions Tracked</span>
               </div>
             </div>
           </div>
@@ -1040,30 +963,22 @@ export default function AfLynkAdvertiser() {
         <div className="container mx-auto px-4 pt-16 md:pt-20">
           <motion.div
             initial="hidden"
-            animate={whyChooseInView ? "visible" : "hidden"}
+            animate={whyChooseInView ? "visible" : "visible"}
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-20">
               <div className="inline-block mb-4 px-6 py-2 bg-white/15 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
-                <span className="text-gray-600 font-medium tracking-wide text-base md:text-lg">
-                  PREMIUM ADVANTAGE
-                </span>
+                <span className="text-gray-600 font-medium tracking-wide text-base md:text-lg">PREMIUM ADVANTAGE</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black tracking-tight">
                 Why{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
-                  AfLynk
-                </span>{" "}
-                <span className="text-black">
-                  {" "}
-                  is the Top Choice for Advertisers{" "}
-                </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">AfLynk</span>{" "}
+                <span className="text-black"> is the Top Choice for Advertisers </span>
               </h2>
               <p className="text-xl md:text-2xl text-blue-600 max-w-4xl mx-auto font-light leading-relaxed">
-                AfLynk Media delivers transparent, data-driven, and
-                high-performance advertising solutions that elevate your
-                marketing strategy to new heights.
+                AfLynk Media delivers transparent, data-driven, and high-performance advertising solutions that elevate
+                your marketing strategy to new heights.
               </p>
             </motion.div>
 
@@ -1073,7 +988,7 @@ export default function AfLynkAdvertiser() {
                   key={index}
                   variants={index % 2 === 0 ? slideInLeft : slideInRight}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="bg-white/15 backdrop-blur-md rounded-2xl p-8 md:p-10 border border-white/30 relative overflow-hidden group shadow-xl"
+                  className="bg-white/15 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/30 relative overflow-hidden group shadow-xl"
                 >
                   {/* Enhanced hover effect */}
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1087,12 +1002,8 @@ export default function AfLynkAdvertiser() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black tracking-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-blue-600 text-lg leading-relaxed">
-                        {item.description}
-                      </p>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black tracking-tight">{item.title}</h3>
+                      <p className="text-blue-400 text-lg leading-relaxed">{item.description}</p>
 
                       {/* Added feature list */}
                       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -1127,11 +1038,7 @@ export default function AfLynkAdvertiser() {
                           <circle cx="1" cy="1" r="1" fill="currentColor" />
                         </pattern>
                       </defs>
-                      <rect
-                        width="100%"
-                        height="100%"
-                        fill={`url(#pattern-${index})`}
-                      />
+                      <rect width="100%" height="100%" fill={`url(#pattern-${index})`} />
                     </svg>
                   </div>
                 </motion.div>
@@ -1183,9 +1090,8 @@ export default function AfLynkAdvertiser() {
                     Partner with the Industry Leader
                   </h3>
                   <p className="text-blue-600 text-xl mb-10 max-w-3xl mx-auto">
-                    Join hundreds of successful advertisers who have transformed
-                    their marketing performance with AfLynk. Our expert team is
-                    ready to help you achieve exceptional results.
+                    Join hundreds of successful advertisers who have transformed their marketing performance with
+                    AfLynk. Our expert team is ready to help you achieve exceptional results.
                   </p>
 
                   {/* Enhanced CTA button */}
@@ -1221,9 +1127,7 @@ export default function AfLynkAdvertiser() {
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
                     <div className="bg-white/10 px-4 py-2 rounded-full flex items-center">
                       <ShieldCheckIcon className="w-5 h-5 text-teal-400 mr-2" />
-                      <span className="text-black text-sm">
-                        Secure & Trusted
-                      </span>
+                      <span className="text-black text-sm">Secure & Trusted</span>
                     </div>
                     <div className="bg-white/10 px-4 py-2 rounded-full flex items-center">
                       <ClockIcon className="w-5 h-5 text-blue-400 mr-2" />
@@ -1231,9 +1135,7 @@ export default function AfLynkAdvertiser() {
                     </div>
                     <div className="bg-white/10 px-4 py-2 rounded-full flex items-center">
                       <RefreshCcw className="w-5 h-5 text-indigo-400 mr-2" />
-                      <span className="text-black text-sm">
-                        Money-Back Guarantee
-                      </span>
+                      <span className="text-black text-sm">Money-Back Guarantee</span>
                     </div>
                   </div>
                 </div>
@@ -1253,12 +1155,9 @@ export default function AfLynkAdvertiser() {
                     ))}
                   </div>
                   <p className="text-white text-lg font-medium italic">
-                    "AfLynk transformed our digital strategy with a 247%
-                    increase in conversion rates in just 3 months."
+                    "AfLynk transformed our digital strategy with a 247% increase in conversion rates in just 3 months."
                   </p>
-                  <div className="mt-2 text-blue-200 text-sm">
-                    Sarah Johnson, CMO at TechLead Solutions
-                  </div>
+                  <div className="mt-2 text-blue-200 text-sm">Sarah Johnson, CMO at TechLead Solutions</div>
                 </div>
                 <div className="flex-shrink-0">
                   <motion.button
@@ -1275,11 +1174,7 @@ export default function AfLynkAdvertiser() {
 
         {/* Added wave divider at bottom */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="w-full h-12 md:h-20"
-          >
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20">
             <path
               d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
               className="fill-blue-900 opacity-20"
@@ -1297,30 +1192,21 @@ export default function AfLynkAdvertiser() {
       </section>
 
       {/* How It Works Section */}
-      <section
-        ref={howItWorksRef}
-        id="how-it-works"
-        className="py-20 md:py-32 bg-white overflow-hidden"
-      >
+      <section ref={howItWorksRef} id="how-it-works" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
-            animate={howItWorksInView ? "visible" : "hidden"}
+            animate={howItWorksInView ? "visible" : "visible"}
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
               <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
-                <span className="text-teal-600 font-medium">
-                  Simple Process
-                </span>
+                <span className="text-teal-600 font-medium">Simple Process</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-                How It Works – Step-by-Step
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">How It Works – Step-by-Step</h2>
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-                Getting started with AfLynk as an advertiser is easy. Here's how
-                it works:
+                Getting started with AfLynk as an advertiser is easy. Here's how it works:
               </p>
             </motion.div>
 
@@ -1328,26 +1214,18 @@ export default function AfLynkAdvertiser() {
               {/* Connection Line - desktop only */}
               <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-500 via-blue-500 to-indigo-500 hidden md:block transform -translate-x-1/2 rounded-full"></div>
 
-              <div className="space-y-24 relative">
+              <div className="space-y-16 md:space-y-24 relative">
                 {howItWorksSteps.map((step, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 50 }}
-                    animate={
-                      howItWorksInView
-                        ? { opacity: 1, y: 0 }
-                        : { opacity: 0, y: 50 }
-                    }
+                    animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                     transition={{ delay: 0.2 * index, duration: 0.6 }}
                     className={`flex flex-col ${
                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                     } items-center gap-8`}
                   >
-                    <div
-                      className={`md:w-1/2 ${
-                        index % 2 === 0 ? "md:text-right" : "md:text-left"
-                      }`}
-                    >
+                    <div className={`md:w-1/2 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                       <div className="bg-white p-6 rounded-xl shadow-xl inline-block relative group">
                         {/* Decorative gradient border on hover */}
                         <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 -z-10 blur-xl transition-opacity duration-300"></div>
@@ -1394,8 +1272,7 @@ export default function AfLynkAdvertiser() {
                         className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl z-10 relative shadow-lg`}
                         whileHover={{
                           scale: 1.2,
-                          boxShadow:
-                            "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                         }}
                         transition={{ duration: 0.3 }}
                       >
@@ -1431,10 +1308,7 @@ export default function AfLynkAdvertiser() {
 
                 <div className="relative z-10">
                   <div className="flex justify-center mb-6">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }} transition={{ duration: 0.3 }}>
                       <img
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ai16tfmt-LdN1PGv0ei4nxw0k2wftycQAEe7edY.png"
                         alt="Network Reach"
@@ -1442,13 +1316,10 @@ export default function AfLynkAdvertiser() {
                       />
                     </motion.div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">
-                    Ready to Amplify Your Marketing?
-                  </h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Ready to Amplify Your Marketing?</h3>
                   <p className="text-gray-700 mb-8">
-                    Join our network of successful advertisers and start seeing
-                    real results. Our team is ready to help you launch your
-                    first campaign.
+                    Join our network of successful advertisers and start seeing real results. Our team is ready to help
+                    you launch your first campaign.
                   </p>
                   <motion.a
                     href="#cta"
@@ -1458,11 +1329,8 @@ export default function AfLynkAdvertiser() {
                     variants={buttonHover}
                     className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group md:h-16 "
                   >
-                    <span className="relative z-10">
-                      Start Advertising with AfLynk
-                    </span>
+                    <span className="relative z-10">Start Advertising with AfLynk</span>
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
                   </motion.a>
                 </div>
               </div>
@@ -1470,160 +1338,22 @@ export default function AfLynkAdvertiser() {
           </motion.div>
         </div>
       </section>
-      {/* Marketing Assets Section */}
-      {/* <section
-        ref={marketingRef}
-        id="marketing-assets"
-        className="py-20 md:py-32 bg-gradient-to-br from-teal-50 to-blue-50 overflow-hidden"
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={marketingInView ? "visible" : "hidden"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
-              <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
-                <span className="text-teal-600 font-medium">Creative Excellence</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Premium Marketing Assets</h2>
-              <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-                AfLynk provides high-converting creatives and marketing materials to help your campaigns succeed. Our
-                team of designers and copywriters create assets that drive engagement and conversions.
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 opacity-70 blur-xl -z-10"></div>
-
-                <div className="relative p-1 bg-gradient-to-r from-teal-500 to-blue-500 rounded-2xl">
-                  <div className="bg-white rounded-xl overflow-hidden">
-                    <img
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fdbc6lxo-LnTHnMcUuYEe069vBTST4BF8vuTZKS.png"
-                      alt="Marketing Assets"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl flex items-end">
-                  <div className="p-8 text-white w-full">
-                    <h3 className="text-2xl font-bold mb-2">High-Converting Creatives</h3>
-                    <p className="mb-6 max-w-2xl">
-                      Our design team creates banners, landing pages, and other marketing materials optimized for
-                      conversion. Every asset is tested and refined for maximum performance.
-                    </p>
-                    <motion.button
-                      initial="rest"
-                      whileHover="hover"
-                      whileTap="tap"
-                      variants={buttonHover}
-                      className="relative overflow-hidden bg-white text-gray-900 px-6 py-3 rounded-full font-medium shadow-xl group"
-                    >
-                      <span className="relative z-10">View Sample Creatives</span>
-                      <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <motion.div
-                        className="absolute right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center"
-                        animate={{
-                          x: [0, 5, 0],
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Number.POSITIVE_INFINITY,
-                          repeatType: "reverse",
-                        }}
-                      >
-                        <ArrowRight className="h-5 w-5 text-gray-600" />
-                      </motion.div>
-                    </motion.button>
-                  </div>
-                </div>
-              </div>
-
-              <motion.div variants={fadeInUp} className="mt-12 grid md:grid-cols-3 gap-8">
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-xl relative overflow-hidden group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-50 to-teal-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mb-4">
-                      <Target className="h-6 w-6 text-teal-600" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">Targeted Banners</h3>
-                    <p className="text-gray-700">
-                      Custom-designed banners optimized for your specific audience and vertical.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-xl relative overflow-hidden group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                      <Globe className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">Landing Pages</h3>
-                    <p className="text-gray-700">
-                      High-converting landing pages designed to maximize your campaign performance.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-xl relative overflow-hidden group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
-                      <PieChart className="h-6 w-6 text-indigo-600" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">Analytics Integration</h3>
-                    <p className="text-gray-700">
-                      All creatives come with built-in tracking to measure performance and optimize results.
-                    </p>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section> */}
-
       {/* FAQ Section */}
-      <section
-        ref={faqRef}
-        id="faq"
-        className="py-20 md:py-32 bg-white overflow-hidden"
-      >
+      <section ref={faqRef} id="faq" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
-            animate={faqInView ? "visible" : "hidden"}
+            animate={faqInView ? "visible" : "visible"}
             variants={staggerContainer}
             className="max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-16">
               <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
-                <span className="text-teal-600 font-medium">
-                  Common Questions
-                </span>
+                <span className="text-teal-600 font-medium">Common Questions</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-                Frequently Asked Questions
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
               <p className="text-xl text-gray-700">
-                Got questions? We've got answers. If you don't see what you're
-                looking for, reach out to our team.
+                Got questions? We've got answers. If you don't see what you're looking for, reach out to our team.
               </p>
             </motion.div>
 
@@ -1634,20 +1364,14 @@ export default function AfLynkAdvertiser() {
                   variants={fadeInUp}
                   custom={index}
                   className={`border ${
-                    activeFaq === index
-                      ? "border-teal-500 shadow-lg"
-                      : "border-gray-200"
+                    activeFaq === index ? "border-teal-500 shadow-lg" : "border-gray-200"
                   } rounded-xl overflow-hidden transition-all duration-300 bg-white`}
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                    className="w-full px-4 md:px-6 py-4 text-left flex justify-between items-center focus:outline-none"
                   >
-                    <h3
-                      className={`text-xl font-semibold ${
-                        activeFaq === index ? "text-teal-600" : "text-gray-800"
-                      }`}
-                    >
+                    <h3 className={`text-xl font-semibold ${activeFaq === index ? "text-teal-600" : "text-gray-800"}`}>
                       {faq.question}
                     </h3>
                     <div
@@ -1683,8 +1407,7 @@ export default function AfLynkAdvertiser() {
 
             <motion.div variants={fadeInUp} className="mt-12 text-center">
               <p className="text-gray-700 mb-6">
-                Still have questions? Our team is here to help you get started
-                with AfLynk.
+                Still have questions? Our team is here to help you get started with AfLynk.
               </p>
               <motion.a
                 href="/contact"
@@ -1705,11 +1428,7 @@ export default function AfLynkAdvertiser() {
       </section>
 
       {/* CTA Section */}
-      <section
-        ref={ctaRef}
-        id="cta"
-        className="py-20 md:py-32 relative overflow-hidden"
-      >
+      <section ref={ctaRef} id="cta" className="py-20 md:py-32 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-blue-600 to-indigo-700"></div>
@@ -1766,7 +1485,7 @@ export default function AfLynkAdvertiser() {
         <div className="container  mx-auto px-4 relative">
           <motion.div
             initial="hidden"
-            animate={ctaInView ? "visible" : "hidden"}
+            animate={ctaInView ? "visible" : "visible"}
             variants={staggerContainer}
             className="max-w-4xl mx-auto text-center"
           >
@@ -1774,40 +1493,28 @@ export default function AfLynkAdvertiser() {
               variants={fadeInUp}
               className="inline-block mb-6 px-6 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20"
             >
-              <span className="text-black text-2xl font-medium">
-                Take the Next Step
-              </span>
+              <span className="text-black text-2xl font-medium">Take the Next Step</span>
             </motion.div>
 
-            <motion.h2
-              variants={fadeInUp}
-              className="text-3xl md:text-5xl font-bold mb-6 text-black"
-            >
-              Stop Missing Out on High-Quality Affiliates, Global Reach, and
-              Maximum ROI
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold mb-6 text-black">
+              Stop Missing Out on High-Quality Affiliates, Global Reach, and Maximum ROI
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="text-xl text-black mb-12">
-              AfLynk Media is the perfect partner to help you scale your brand
-              with data-driven results. Take your advertising campaigns to the
-              next level with AfLynk.
+              AfLynk Media is the perfect partner to help you scale your brand with data-driven results. Take your
+              advertising campaigns to the next level with AfLynk.
             </motion.p>
 
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col md:flex-row justify-center gap-6 md:ml-0 ml-[-80px]"
-            >
+            <motion.div variants={fadeInUp} className="flex flex-col md:flex-row justify-center gap-6">
               <motion.a
                 href="/contact"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={buttonHover}
-                className="relative overflow-hidden  text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group ml-20"
+                className="relative overflow-hidden text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group"
               >
-                <span className="relative z-10 md:mr-6 ">
-                  Start Advertising Now
-                </span>
+                <span className="relative z-10 md:mr-6 ">Start Advertising Now</span>
                 <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <motion.div
                   className="absolute right-4 w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center"
@@ -1855,9 +1562,7 @@ export default function AfLynkAdvertiser() {
               <motion.div
                 className="hidden md:flex absolute -top-10 -left-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center"
                 initial={{ opacity: 0, x: -20 }}
-                animate={
-                  ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
-                }
+                animate={ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
@@ -1872,9 +1577,7 @@ export default function AfLynkAdvertiser() {
               <motion.div
                 className="hidden md:flex absolute mb-4 -bottom-10 -right-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center"
                 initial={{ opacity: 0, x: 20 }}
-                animate={
-                  ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
-                }
+                animate={ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 ">
@@ -1894,15 +1597,9 @@ export default function AfLynkAdvertiser() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img
-                src="footer.png"
-                alt="AfLynk Media Logo"
-                className="h-22 w-36 mb-4"
-              />
+              <img src="footer.png" alt="AfLynk Media Logo" className="h-22 w-36 mb-4" />
               <p className="text-gray-400 text-sm">AfLynk Media LLP </p>
-              <p className="text-gray-400 text-sm">
-                Plot No 20, Block H-1/A, Sec-63, Noida
-              </p>
+              <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
               <p className="text-gray-400 text-sm">contact@aflynk.com</p>
             </div>
 
@@ -1910,43 +1607,28 @@ export default function AfLynkAdvertiser() {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Home</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#advertisers"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#advertisers" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Advertiser</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#publishers"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#publishers" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Publisher</span>
                   </a>
                 </li>
-                
+
                 <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">About Us</span>
                   </a>
                 </li>
@@ -1957,18 +1639,12 @@ export default function AfLynkAdvertiser() {
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    to="policy"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <Link to="policy" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Privacy and Policy</span>
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Terms and conditions</span>
                   </a>
                 </li>
@@ -2051,17 +1727,11 @@ export default function AfLynkAdvertiser() {
           </div>
           <div className="relative border-t border-gray-800 mt-12 pt-8">
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-              <p className="text-gray-400 text-sm text-center md:text-left">
-                &copy; 2025 AfLynk Media LLP
-              </p>
+              <p className="text-gray-400 text-sm text-center md:text-left">&copy; 2025 AfLynk Media LLP</p>
 
-              <p className="text-gray-400 text-sm text-center order-3 md:order-none">
-                Made with ❤️ in India
-              </p>
+              <p className="text-gray-400 text-sm text-center order-3 md:order-none">Made with ❤️ in India</p>
 
-              <p className="text-gray-400 text-sm text-center md:text-right">
-                All rights reserved.
-              </p>
+              <p className="text-gray-400 text-sm text-center md:text-right">All rights reserved.</p>
             </div>
           </div>
         </div>
@@ -2083,14 +1753,9 @@ export default function AfLynkAdvertiser() {
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 15l7-7 7 7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
         </svg>
       </motion.a>
     </div>
-  );
+  )
 }
