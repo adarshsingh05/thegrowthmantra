@@ -1235,16 +1235,25 @@ AfLynk Media LLP        </p>
       </div>
     </div>
 
-    <div className="border-t border-gray-800 mt-12 pt-8">
-      <div className="flex justify-between items-center">
-        <p className="text-gray-400 text-sm">
-          &copy; 2025 AfLynk Media LLP
-        </p>
-        <p className="text-gray-400 text-sm">
-          All rights reserved.
-        </p>
-      </div>
-    </div>
+    <div className="relative border-t border-gray-800 mt-12 pt-8">
+            <div className="flex justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                &copy; 2025 AfLynk Media LLP
+              </p>
+
+              {/* Invisible placeholder to keep spacing balanced */}
+              <p className="text-transparent text-sm select-none">
+                Center Placeholder
+              </p>
+
+              <p className="text-gray-400 text-sm">All rights reserved.</p>
+            </div>
+
+            {/* Centered absolute text */}
+            <p className="absolute left-1/2 top-8 transform -translate-x-1/2 text-gray-400 text-sm">
+              Made with ❤️ in India
+            </p>
+          </div>
   </div>
 </footer>
 
