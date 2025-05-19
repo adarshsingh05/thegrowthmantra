@@ -482,13 +482,12 @@ export default function AfLynkTerms() {
     <div className="grid md:grid-cols-4 gap-8">
       <div>
         <img
-          src={logos[1] || "/placeholder.svg"}
+          src='footer.png'
           alt="AfLynk Media Logo"
           className="h-22 w-32 mb-4"
         />
         <p className="text-gray-400 text-sm">
-          AfLynk Media LLP, a 93 Communications Venture
-        </p>
+AfLynk Media LLP        </p>
         <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
         <p className="text-gray-400 text-sm">contact@aflynk.com</p>
       </div>
@@ -534,6 +533,14 @@ export default function AfLynkTerms() {
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">About Us</span>
             </a>
           </li>
         </ul>
@@ -590,7 +597,7 @@ export default function AfLynkTerms() {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            +91-85058 465555
+             +91-7988540592
           </li>
           <li className="flex items-center text-gray-400">
             <svg

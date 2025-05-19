@@ -36,15 +36,11 @@ export default function AfLynkLandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
 
-
-  const sectionRef = useRef(null)
-  const inView = useInView(sectionRef, { once: false, amount: 0.2 })
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: false, amount: 0.2 });
 
   // Animation variants
- 
 
-
-  
   // Refs for scroll animations
   const heroRef = useRef(null);
   const statsRef = useRef(null);
@@ -192,7 +188,7 @@ export default function AfLynkLandingPage() {
       icon: <Users className="h-6 w-6 text-orange-500" />,
       text: "Referral bonus programs to earn more",
     },
-     {
+    {
       icon: <Globe className="h-6 w-6 text-orange-500" />,
       text: "Dedicated Account Manager",
     },
@@ -206,7 +202,7 @@ export default function AfLynkLandingPage() {
     "E-commerce & D2C",
     "Education & EdTech",
     "Travel, Telecom,",
-    "Game and reward Apps"
+    "Game and reward Apps",
   ];
 
   const publisherTypes = [
@@ -217,7 +213,7 @@ export default function AfLynkLandingPage() {
     "Email marketers",
     "App & tool owners",
     "YouTubers",
-    "TG/FB Group Owners"
+    "TG/FB Group Owners",
   ];
 
   const stats = [
@@ -240,7 +236,7 @@ export default function AfLynkLandingPage() {
     {
       value: "20+",
       description: "High-Converting Verticals.",
-    }
+    },
   ];
 
   return (
@@ -262,9 +258,9 @@ export default function AfLynkLandingPage() {
             alt="AfLynk Media Logo"
             initial={{ opacity: 1 }}
             animate={{
-              marginTop: hasScrolled ? 1 : -2,
-              height: hasScrolled ? 62 : 117,
-              width: hasScrolled ? "auto" : 290,
+              marginTop: hasScrolled ? 1 : 6,
+              height: hasScrolled ? 62 : 90,
+              width: hasScrolled ? "auto" : 260,
               marginLeft: hasScrolled ? 0 : 53,
               opacity: 1,
               marginBottom: hasScrolled ? 0 : 20,
@@ -293,8 +289,14 @@ export default function AfLynkLandingPage() {
 
           {/* Center Navigation */}
           <div className="hidden md:flex flex-grow justify-center space-x-8">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
+            >
+              Home{" "}
+            </Link>
             <a
-              href="/advertise"
+              href="/advertiser"
               className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
             >
               Advertisers
@@ -305,12 +307,12 @@ export default function AfLynkLandingPage() {
             >
               Publisher
             </Link>
-            <a
+            {/* <a
               href="#case-studies"
               className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
             >
               Case Study
-            </a>
+            </a> */}
             <Link
               to="/contact"
               className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
@@ -321,7 +323,7 @@ export default function AfLynkLandingPage() {
               to="/aboutus"
               className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
             >
-                About Us
+              About Us
             </Link>
           </div>
 
@@ -364,7 +366,7 @@ export default function AfLynkLandingPage() {
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <a
-                  href="#advertisers"
+                  href="/advertiser"
                   className="text-gray-700 hover:text-teal-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -376,19 +378,26 @@ export default function AfLynkLandingPage() {
                 >
                   Publisher
                 </Link>
-                <a
+                {/* <a
                   href="#case-studies"
                   className="text-gray-700 hover:text-purple-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Case Studies
-                </a>
+                </a> */}
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="text-gray-700 hover:text-blue-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
+                </a>
+                <a
+                  href="/aboutus"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
                 </a>
                 <a
                   href="#get-started"
@@ -416,12 +425,14 @@ export default function AfLynkLandingPage() {
               variants={staggerContainer}
               className="  mt-0 text-left md:mt-[-100px]"
             >
-               <motion.h1
-    variants={fadeInUp}
-    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
-  >
-    <span className="inline-block mb-0 mt-6">Reimagine Affiliate Marketing with AfLynk</span>
-  </motion.h1>
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
+              >
+                <span className="inline-block mb-0 mt-6">
+                  Reimagine Affiliate Marketing with AfLynk
+                </span>
+              </motion.h1>
 
               <motion.h2
                 variants={fadeInUp}
@@ -478,7 +489,7 @@ export default function AfLynkLandingPage() {
               <motion.img
                 src="main.png"
                 alt="AfLynk Analytics Dashboard"
-                className="w-full h-auto object-contain z-10 relative"
+                className="w-[1000px] h-[610px] object-contain z-10 relative"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -490,7 +501,6 @@ export default function AfLynkLandingPage() {
           <div className="w-full py-16 px-4 bg-gray-50">
             <div className="max-w-7xl mx-auto">
               {/* Heading */}
-              
 
               {/* Banner */}
               <div className="mt-12 bg-gradient-to-r from-red-400 via-red-500 to-yellow-500 rounded-2xl shadow-2xl p-10 text-center relative text-white">
@@ -512,7 +522,7 @@ export default function AfLynkLandingPage() {
                 {/* Button */}
                 <div className="mt-8 flex justify-center">
                   <button className="flex items-center gap-2 bg-white text-yellow-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-yellow-100 transition duration-300">
-                    Schedule a Call
+                    <Link to="/contact">Schedule a Call</Link>
                     <ArrowRightIcon className="h-5 w-5" />
                   </button>
                 </div>
@@ -523,27 +533,27 @@ export default function AfLynkLandingPage() {
 
               {/* Stats grid */}
               <div
-      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      {stats.map((stat, index) => (
-        <div
-          key={index}
-          className={`bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center text-center h-40 transform transition-all duration-500 ${
-            isVisible ? "translate-y-0" : "translate-y-8"
-          }`}
-          style={{ transitionDelay: `${index * 100}ms` }}
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
-            {stat.value}
-          </h3>
-          <p className="text-gray-600 text-sm md:text-base">
-            {stat.description}
-          </p>
-        </div>
-      ))}
-    </div>
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 transition-opacity duration-1000 ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className={`bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center text-center h-40 transform transition-all duration-500 ${
+                      isVisible ? "translate-y-0" : "translate-y-8"
+                    }`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
+                      {stat.value}
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base">
+                      {stat.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -551,247 +561,381 @@ export default function AfLynkLandingPage() {
 
       {/* Advertisers Section */}
       <section
-  id="advertisers"
-  ref={advertisersRef}
-  className="py-20 md:py-32 bg-white overflow-hidden"
->
-  <div className="container mx-auto px-4">
-    <motion.div
-      initial="hidden"
-      animate={advertisersInView ? "visible" : "hidden"}
-      variants={staggerContainer}
-      className="max-w-6xl mx-auto"
-    >
-      {/* Keep banner position unchanged */}
-      <motion.div
-        variants={fadeInUp}
-        className="text-center mb-16 relative"
+        id="advertisers"
+        ref={advertisersRef}
+        className="py-20 md:py-32 bg-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-blue-50 rounded-3xl transform -skew-y-1 shadow-lg"></div>
-        <div className="relative py-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">
-            Built for Advertisers Who Demand More
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-teal-600">
-            You Don't Just Want Clicks - You Want Customers. We Deliver
-            Them.
-          </h3>
-        </div>
-      </motion.div>
-
-      {/* Centered "You're tired of" section with more impact */}
-      <motion.div 
-        variants={fadeInUp} 
-        className="max-w-4xl mx-auto mb-16 bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg border border-teal-100 overflow-hidden"
-      >
-        <div className="p-8 md:p-10">
-          <div className="marketing-content space-y-8">
-            {/* Problem Statement Section - more impactful */}
-            <h4 className="text-2xl font-bold text-gray-800 text-center mb-6 border-b-2 border-teal-200 pb-4">
-              You're tired of:
-            </h4>
-            
-            <ul className="space-y-4 pl-1">
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium">Spending big for traffic that <span className="text-red-600 font-bold">doesn't convert</span></span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium">Chasing <span className="text-red-600 font-bold">vanity metrics</span> with no real value</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium">Fighting <span className="text-red-600 font-bold">fraudulent traffic</span> that drains your budget</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium"><span className="text-red-600 font-bold">Slow campaign launches</span> that miss market opportunities</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium">Platforms with <span className="text-red-600 font-bold">limited reach</span> and targeting capabilities</span>
-              </li>
-            </ul>
-
-            {/* Solution Statement Section */}
-            <h4 className="text-2xl font-bold text-gray-800 text-center mt-8 mb-6 border-b-2 border-teal-200 pb-4">
-              At AfLynk, we deliver what you want:
-            </h4>
-            
-            <ul className="space-y-4 pl-1">
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Measurable ROI</span> you can track and scale</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Fraud-free scale</span> with verified traffic sources</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </span>
-                <span className="text-gray-700 text-lg font-medium"><span className="text-teal-600 font-bold">Precision targeting</span> that reaches your ideal audience</span>
-              </li>
-            </ul>
-
-            <p className="text-gray-700 font-medium text-lg pt-4 text-center">
-              We don't just run campaigns. <span className="text-blue-600 font-bold">We architect performance.</span> Whether you're launching a new app, promoting a gaming brand, or scaling a D2C product, AfLynk brings you hyper-targeted distribution.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Features section below the main content */}
-      <motion.div variants={fadeInUp} className="mb-12">
-        <h4 className="text-2xl font-semibold mb-6 text-teal-600 text-center">
-          Features That Drive Results:
-        </h4>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {advertisersFeatures.slice(0, 6).map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={
-                advertisersInView
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 20 }
-              }
-              transition={{ delay: 0.1 * index }}
-              className="flex items-start p-5 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
-            >
-              <div className="mr-4 mt-1 text-teal-500">
-                {feature.icon}
-              </div>
-              <p className="text-gray-700">{feature.text}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          {verticals.map((vertical, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={
-                advertisersInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: -20 }
-              }
-              transition={{ delay: 0.05 * index }}
-              className="flex items-center bg-gray-50 p-3 rounded-lg"
-            >
-              <CheckCircle className="h-5 w-5 text-teal-500 mr-2 flex-shrink-0" />
-              <span className="text-gray-700">{vertical}</span>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="text-center mt-6">
-          <p className="text-gray-600">
-            With customizable models (CPA, CPL, CPS, CPI, CPT) and
-            granular geo-targeting across India, MENA, SEA, LATAM, EU &
-            the US, we help you break into new markets, safely and
-            profitably.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* CTA Button */}
-      <motion.div
-        variants={fadeInUp}
-        className="text-center mb-16"
-      >
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <a
-            href="#contact"
-            className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl"
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            animate={advertisersInView ? "visible" : "hidden"}
+            variants={staggerContainer}
+            className="max-w-6xl mx-auto"
           >
-            <span className="text-white mr-3">
-              🚀 I'm an Advertiser — Let's Talk Scale
-            </span>
-            <div className="bg-white rounded-full p-2 transform group-hover:translate-x-1 transition-transform">
-              <svg
-                className="w-6 h-6 text-green-700"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-          </a>
-        </motion.div>
-      </motion.div>
+            {/* Keep banner position unchanged */}
+            <motion.div
+              variants={fadeInUp}
+              className="text-center mb-16 relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-blue-50 rounded-3xl transform -skew-y-1 shadow-lg"></div>
+              <div className="relative py-8">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">
+                  Built for Advertisers Who Demand More
+                </h2>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-8 text-teal-600">
+                  You Don't Just Want Clicks - You Want Customers. We Deliver
+                  Them.
+                </h3>
+              </div>
+            </motion.div>
 
-      {/* New impactful banner for $0 to $100K */}
-      <motion.div 
-        variants={fadeInUp}
-        className="relative overflow-hidden rounded-2xl shadow-2xl"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-700 opacity-90"></div>
-        <div className="absolute -right-8 -bottom-8 opacity-10">
-          <svg width="240" height="240" viewBox="0 0 24 24" fill="white">
-            <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
-          </svg>
+            {/* Centered "You're tired of" section with more impact */}
+            <motion.div
+              variants={fadeInUp}
+              className="max-w-4xl mx-auto mb-16 bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl shadow-lg border border-teal-100 overflow-hidden"
+            >
+              <div className="p-8 md:p-10">
+                <div className="marketing-content space-y-8">
+                  {/* Problem Statement Section - more impactful */}
+                  <h4 className="text-2xl font-bold text-gray-800 text-center mb-6 border-b-2 border-teal-200 pb-4">
+                    You're tired of:
+                  </h4>
+
+                  <ul className="space-y-4 pl-1">
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        Spending big for traffic that{" "}
+                        <span className="text-red-600 font-bold">
+                          doesn't convert
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        Chasing{" "}
+                        <span className="text-red-600 font-bold">
+                          vanity metrics
+                        </span>{" "}
+                        with no real value
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        Fighting{" "}
+                        <span className="text-red-600 font-bold">
+                          fraudulent traffic
+                        </span>{" "}
+                        that drains your budget
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        <span className="text-red-600 font-bold">
+                          Slow campaign launches
+                        </span>{" "}
+                        that miss market opportunities
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-pink-500 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        Platforms with{" "}
+                        <span className="text-red-600 font-bold">
+                          limited reach
+                        </span>{" "}
+                        and targeting capabilities
+                      </span>
+                    </li>
+                  </ul>
+
+                  {/* Solution Statement Section */}
+                  <h4 className="text-2xl font-bold text-gray-800 text-center mt-8 mb-6 border-b-2 border-teal-200 pb-4">
+                    At AfLynk, we deliver what you want:
+                  </h4>
+
+                  <ul className="space-y-4 pl-1">
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        <span className="text-teal-600 font-bold">
+                          Measurable ROI
+                        </span>{" "}
+                        you can track and scale
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        <span className="text-teal-600 font-bold">
+                          Fraud-free scale
+                        </span>{" "}
+                        with verified traffic sources
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 rounded-full p-1.5 mr-3 mt-1">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="text-gray-700 text-lg font-medium">
+                        <span className="text-teal-600 font-bold">
+                          Precision targeting
+                        </span>{" "}
+                        that reaches your ideal audience
+                      </span>
+                    </li>
+                  </ul>
+
+                  <p className="text-gray-700 font-medium text-lg pt-4 text-center">
+                    We don't just run campaigns.{" "}
+                    <span className="text-blue-600 font-bold">
+                      We architect performance.
+                    </span>{" "}
+                    Whether you're launching a new app, promoting a gaming
+                    brand, or scaling a D2C product, AfLynk brings you
+                    hyper-targeted distribution.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Features section below the main content */}
+            <motion.div variants={fadeInUp} className="mb-12">
+              <h4 className="text-2xl font-semibold mb-6 text-teal-600 text-center">
+                Features That Drive Results:
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {advertisersFeatures.slice(0, 6).map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      advertisersInView
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 20 }
+                    }
+                    transition={{ delay: 0.1 * index }}
+                    className="flex items-start p-5 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+                  >
+                    <div className="mr-4 mt-1 text-teal-500">
+                      {feature.icon}
+                    </div>
+                    <p className="text-gray-700">{feature.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                {verticals.map((vertical, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={
+                      advertisersInView
+                        ? { opacity: 1, x: 0 }
+                        : { opacity: 0, x: -20 }
+                    }
+                    transition={{ delay: 0.05 * index }}
+                    className="flex items-center bg-gray-50 p-3 rounded-lg"
+                  >
+                    <CheckCircle className="h-5 w-5 text-teal-500 mr-2 flex-shrink-0" />
+                    <span className="text-gray-700">{vertical}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="text-center mt-6">
+                <p className="text-gray-600">
+                  With customizable models (CPA, CPL, CPS, CPI, CPT) and
+                  granular geo-targeting across India, MENA, SEA, LATAM, EU &
+                  the US, we help you break into new markets, safely and
+                  profitably.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div variants={fadeInUp} className="text-center mb-16">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <a
+                  href="#contact"
+                  className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl"
+                >
+                  <span className="text-white mr-3">
+                    🚀 I'm an Advertiser — Let's Talk Scale
+                  </span>
+                  <div className="bg-white rounded-full p-2 transform group-hover:translate-x-1 transition-transform">
+                    <svg
+                      className="w-6 h-6 text-green-700"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* New impactful banner for $0 to $100K */}
+            <motion.div
+              variants={fadeInUp}
+              className="relative overflow-hidden rounded-2xl shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-700 opacity-90"></div>
+              <div className="absolute -right-8 -bottom-8 opacity-10">
+                <svg width="240" height="240" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+                </svg>
+              </div>
+              <div className="relative py-12 px-8 md:px-12 text-center">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                  We've helped scale brands from
+                  <div className="mt-3 mb-3">
+                    <span className="bg-white text-blue-700 px-4 py-2 rounded-lg inline-block transform -rotate-1 shadow-lg">
+                      $0 to $100K+/mo
+                    </span>
+                  </div>
+                  — and we're just getting started.
+                </h3>
+                <p className="text-white text-xl mt-4 max-w-3xl mx-auto opacity-90">
+                  Join the brands who've multiplied their growth with our
+                  performance-focused approach.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="relative py-12 px-8 md:px-12 text-center">
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            We've helped scale brands from 
-            <div className="mt-3 mb-3">
-              <span className="bg-white text-blue-700 px-4 py-2 rounded-lg inline-block transform -rotate-1 shadow-lg">
-                $0 to $100K+/mo
-              </span>
-            </div>
-            — and we're just getting started.
-          </h3>
-          <p className="text-white text-xl mt-4 max-w-3xl mx-auto opacity-90">
-            Join the brands who've multiplied their growth with our performance-focused approach.
-          </p>
-        </div>
-      </motion.div>
-      
-    </motion.div>
-  </div>
-</section>
+      </section>
 
       {/* Publishers Section */}
       <section
@@ -808,11 +952,13 @@ export default function AfLynkLandingPage() {
           >
             {/* Header - Positioned at the top */}
             <motion.div variants={fadeInUp} className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">For Publishers Who Want Freedom & Fortune</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                For Publishers Who Want Freedom & Fortune
+              </h2>
               <div className="h-1 w-32 bg-orange-500 mx-auto mb-8"></div>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Join hundreds of successful publishers who are maximizing their revenue with AfLynk Media's premium
-                affiliate network.
+                Join hundreds of successful publishers who are maximizing their
+                revenue with AfLynk Media's premium affiliate network.
               </p>
             </motion.div>
 
@@ -827,7 +973,9 @@ export default function AfLynkLandingPage() {
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    animate={
+                      inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
                     transition={{ delay: 0.1 * index }}
                     className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
                   >
@@ -840,13 +988,17 @@ export default function AfLynkLandingPage() {
               </div>
 
               <div className="mt-12 bg-white p-8 rounded-xl shadow-md">
-                <h4 className="text-2xl font-semibold mb-6 text-center text-gray-800">Best For</h4>
+                <h4 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+                  Best For
+                </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {publisherTypes.map((type, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      animate={
+                        inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                      }
                       transition={{ delay: 0.05 * index }}
                       className="flex items-center bg-orange-50 p-3 rounded-lg"
                     >
@@ -864,7 +1016,9 @@ export default function AfLynkLandingPage() {
                   whileTap={{ scale: 0.95 }}
                   className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg"
                 >
-                  <span className="text-white">💼 Become a Publisher Today</span>
+                  <span className="text-white">
+                    💼 Become a Publisher Today
+                  </span>
                 </motion.a>
               </div>
             </motion.div>
@@ -906,30 +1060,42 @@ export default function AfLynkLandingPage() {
                       ></path>
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">You've tried the rest. Here's what you're facing:</h3>
+                  <h3 className="text-2xl font-bold">
+                    You've tried the rest. Here's what you're facing:
+                  </h3>
                 </div>
 
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-red-300 mr-3 text-xl">✗</span>
-                    <span className="text-white font-medium">Slow payouts that leave you cashflow constrained</span>
+                    <span className="text-white font-medium">
+                      Slow payouts that leave you cashflow constrained
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-red-300 mr-3 text-xl">✗</span>
-                    <span className="text-white font-medium">Dead offers wasting your traffic and effort</span>
+                    <span className="text-white font-medium">
+                      Dead offers wasting your traffic and effort
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-red-300 mr-3 text-xl">✗</span>
-                    <span className="text-white font-medium">Poor support when you need answers fast</span>
+                    <span className="text-white font-medium">
+                      Poor support when you need answers fast
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-red-300 mr-3 text-xl">✗</span>
-                    <span className="text-white font-medium">Campaigns that tank your credibility with audiences</span>
+                    <span className="text-white font-medium">
+                      Campaigns that tank your credibility with audiences
+                    </span>
                   </li>
                 </ul>
 
                 <div className="border-l-4 border-white/40 pl-4 py-3 bg-white/10 rounded-r-lg backdrop-blur-sm">
-                  <p className="text-white font-bold text-xl">You deserve better.</p>
+                  <p className="text-white font-bold text-xl">
+                    You deserve better.
+                  </p>
                 </div>
               </div>
 
@@ -956,26 +1122,35 @@ export default function AfLynkLandingPage() {
                 </div>
 
                 <p className="mb-6 text-white font-medium">
-                  We hand-curate the highest-converting, fastest-paying, evergreen, and exclusive offers in the world —
-                  so your content finally pays you what it's worth.
+                  We hand-curate the highest-converting, fastest-paying,
+                  evergreen, and exclusive offers in the world — so your content
+                  finally pays you what it's worth.
                 </p>
 
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-green-300 mr-3 text-xl">✓</span>
-                    <span className="text-white font-medium">No more guesswork with transparent metrics</span>
+                    <span className="text-white font-medium">
+                      No more guesswork with transparent metrics
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-green-300 mr-3 text-xl">✓</span>
-                    <span className="text-white font-medium">No more generic dashboards that hide what matters</span>
+                    <span className="text-white font-medium">
+                      No more generic dashboards that hide what matters
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-green-300 mr-3 text-xl">✓</span>
-                    <span className="text-white font-medium">Just real tools that drive performance</span>
+                    <span className="text-white font-medium">
+                      Just real tools that drive performance
+                    </span>
                   </li>
                   <li className="flex items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm">
                     <span className="text-green-300 mr-3 text-xl">✓</span>
-                    <span className="text-white font-medium">Real payouts that arrive on time, every time</span>
+                    <span className="text-white font-medium">
+                      Real payouts that arrive on time, every time
+                    </span>
                   </li>
                 </ul>
 
@@ -996,8 +1171,12 @@ export default function AfLynkLandingPage() {
               className="mt-16 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 relative overflow-hidden"
             >
               {/* Dollar sign decorative elements */}
-              <div className="absolute -top-6 -left-6 text-6xl text-white/10 font-bold">$</div>
-              <div className="absolute -bottom-6 -right-6 text-6xl text-white/10 font-bold">$</div>
+              <div className="absolute -top-6 -left-6 text-6xl text-white/10 font-bold">
+                $
+              </div>
+              <div className="absolute -bottom-6 -right-6 text-6xl text-white/10 font-bold">
+                $
+              </div>
 
               <div className="relative z-10 text-center py-4">
                 <div className="flex flex-wrap justify-center items-center gap-8">
@@ -1006,10 +1185,12 @@ export default function AfLynkLandingPage() {
                   </div>
                   <div>
                     <p className="text-white font-bold text-3xl md:text-4xl mb-2">
-                      Top 5% of AfLynk publishers earn <span className="text-yellow-300">$50K+ monthly</span>.
+                      Top 5% of AfLynk publishers earn{" "}
+                      <span className="text-yellow-300">$50K+ monthly</span>.
                     </p>
                     <p className="text-white/80 font-semibold text-xl md:text-2xl">
-                      You could be next. <span className="inline-block animate-pulse">→</span>
+                      You could be next.{" "}
+                      <span className="inline-block animate-pulse">→</span>
                     </p>
                   </div>
                 </div>
@@ -1023,7 +1204,7 @@ export default function AfLynkLandingPage() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-orange-600 px-10 py-5 rounded-full font-bold text-xl shadow-lg"
               >
-                Start Monetizing Your Traffic Today
+                <Link to="/contact">Start Monetizing Your Traffic Today</Link>
               </motion.a>
             </div>
           </motion.div>
@@ -1119,7 +1300,9 @@ export default function AfLynkLandingPage() {
                 className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg"
               >
                 <span className="text-white">
-                  🎯 Want to Be Our Next Case Study? Talk to Us
+                  <Link to="/contact">
+                    🎯 Want to Be Our Next Case Study? Talk to Us
+                  </Link>
                 </span>
               </motion.a>
             </motion.div>
@@ -1190,7 +1373,9 @@ export default function AfLynkLandingPage() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-gray-800 px-6 py-4 rounded-xl font-medium text-lg flex items-center justify-center"
               >
-                🤝 Just Exploring?
+                <Link to="/contact">
+                  <span className="text-gray-800">🤝 Just Exploring?</span>
+                </Link>{" "}
               </motion.a>
             </motion.div>
 
@@ -1465,156 +1650,172 @@ export default function AfLynkLandingPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
-  <div className="container mx-auto px-4">
-    <div className="grid md:grid-cols-4 gap-8">
-      <div>
-        <img
-          src={logos[1] || "/placeholder.svg"}
-          alt="AfLynk Media Logo"
-          className="h-18 w-52 mb-4"
-        />
-        <p className="text-gray-400 text-sm">
-          AfLynk Media LLP, a 93 Communications Venture
-        </p>
-        <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
-        <p className="text-gray-400 text-sm">contact@aflynk.com</p>
-      </div>
-
-      <div>
-        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-        <ul className="space-y-2">
-          <li>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Home</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#advertisers"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Advertiser</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#publishers"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Publisher</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#case-studies"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Case Studies</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Contact Us</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="text-lg font-semibold mb-4">Legal</h4>
-        <ul className="space-y-2">
-          <li>
-            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
-              <span className="text-gray-400">Privacy and Policy</span> 
-            </Link>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <span className="text-gray-400">Terms and conditions</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="text-lg font-semibold mb-4">Contact</h4>
-        <ul className="space-y-2">
-          <li className="flex items-center text-gray-400">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <img
+                src="footer.png"
+                alt="AfLynk Media Logo"
+                className="h-18 w-48 mb-4"
               />
-            </svg>
-            contact@aflynk.com
-          </li>
-          <li className="flex items-center text-gray-400">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            +91-85058 465555
-          </li>
-          <li className="flex items-center text-gray-400">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-              />
-            </svg>
-            www.aflynk.com
-          </li>
-        </ul>
-      </div>
-    </div>
+              <p className="text-gray-400 text-sm">AfLynk Media LLP </p>
+              <p className="text-gray-400 text-sm">
+                Plot No 20, Block H-1/A, Sec-63, Noida
+              </p>
+              <p className="text-gray-400 text-sm">contact@aflynk.com</p>
+            </div>
 
-    <div className="border-t border-gray-800 mt-12 pt-8">
-      <div className="flex justify-between items-center">
-        <p className="text-gray-400 text-sm">
-          &copy; 2025 AfLynk Media LLP
-        </p>
-        <p className="text-gray-400 text-sm">
-          All rights reserved.
-        </p>
-      </div>
-    </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#advertisers"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Advertiser</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#publishers"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Publisher</span>
+                  </a>
+                </li>
+                <li></li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Contact Us</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">About Us</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    to="policy"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Privacy and Policy</span>
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <span className="text-gray-400">Terms and conditions</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
+              <ul className="space-y-2">
+                <li className="flex items-center text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  contact@aflynk.com
+                </li>
+                <li className="flex items-center text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +91-7988540592
+                </li>
+                <li className="flex items-center text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                    />
+                  </svg>
+                  www.aflynk.com
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="relative border-t border-gray-800 mt-12 pt-8">
+  <div className="flex justify-between items-center">
+    <p className="text-gray-400 text-sm">
+      &copy; 2025 AfLynk Media LLP
+    </p>
+    
+    {/* Invisible placeholder to keep spacing balanced */}
+    <p className="text-transparent text-sm select-none">
+      Center Placeholder
+    </p>
+
+    <p className="text-gray-400 text-sm">
+      All rights reserved.
+    </p>
   </div>
-</footer>
+
+  {/* Centered absolute text */}
+  <p className="absolute left-1/2 top-8 transform -translate-x-1/2 text-gray-400 text-sm">
+    Made with ❤️ in India
+  </p>
+</div>
+
+        </div>
+      </footer>
 
       {/* Back to Top Button */}
       <motion.a

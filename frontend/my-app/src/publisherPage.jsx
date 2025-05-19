@@ -259,7 +259,7 @@ export default function AfLynkPublisherPage() {
               Home
             </Link>
             <a
-              href="/advertise"
+              href="/advertiser"
               className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
             >
               Advertisers
@@ -386,23 +386,16 @@ export default function AfLynkPublisherPage() {
                 </motion.a>
               </motion.div>
             </motion.div>
+<motion.img
+  src="image.png"
+  alt="AfLynk Publisher Dashboard"
+  className="w-full h-auto object-contain z-10 relative"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  style={{ objectPosition: 'top', height: '65%' }} // Adjust height here
+/>
 
-            <motion.div
-              initial="hidden"
-              animate={heroInView ? "visible" : "hidden"}
-              variants={fadeIn}
-              className="relative hidden md:block"
-            >
-              <motion.img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/gmkb65pc-NfOTFVFPtB4TXi43NubGyghQFBt9DD.png"
-                alt="AfLynk Publisher Dashboard"
-                className="w-full h-auto object-contain z-10 relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-orange-100/30 to-purple-100/30 rounded-full blur-3xl -z-10"></div>
-            </motion.div>
           </div>
 
           <motion.div
@@ -882,7 +875,7 @@ export default function AfLynkPublisherPage() {
                     <div>
                       <h4 className="text-lg font-medium text-gray-800">Phone</h4>
                       <a href="tel:+918505846555" className="text-orange-600 hover:underline">
-                        +91-85058 465555
+                        +91-7988540592 / +91-8505846555
                       </a>
                     </div>
                   </div>
@@ -913,8 +906,7 @@ export default function AfLynkPublisherPage() {
                     <div>
                       <h4 className="text-lg font-medium text-gray-800">Address</h4>
                       <p className="text-gray-600">
-                        AfLynk Media LLP, A 93 Venture Communications
-                        <br />
+AfLynk Media LLP                        <br />
                         Plot No 20, Block H-1/A, Sec-63, Noida
                       </p>
                     </div>
@@ -985,9 +977,9 @@ export default function AfLynkPublisherPage() {
     <div className="grid md:grid-cols-4 gap-8">
       <div>
         <img
-          src={logos[1] || "/placeholder.svg"}
+          src='footer.png'
           alt="AfLynk Media Logo"
-          className="h-22 w-32 mb-4"
+          className="h-22 w-36 mb-4"
         />
         <p className="text-gray-400 text-sm">
           AfLynk Media LLP, a 93 Communications Venture
@@ -1037,6 +1029,14 @@ export default function AfLynkPublisherPage() {
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">About Us</span>
             </a>
           </li>
         </ul>
@@ -1096,8 +1096,7 @@ export default function AfLynkPublisherPage() {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            +91-85058 465555
-          </li>
+ +91-7988540592          </li>
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"

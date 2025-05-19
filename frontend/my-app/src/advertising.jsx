@@ -311,8 +311,8 @@ export default function AfLynkAdvertiser() {
             >
               Home
             </Link>
-            <a
-              href="#advertisers"
+             <a
+              href="/advertiser"
               className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
             >
               Advertisers
@@ -347,7 +347,7 @@ export default function AfLynkAdvertiser() {
       whileTap={{ scale: 0.95 }}
       className="hidden md:flex bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium items-center"
     >
-      <span>Become a Publisher</span>
+      <span>Start Advertising</span>
       <ChevronRight className="ml-1 h-4 w-4" />
     </motion.a>
 
@@ -562,9 +562,9 @@ export default function AfLynkAdvertiser() {
 
                   <div className="relative bg-white rounded-2xl overflow-hidden">
                     <motion.img
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2wdwt1tv-nDCY9afr12TIUpCsmgjyh977gVFgP0.png"
+                      src="advertiser.png"
                       alt="AfLynk Advertiser Dashboard"
-                      className="w-full h-auto object-contain z-10"
+                      className="w-full h-[550px] object-contain z-10"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.3 }}
@@ -587,7 +587,7 @@ export default function AfLynkAdvertiser() {
                       transition={{ duration: 0.5, delay: 1 }}
                     >
                       <TrendingUp className="h-4 w-4 text-teal-500 mr-2" />
-                      <span className="text-gray-800">Conversion Rate: 12.8%</span>
+                      <span className="text-gray-800">App Downloads: 100M+</span>
                     </motion.div>
                   </div>
                 </div>
@@ -606,8 +606,8 @@ export default function AfLynkAdvertiser() {
                     <Users className="h-4 w-4 text-indigo-600" />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-500">New Publishers</div>
-                    <div className="text-sm font-semibold">+28 Today</div>
+                    <div className="text-xs text-gray-500">Verified Transactions</div>
+                    <div className="text-sm font-semibold ml-4">3M+</div>
                   </div>
                 </motion.div>
 
@@ -624,8 +624,8 @@ export default function AfLynkAdvertiser() {
                     <DollarSign className="h-4 w-4 text-teal-600" />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-500">Revenue</div>
-                    <div className="text-sm font-semibold">$12,450</div>
+                    <div className="text-xs text-gray-500">Qualified Lead</div>
+                    <div className="text-sm font-semibold">10M+</div>
                   </div>
                 </motion.div>
               </div>
@@ -800,7 +800,7 @@ export default function AfLynkAdvertiser() {
                   className="relative bg-white p-1 rounded-xl shadow-xl overflow-hidden"
                 >
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ybd474hu-cw47jNB0yX37suy8T45MqBy4w5lw6E.png"
+                    src="graph.png"
                     alt="Performance Analytics"
                     className="w-full h-auto rounded-lg"
                   />
@@ -1505,40 +1505,7 @@ export default function AfLynkAdvertiser() {
         </div>
       </section>
 
-      <section
-        id="cta"
-        ref={ctaRef}
-        className="py-20 md:py-32 bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden"
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={ctaInView ? "visible" : "hidden"}
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold mb-6">
-              Join AfLynk Media Today
-            </motion.h2>
-
-            <motion.p variants={fadeInUp} className="text-xl mb-10">
-              Unlock the full potential of your affiliate business. With exclusive campaigns, flexible payouts, and
-              dedicated support, you're just a few clicks away from transforming your earnings.
-            </motion.p>
-
-            <motion.div variants={fadeInUp}>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block bg-white text-red-600 px-8 py-4 rounded-full font-medium text-lg shadow-lg"
-              >
-                Become a Publisher Now
-              </motion.a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+     
 
       {/* CTA Section */}
       <section ref={ctaRef} id="cta" className="py-20 md:py-32 relative overflow-hidden">
@@ -1711,13 +1678,12 @@ export default function AfLynkAdvertiser() {
     <div className="grid md:grid-cols-4 gap-8">
       <div>
         <img
-          src={logos[1] || "/placeholder.svg"}
+          src='footer.png'
           alt="AfLynk Media Logo"
-          className="h-22 w-32 mb-4"
+          className="h-22 w-36 mb-4"
         />
         <p className="text-gray-400 text-sm">
-          AfLynk Media LLP, a 93 Communications Venture
-        </p>
+AfLynk Media LLP        </p>
         <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
         <p className="text-gray-400 text-sm">contact@aflynk.com</p>
       </div>
@@ -1763,6 +1729,14 @@ export default function AfLynkAdvertiser() {
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <span className="text-gray-400">About Us</span>
             </a>
           </li>
         </ul>
@@ -1822,8 +1796,7 @@ export default function AfLynkAdvertiser() {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            +91-85058 465555
-          </li>
+ +91-7988540592          </li>
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"

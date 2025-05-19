@@ -18,7 +18,7 @@ function App() {
         <Route path="contact" element={<AfLynkContact />} />
         <Route path="tandc" element={<AfLynkTerms />} />
         <Route path="aboutus" element={<AfLynkAbout />} />
-        <Route path="advertise" element={<AfLynkAdvertiser />} />
+        <Route path="advertiser" element={<AfLynkAdvertiser />} />
       </Routes>
     </>
   )
