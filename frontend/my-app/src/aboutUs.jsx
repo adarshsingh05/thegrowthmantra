@@ -888,11 +888,12 @@ export default function AfLynkAbout() {
             className="max-w-6xl mx-auto"
           >
             <motion.h2
-              variants={fadeInUp}
-              className="text-3xl md:text-5xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600"
-            >
-              We're Your Unfair Advantage in Affiliate Marketing
-            </motion.h2>
+  variants={fadeInUp}
+  className="text-3xl md:text-5xl font-bold mb-6 text-center leading-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600"
+>
+  <span>We're Your Unfair Advantage in Affiliate Marketing</span>
+</motion.h2>
+
 
             <motion.p variants={fadeInUp} className="text-xl text-gray-700 mb-16 text-center max-w-4xl mx-auto">
               Here's what sets us apart from the crowd:

@@ -320,12 +320,7 @@ export default function AfLynkContact() {
                 >
                   Full Contact Form
                 </button>
-                <button
-                  onClick={() => setFormType("basic")}
-                  className={`px-6 py-2.5 rounded-full transition-all ${formType === "basic" ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md" : "bg-transparent text-gray-700 hover:bg-gray-100"}`}
-                >
-                  Quick Contact
-                </button>
+               
               </div>
             </motion.div>
 

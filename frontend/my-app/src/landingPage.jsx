@@ -1295,6 +1295,9 @@ export default function AfLynkLandingPage() {
                       <a href="tel:+918505846555" className="text-teal-600 hover:underline">
                         +91-85058 465555
                       </a>
+                      <a href="tel:+918505846555" className="text-teal-600 hover:underline">
+                        +91-85058 465555
+                      </a>
                     </div>
                   </div>
 
