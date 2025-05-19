@@ -126,7 +126,7 @@ export default function AfLynkContact() {
           </div>
 
           {/* Mobile Menu Button - Fixed position for visibility */}
-          <div className="md:hidden z-30 flex items-center mr-20">
+          <div className="md:hidden z-30 flex items-center mr-15">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 focus:outline-none p-2 bg-white rounded-md shadow-sm border border-gray-200"
