@@ -263,7 +263,7 @@ export default function AfLynkLandingPage() {
               width: hasScrolled ? "auto" : 260,
               marginLeft: hasScrolled ? 0 : 53,
               opacity: 1,
-              marginBottom: hasScrolled ? 0 : 20,
+              marginBottom: hasScrolled ? 0 : -2,
             }}
             transition={{ duration: 0.5 }}
             className="hidden sm:block" // Hides on mobile (smaller than 640px)
@@ -417,7 +417,7 @@ export default function AfLynkLandingPage() {
         ref={heroRef}
         className=" mt-24 md:mt-0 md:pt-64 md:pb-32 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 mt-[-60px]">
           <div className="grid md:grid-cols-2 gap-8 items-center ">
             <motion.div
               initial="hidden"
@@ -429,7 +429,7 @@ export default function AfLynkLandingPage() {
                 variants={fadeInUp}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600"
               >
-                <span className="inline-block mb-0 mt-6">
+                <span className="inline-block mb-0 mt-0">
                   Reimagine Affiliate Marketing with AfLynk
                 </span>
               </motion.h1>
