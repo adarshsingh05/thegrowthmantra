@@ -117,6 +117,7 @@ export default function AfLynkPrivacyPolicy() {
         </div>
 
         {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -127,19 +128,40 @@ export default function AfLynkPrivacyPolicy() {
               className="md:hidden bg-white border-t"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                {["Home", "Publishers", "Advertisers", "Contact"].map((item, idx) => (
-                  <a
-                    key={idx}
-                    href={item === "Home" ? "/" : item === "Publishers" ? "/publisher-page" : "#"}
-                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item}
-                  </a>
-                ))}
                 <a
-                  href="#"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  href="/advertiser"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Advertisers
+                </a>
+                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
+                  Publisher
+                </Link>
+                {/* <a
+                  href="#case-studies"
+                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Case Studies
+                </a> */}
+                <a
+                  href="/contact"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+                <a
+                  href="/aboutus"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
+                </a>
+                <a
+                  href="#get-started"
+                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started <ChevronRight className="ml-1 h-4 w-4" />
@@ -454,7 +476,7 @@ export default function AfLynkPrivacyPolicy() {
         <img
           src='footer.png'
           alt="AfLynk Media Logo"
-          className="h-22 w-32 mb-4"
+          className="h-12 md:h-14"
         />
         <p className="text-gray-400 text-sm">
 AfLynk Media LLP        </p>

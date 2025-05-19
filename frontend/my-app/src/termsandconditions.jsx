@@ -65,7 +65,7 @@ export default function AfLynkTerms() {
             <img
               src={logos[1]}
               alt="AfLynk Media Logo"
-              className="h-10 w-auto sm:hidden" // Only visible on mobile
+          className="h-12 md:h-14"
             />
           </div>
 
@@ -132,6 +132,7 @@ export default function AfLynkTerms() {
         </div>
 
         {/* Mobile Menu */}
+         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -143,29 +144,39 @@ export default function AfLynkTerms() {
             >
               <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <a
-                  href="#advertisers"
+                  href="/advertiser"
                   className="text-gray-700 hover:text-teal-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Advertisers
                 </a>
-                <Link
-                  to="/publisher"
-                  className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
-                >
+                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                   Publisher
                 </Link>
-                
+                {/* <a
+                  href="#case-studies"
+                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Case Studies
+                </a> */}
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="text-gray-700 hover:text-blue-600 font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
                 </a>
                 <a
+                  href="/aboutus"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
+                </a>
+                <a
                   href="#get-started"
-                  className="bg-gradient-to-r from-blue-700 to-blue-600 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started <ChevronRight className="ml-1 h-4 w-4" />
@@ -637,23 +648,19 @@ AfLynk Media LLP        </p>
       </div>
     </div>
 <div className="relative border-t border-gray-800 mt-12 pt-8">
-            <div className="flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
+              <p className="text-gray-400 text-sm text-center md:text-left">
                 &copy; 2025 AfLynk Media LLP
               </p>
 
-              {/* Invisible placeholder to keep spacing balanced */}
-              <p className="text-transparent text-sm select-none">
-                Center Placeholder
+              <p className="text-gray-400 text-sm text-center order-3 md:order-none">
+                Made with ❤️ in India
               </p>
 
-              <p className="text-gray-400 text-sm">All rights reserved.</p>
+              <p className="text-gray-400 text-sm text-center md:text-right">
+                All rights reserved.
+              </p>
             </div>
-
-            {/* Centered absolute text */}
-            <p className="absolute left-1/2 top-8 transform -translate-x-1/2 text-gray-400 text-sm">
-              Made with ❤️ in India
-            </p>
           </div>
   </div>
 </footer>

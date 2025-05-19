@@ -308,33 +308,59 @@ export default function AfLynkPublisherPage() {
   </div>
 
   {/* Mobile Menu */}
-  <AnimatePresence>
-    {isMenuOpen && (
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden bg-white border-t"
-      >
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-        <Link to='/'  onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Home</Link>
-
-          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Features</a>
-          <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">How It Works</a>
-          <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">FAQ</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Contact</a>
-          <a
-            href="#cta"
-            onClick={() => setIsMenuOpen(false)}
-            className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
-          >
-            Become a Publisher <ChevronRight className="ml-1 h-4 w-4" />
-          </a>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
+  {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white border-t"
+            >
+              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a
+                  href="/advertiser"
+                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Advertisers
+                </a>
+                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
+                  Publisher
+                </Link>
+                {/* <a
+                  href="#case-studies"
+                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Case Studies
+                </a> */}
+                <a
+                  href="/contact"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+                <a
+                  href="/aboutus"
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
+                </a>
+                <a
+                  href="#get-started"
+                  className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-medium flex items-center justify-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started <ChevronRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 </nav>
 
 
@@ -1106,23 +1132,19 @@ export default function AfLynkPublisherPage() {
     </div>
 
     <div className="relative border-t border-gray-800 mt-12 pt-8">
-            <div className="flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
+              <p className="text-gray-400 text-sm text-center md:text-left">
                 &copy; 2025 AfLynk Media LLP
               </p>
 
-              {/* Invisible placeholder to keep spacing balanced */}
-              <p className="text-transparent text-sm select-none">
-                Center Placeholder
+              <p className="text-gray-400 text-sm text-center order-3 md:order-none">
+                Made with ❤️ in India
               </p>
 
-              <p className="text-gray-400 text-sm">All rights reserved.</p>
+              <p className="text-gray-400 text-sm text-center md:text-right">
+                All rights reserved.
+              </p>
             </div>
-
-            {/* Centered absolute text */}
-            <p className="absolute left-1/2 top-8 transform -translate-x-1/2 text-gray-400 text-sm">
-              Made with ❤️ in India
-            </p>
           </div>
   </div>
 </footer>
