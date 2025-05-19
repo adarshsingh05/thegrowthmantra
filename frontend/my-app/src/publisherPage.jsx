@@ -21,13 +21,14 @@ import {
   BarChart2,
  
 } from "lucide-react";
-
+import ZohoForm from "./ZohoForm";
 export default function AfLynkPublisherPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
   const [isVisible, setIsVisible] = useState({})
   const [scrollY, setScrollY] = useState(0)
   const [activeAccordion, setActiveAccordion] = useState(null)
+  const sectionRef = useRef(null)
 
   // Refs for scroll animations
   const heroRef = useRef(null)
@@ -599,9 +600,9 @@ export default function AfLynkPublisherPage() {
               className="md:w-1/2 flex justify-center"
             >
               <motion.img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tnljnf98-7yNKBnfuEztqsJCU4W8gOoSGmJ6kjK.png"
+                src="sec.png"
                 alt="AfLynk Publisher Network"
-                className="max-w-full h-auto"
+                className="max-w-full h-[400px]"
                 animate={{
                   rotate: [0, 5, 0, -5, 0],
                   scale: [1, 1.05, 1, 1.05, 1],
@@ -814,11 +815,11 @@ export default function AfLynkPublisherPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-32 bg-white">
+      <section id="contact" ref={sectionRef} className="py-20 md:py-32 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
-            animate={isVisible["contact"] ? "visible" : "hidden"}
+            animate={isVisible ? "visible" : "hidden"}
             variants={staggerContainer}
             className="max-w-6xl mx-auto"
           >
@@ -873,15 +874,19 @@ export default function AfLynkPublisherPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-gray-800">Phone</h4>
-                      <a href="tel:+918505846555" className="text-orange-600 hover:underline">
-                        +91-7988540592 / +91-8505846555
-                      </a>
-                    </div>
+  <h4 className="text-lg font-medium text-gray-800">Phone</h4>
+  <a href="tel:+918505846555" className="text-orange-600 hover:underline block">
+    +91-85058 465555
+  </a>
+  <a href=" +91-7988540592" className="text-orange-600 hover:underline block">
+    +91-7988540592
+  </a>
+</div>
+
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-gray-100 p-3 rounded-full mr-4">
+                    <div className="bg-transparent p-3 rounded-full mr-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-orange-600"
@@ -905,8 +910,9 @@ export default function AfLynkPublisherPage() {
                     </div>
                     <div>
                       <h4 className="text-lg font-medium text-gray-800">Address</h4>
-                      <p className="text-gray-600">
-AfLynk Media LLP                        <br />
+                      <p className="text-orange-600">
+                        AfLynk Media LLP
+                        <br />
                         Plot No 20, Block H-1/A, Sec-63, Noida
                       </p>
                     </div>
@@ -915,61 +921,23 @@ AfLynk Media LLP                        <br />
               </motion.div>
 
               <motion.div variants={fadeInUp}>
-                <div className="bg-gray-50 p-8 rounded-2xl shadow-sm">
+                <div className="bg-transparent p-6 rounded-2xl shadow-sm w-full">
                   <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
 
-                  <form className="space-y-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Your name"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Your email"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        rows={4}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        placeholder="Your message"
-                      ></textarea>
-                    </div>
-
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-medium text-lg"
-                    >
-                      Send Message
-                    </motion.button>
-                  </form>
+                  {/* Zoho Form Integration */}
+                  <ZohoForm
+                    formId="ContactUsBasic"
+                    divId="keBaXMl5lor6IwJBjnxrEOnHKNgcBY6OxVqkjCUlsJE"
+                    height="300px"
+                    width="130%"
+                  />
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
+
 
        {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
@@ -1097,6 +1065,23 @@ AfLynk Media LLP                        <br />
               />
             </svg>
  +91-7988540592          </li>
+  <li className="flex items-center text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +91-85058 465555
+                </li>
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"

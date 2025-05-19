@@ -1592,7 +1592,7 @@ export default function AfLynkAdvertiser() {
                 whileHover="hover"
                 whileTap="tap"
                 variants={buttonHover}
-                className="relative overflow-hidden  text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group"
+                className="relative overflow-hidden  text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group ml-20"
               >
                 <span className="relative z-10 mr-6">Start Advertising Now</span>
                 <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -1797,6 +1797,23 @@ AfLynk Media LLP        </p>
               />
             </svg>
  +91-7988540592          </li>
+  <li className="flex items-center text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  +91-85058 465555
+                </li>
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
