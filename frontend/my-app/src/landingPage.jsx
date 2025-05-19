@@ -1376,28 +1376,28 @@ export default function AfLynkLandingPage() {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Home</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#advertisers" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/advertiser" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Advertiser</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#publishers" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/publisher" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Publisher</span>
                   </a>
                 </li>
                 <li></li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/aboutus" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">About Us</span>
                   </a>
                 </li>
@@ -1413,7 +1413,7 @@ export default function AfLynkLandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/tandc" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Terms and conditions</span>
                   </a>
                 </li>
