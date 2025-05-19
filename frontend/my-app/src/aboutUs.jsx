@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { Helmet } from "react-helmet-async"
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
 import {
   ChevronRight,
@@ -185,6 +186,15 @@ export default function AfLynkAbout() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+       <Helmet>
+                    <title> Get in Touch | AfLynk Media – Global Affiliate Marketing Network
+      </title>
+                    <meta
+                      name="About AfLynk Media | Global Affiliate Network for Advertisers & Publishers."
+                      content=" Meet the founders of AfLynk Media and discover how we’re redefining global affiliate marketing through innovation, transparency, and high-performance partnerships.
+            "
+                    />
+                  </Helmet>
       {/* Navigation */}
      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">

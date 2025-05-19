@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Menu, X, Mail, Phone, Clock, Globe, Users, Zap, ArrowRight, ArrowUp, MapPin } from "lucide-react"
 import { Link } from "react-router-dom"
 import ZohoForm from "./ZohoForm" // Import the ZohoForm component
-
+import { Helmet } from "react-helmet-async"
 export default function AfLynkContact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
@@ -66,6 +66,15 @@ export default function AfLynkContact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-x-hidden">
+       <Helmet>
+              <title> Get in Touch | AfLynk Media – Global Affiliate Marketing Network
+</title>
+              <meta
+                name="Have a question or ready to partner with AfLynk Media? Reach out to our global affiliate marketing team. We’re here to help you grow through performance marketing."
+                content=" Have a question or ready to partner with AfLynk Media? Reach out to our global affiliate marketing team. We’re here to help you grow through performance marketing..
+      "
+              />
+            </Helmet>
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${

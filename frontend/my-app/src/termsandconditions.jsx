@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Menu, X, Scale, ArrowRight, ArrowUp } from "lucide-react"
 import { Link } from "react-router-dom"
-
+import { Helmet } from "react-helmet-async"
 export default function AfLynkTerms() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
@@ -57,6 +57,18 @@ export default function AfLynkTerms() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+       <Helmet>
+                          <title> Get in Touch | AfLynk Media – Global Affiliate Marketing Network
+            </title>
+                          <meta
+                            name=" Terms of Use | AfLynk Media
+"
+                            content="  Read our terms and conditions for using the AfLynk Media platform. Understand your rights, obligations, and responsibilities as an advertiser, publisher, or site visitor.
+.
+      
+                  "
+                          />
+                        </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">

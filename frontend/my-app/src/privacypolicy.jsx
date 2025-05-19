@@ -1,5 +1,5 @@
 "use client"
-
+import { Helmet } from "react-helmet-async"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Menu, X, Shield, ArrowUp } from "lucide-react"
@@ -56,6 +56,16 @@ export default function AfLynkPrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <Helmet>
+                    <title> Get in Touch | AfLynk Media – Global Affiliate Marketing Network
+      </title>
+                    <meta
+                      name=" Privacy Policy | AfLynk Media"
+                      content="  Learn how AfLynk Media collects, uses, and protects your data. We are committed to transparency and compliance in all our global operations.
+
+            "
+                    />
+                  </Helmet>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
         <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
