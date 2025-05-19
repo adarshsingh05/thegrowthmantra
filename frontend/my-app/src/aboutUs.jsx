@@ -52,8 +52,8 @@ export default function AfLynkAbout() {
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-    "mainlogo.png", // Teal
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
+ "footer.png",
+     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
   const [isVisible, setIsVisible] = useState(false);
@@ -193,7 +193,7 @@ export default function AfLynkAbout() {
             <img
               src={logos[1]}
               alt="AfLynk Media Logo"
-              className="h-10 w-auto sm:hidden" // Only visible on mobile
+              className="h-10 w-auto " // Only visible on mobile
             />
           </div>
 

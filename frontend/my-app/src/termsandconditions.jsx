@@ -12,8 +12,8 @@ export default function AfLynkTerms() {
 
   const logos = [
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Teal%20Logo-%20Afflynk%20Media-a5lrBAJ9HCbT5rqELeamaqi5m96xOV.png", // Teal
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
+ "footer.png",
+     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
   ]
 
   useEffect(() => {
