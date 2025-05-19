@@ -1,6 +1,5 @@
 "use client"
 import ZohoForm from "./ZohoForm" // Import the ZohoForm component
-import { Helmet } from 'react-helmet-async'
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
@@ -262,14 +261,7 @@ export default function AfLynkLandingPage() {
 
   return (
     <>
-    <Helmet>
-        <title>AfLynk Media | Global Affiliate Marketing Network for Advertisers & Publishers</title>
-        <meta
-          name="AfLynk Media | Global Affiliate Marketing Network for Advertisers & Publishers"
-          content=" Join AfLynk Media — India's and the world’s most reliable affiliate marketing network. Advertise or monetize with CPI, CPA, CPL, CPS, and more across 20+ verticals, including crypto, iGaming, BFSI & Nutra.
-"
-        />
-      </Helmet>
+   
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
       {/* Navigation (always visible) */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
