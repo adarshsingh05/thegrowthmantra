@@ -582,7 +582,7 @@ export default function AfLynkContact() {
       </footer>
 
       {/* Back to Top Button */}
-      <motion.a
+      {/* <motion.a
         href="#"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -591,7 +591,7 @@ export default function AfLynkContact() {
         className="fixed bottom-8 right-8 bg-gradient-to-r from-teal-500 to-teal-600 text-white p-3 rounded-full shadow-lg z-50 hover:shadow-xl transition-all"
       >
         <ArrowUp className="h-6 w-6" />
-      </motion.a>
+      </motion.a> */}
     </div>
   )
 }
