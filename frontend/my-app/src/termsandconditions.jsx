@@ -56,7 +56,8 @@ export default function AfLynkTerms() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
-       
+        <meta name= " Terms of Use | AfLynk Media" content="  Read our terms and conditions for using the AfLynk Media platform. Understand your rights, obligations, and responsibilities as an advertiser, publisher, or site visitor.
+"/>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -508,7 +509,7 @@ AfLynk Media LLP        </p>
         <ul className="space-y-2">
           <li>
             <a
-              href="#"
+              href="/"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Home</span>
@@ -516,7 +517,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#advertisers"
+              href="/advertiser"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Advertiser</span>
@@ -524,7 +525,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#publishers"
+              href="/publisher"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Publisher</span>
@@ -533,7 +534,7 @@ AfLynk Media LLP        </p>
          
           <li>
             <a
-              href="#contact"
+              href="/contact"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
@@ -541,7 +542,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#contact"
+              href="/aboutus"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">About Us</span>
@@ -554,7 +555,7 @@ AfLynk Media LLP        </p>
         <h4 className="text-lg font-semibold mb-4">Legal</h4>
         <ul className="space-y-2">
           <li>
-            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+            <Link to ='/policy' className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Privacy and Policy</span> 
             </Link>
           </li>

@@ -65,7 +65,8 @@ export default function AfLynkContact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-x-hidden">
-     
+           <meta name= " Get in Touch | AfLynk Media – Global Affiliate Marketing Network" content=" Have a question or ready to partner with AfLynk Media? Reach out to our global affiliate marketing team. We’re here to help you grow through performance marketing."/>
+
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -437,7 +438,7 @@ export default function AfLynkContact() {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Home</span>
                   </a>
                 </li>
@@ -447,18 +448,18 @@ export default function AfLynkContact() {
                   </a>
                 </li>
                 <li>
-                  <a href="#publishers" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/publisher" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Publisher</span>
                   </a>
                 </li>
                
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/aboutus" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">About Us</span>
                   </a>
                 </li>
@@ -469,12 +470,12 @@ export default function AfLynkContact() {
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="policy" className="text-gray-400 hover:text-white transition-colors">
+                  <Link to="/policy" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Privacy and Policy</span>
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="/tandc" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Terms and conditions</span>
                   </a>
                 </li>

@@ -263,6 +263,7 @@ export default function AfLynkLandingPage() {
     <>
    
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <meta name= "AfLynk Media | Global Affiliate Marketing Network for Advertisers & Publishers" content="Join AfLynk Media — India's and the world’s most reliable affiliate marketing network. Advertise or monetize with CPI, CPA, CPL, CPS, and more across 20+ verticals, including crypto, iGaming, BFSI & Nutra"/>
       {/* Navigation (always visible) */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -1392,7 +1393,11 @@ export default function AfLynkLandingPage() {
                 </li>
                 <li></li>
                 <li>
+<<<<<<< HEAD
                   <a href="contact" className="text-gray-400 hover:text-white transition-colors">
+=======
+                  <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
+>>>>>>> c382f2f (meta tags)
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
@@ -1408,7 +1413,7 @@ export default function AfLynkLandingPage() {
               <h4 className="text-lg font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="policy" className="text-gray-400 hover:text-white transition-colors">
+                  <Link to="/policy" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Privacy and Policy</span>
                   </Link>
                 </li>

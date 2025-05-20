@@ -185,7 +185,9 @@ export default function AfLynkAbout() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
-      
+                 <meta name= " About AfLynk Media | Global Affiliate Network for Advertisers & Publishers" content="  Meet the founders of AfLynk Media and discover how we’re redefining global affiliate marketing through innovation, transparency, and high-performance partnerships.
+."/>
+
       {/* Navigation */}
      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -1133,7 +1135,7 @@ AfLynk Media LLP        </p>
         <ul className="space-y-2">
           <li>
             <a
-              href="#"
+              href="/"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Home</span>
@@ -1141,7 +1143,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#advertisers"
+              href="/advertiser"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Advertiser</span>
@@ -1149,7 +1151,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#publishers"
+              href="/publisher"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Publisher</span>
@@ -1158,7 +1160,7 @@ AfLynk Media LLP        </p>
          
           <li>
             <a
-              href="#contact"
+              href="/contact"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
@@ -1166,7 +1168,7 @@ AfLynk Media LLP        </p>
           </li>
           <li>
             <a
-              href="#contact"
+              href="/aboutus"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">About Us</span>
@@ -1179,7 +1181,7 @@ AfLynk Media LLP        </p>
         <h4 className="text-lg font-semibold mb-4">Legal</h4>
         <ul className="space-y-2">
           <li>
-            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+            <Link to ='/policy' className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Privacy and Policy</span> 
             </Link>
           </li>

@@ -996,7 +996,7 @@ export default function AfLynkPublisherPage() {
         <ul className="space-y-2">
           <li>
             <a
-              href="#"
+              href="/"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Home</span>
@@ -1004,7 +1004,7 @@ export default function AfLynkPublisherPage() {
           </li>
           <li>
             <a
-              href="#advertisers"
+              href="/advertiser"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Advertiser</span>
@@ -1012,7 +1012,7 @@ export default function AfLynkPublisherPage() {
           </li>
           <li>
             <a
-              href="#publishers"
+              href="/publisher"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Publisher</span>
@@ -1021,7 +1021,7 @@ export default function AfLynkPublisherPage() {
         
           <li>
             <a
-              href="#contact"
+              href="/contact"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Contact Us</span>
@@ -1029,7 +1029,7 @@ export default function AfLynkPublisherPage() {
           </li>
           <li>
             <a
-              href="#contact"
+              href="/aboutus"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">About Us</span>
@@ -1042,13 +1042,13 @@ export default function AfLynkPublisherPage() {
         <h4 className="text-lg font-semibold mb-4">Legal</h4>
         <ul className="space-y-2">
           <li>
-            <Link to ='policy' className="text-gray-400 hover:text-white transition-colors">
+            <Link to ='/policy' className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Privacy and Policy</span> 
             </Link>
           </li>
           <li>
             <a
-              href="#"
+              href="/tandc"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <span className="text-gray-400">Terms and conditions</span>
