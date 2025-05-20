@@ -185,6 +185,7 @@ export default function AfLynkAbout() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <title>About AfLynk Media | Global Affiliate Network for Advertisers & Publishers</title>
                  <meta name= " About AfLynk Media | Global Affiliate Network for Advertisers & Publishers" content="  Meet the founders of AfLynk Media and discover how we’re redefining global affiliate marketing through innovation, transparency, and high-performance partnerships.
 ."/>
 

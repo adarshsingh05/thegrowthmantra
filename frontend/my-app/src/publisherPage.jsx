@@ -226,6 +226,10 @@ export default function AfLynkPublisherPage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+       <title>Join AfLynk Media as a Publisher | Maximize Earnings with Exclusive Offers
+</title>
+      <meta name= "Join AfLynk Media as a Publisher | Maximize Earnings with Exclusive Offers" content="Monetize your traffic with AfLynk Media's high-converting CPA, CPS, CPI, and CPL offers across iGaming, Crypto, Nutra, BFSI, and more. Real-time analytics, global reach, and fast payouts—trusted by 500+ publishers worldwide."/>
+      {/* Navigation (always visible) */}
       {/* Navigation */}
      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
   <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -985,7 +989,7 @@ export default function AfLynkPublisherPage() {
           className="h-22 w-36 mb-4"
         />
         <p className="text-gray-400 text-sm">
-          AfLynk Media LLP, a 93 Communications Venture
+          AfLynk Media LLP
         </p>
         <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
         <p className="text-gray-400 text-sm">contact@aflynk.com</p>

@@ -55,6 +55,7 @@ export default function AfLynkPrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <title> Privacy Policy | AfLynk Media</title>
        <meta name= " Privacy Policy | AfLynk Media" content="  Learn how AfLynk Media collects, uses, and protects your data. We are committed to transparency and compliance in all our global operations.
 "/>
     

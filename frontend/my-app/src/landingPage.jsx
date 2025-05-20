@@ -263,6 +263,7 @@ export default function AfLynkLandingPage() {
     <>
    
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+      <title>AfLynk Media | Global Affiliate Marketing Network for Advertisers & Publishers</title>
       <meta name= "AfLynk Media | Global Affiliate Marketing Network for Advertisers & Publishers" content="Join AfLynk Media — India's and the world’s most reliable affiliate marketing network. Advertise or monetize with CPI, CPA, CPL, CPS, and more across 20+ verticals, including crypto, iGaming, BFSI & Nutra"/>
       {/* Navigation (always visible) */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
@@ -1368,7 +1369,7 @@ export default function AfLynkLandingPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <img src="footer.png" alt="AfLynk Media Logo" className="h-18 w-48 mb-4" />
-              <p className="text-gray-400 text-sm">AfLynk Media LLP </p>
+              <p className="text-gray-400 text-sm">AfLynk Media LLP</p>
               <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
               <p className="text-gray-400 text-sm">contact@aflynk.com</p>
             </div>

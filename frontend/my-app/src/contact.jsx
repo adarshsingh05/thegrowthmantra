@@ -65,6 +65,7 @@ export default function AfLynkContact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-x-hidden">
+      <title> Get in Touch | AfLynk Media – Global Affiliate Marketing Network</title>
            <meta name= " Get in Touch | AfLynk Media – Global Affiliate Marketing Network" content=" Have a question or ready to partner with AfLynk Media? Reach out to our global affiliate marketing team. We’re here to help you grow through performance marketing."/>
 
       {/* Navigation */}

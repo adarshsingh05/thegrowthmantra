@@ -311,6 +311,11 @@ export default function AfLynkAdvertiser() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+       <title>Advertise with AfLynk Media | Scale Globally with High-Intent Traffic
+
+</title>
+      <meta name= "Advertise with AfLynk Media | Scale Globally with High-Intent Traffic" content="Partner with AfLynk to acquire high-quality leads and users at scale. Our premium publisher network drives performance across 20+ verticals—iGaming, Crypto, Ecommerce, BFSI, and more. Transparent, data-driven, and ROI-focused."/>
+      {/* Navigation (always visible) */}
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
