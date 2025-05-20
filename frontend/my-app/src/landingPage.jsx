@@ -1393,11 +1393,9 @@ export default function AfLynkLandingPage() {
                 </li>
                 <li></li>
                 <li>
-<<<<<<< HEAD
-                  <a href="contact" className="text-gray-400 hover:text-white transition-colors">
-=======
+
+
                   <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
->>>>>>> c382f2f (meta tags)
                     <span className="text-gray-400">Contact Us</span>
                   </a>
                 </li>
