@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
+import { useState, useEffect } from "react"
 import {
   StarIcon,
   CheckCircleIcon,
@@ -36,39 +35,11 @@ export default function AfLynkAdvertiser() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeLogoIndex, setActiveLogoIndex] = useState(0)
   const [activeFaq, setActiveFaq] = useState(null)
-  const [isVisible, setIsVisible] = useState({})
-  const [scrollY, setScrollY] = useState(0)
-
-  // Refs for scroll animations
-  const heroRef = useRef(null)
-  const statsRef = useRef(null)
-  const introRef = useRef(null)
-  const whyChooseRef = useRef(null)
-  const howItWorksRef = useRef(null)
-  const marketingRef = useRef(null)
-  const faqRef = useRef(null)
-  const ctaRef = useRef(null)
-
-  const heroInView = useInView(heroRef, { once: false, amount: 0.3 })
-  const statsInView = useInView(statsRef, { once: false, amount: 0.3 })
-  const introInView = useInView(introRef, { once: false, amount: 0.3 })
-  const whyChooseInView = useInView(whyChooseRef, { once: false, amount: 0.2 })
-  const howItWorksInView = useInView(howItWorksRef, {
-    once: false,
-    amount: 0.2,
-  })
-  const marketingInView = useInView(marketingRef, { once: false, amount: 0.2 })
-  const faqInView = useInView(faqRef, { once: false, amount: 0.2 })
-  const ctaInView = useInView(ctaRef, { once: false, amount: 0.2 })
-
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, 300])
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   const logos = [
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png", // Black + White
-    "footer.png", // Teal
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png", // Orange
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black%20%2B%20White-%20Aflynk%20Media-yCS0q4ibMChBmTmymtan4YTRn5yabb.png",
+    "footer.png",
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Orange%20Logo-%20Afflynk%20Media-kIeTpSt0INpu4Y0dbuSmue4FXUDsu4.png",
   ]
 
   useEffect(() => {
@@ -79,73 +50,8 @@ export default function AfLynkAdvertiser() {
     return () => clearInterval(interval)
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-      const sections = document.querySelectorAll("section[id]")
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top
-        const sectionId = section.id
-        if (sectionTop < window.innerHeight * 0.75) {
-          setIsVisible((prev) => ({ ...prev, [sectionId]: true }))
-        }
-      })
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Check on initial load
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index)
-  }
-
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  }
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } },
-  }
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  }
-
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  }
-
-  const slideInRight = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-  }
-
-  const buttonHover = {
-    rest: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-    tap: { scale: 0.95 },
   }
 
   const whyChooseItems = [
@@ -311,34 +217,19 @@ export default function AfLynkAdvertiser() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
-       <title>Advertise with AfLynk Media | Scale Globally with High-Intent Traffic
+      <title>Advertise with AfLynk Media | Scale Globally with High-Intent Traffic</title>
+      <meta
+        name="description"
+        content="Partner with AfLynk to acquire high-quality leads and users at scale. Our premium publisher network drives performance across 20+ verticals—iGaming, Crypto, Ecommerce, BFSI, and more. Transparent, data-driven, and ROI-focused."
+      />
 
-</title>
-      <meta name= "Advertise with AfLynk Media | Scale Globally with High-Intent Traffic" content="Partner with AfLynk to acquire high-quality leads and users at scale. Our premium publisher network drives performance across 20+ verticals—iGaming, Crypto, Ecommerce, BFSI, and more. Transparent, data-driven, and ROI-focused."/>
-      {/* Navigation (always visible) */}
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center"
-          >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeLogoIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                src={logos[1]}
-                alt="AfLynk Media Logo"
-                className="h-12 md:h-14"
-              />
-            </AnimatePresence>
-          </motion.div>
+          <div className="flex items-center">
+            <img src={logos[1] || "/placeholder.svg"} alt="AfLynk Media Logo" className="h-12 md:h-14" />
+          </div>
 
           {/* Desktop Navigation + CTA */}
           <div className="hidden md:flex items-center justify-center flex-1">
@@ -352,7 +243,6 @@ export default function AfLynkAdvertiser() {
               <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 Publisher
               </Link>
-
               <Link to="/contact" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                 Contact
               </Link>
@@ -363,15 +253,13 @@ export default function AfLynkAdvertiser() {
           </div>
 
           {/* CTA Button */}
-          <motion.a
+          <a
             href="#cta"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:flex bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium items-center"
+            className="hidden md:flex bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium items-center hover:shadow-lg transition-shadow"
           >
             <span>Start Advertising</span>
             <ChevronRight className="ml-1 h-4 w-4" />
-          </motion.a>
+          </a>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -382,298 +270,134 @@ export default function AfLynkAdvertiser() {
         </div>
 
         {/* Mobile Menu */}
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-white border-t"
-            >
-              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a
-                  href="/"
-                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </a>
-                <a
-                  href="/advertiser"
-                  className="text-gray-700 hover:text-teal-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Advertisers
-                </a>
-                <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
-                  Publisher
-                </Link>
-                {/* <a
-                  href="#case-studies"
-                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Case Studies
-                </a> */}
-                <a
-                  href="/contact"
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </a>
-                <a
-                  href="/aboutus"
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About Us
-                </a>
-                <motion.a
-                  href="/contact"
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  variants={buttonHover}
-                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm text-black border-2 border-white/20 px-8 py-4 rounded-full font-medium flex items-center justify-center group"
-                >
-                  <span className="relative z-10">Schedule a Demo</span>
-                  <motion.div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <motion.div
-                    className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Number.POSITIVE_INFINITY,
-                      repeatType: "reverse",
-                    }}
-                  >
-                    <ArrowRight className="h-5 w-5 text-black" />
-                  </motion.div>
-                </motion.a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              <a
+                href="/"
+                className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                href="/advertiser"
+                className="text-gray-700 hover:text-teal-600 font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Advertisers
+              </a>
+              <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
+                Publisher
+              </Link>
+              <a
+                href="/contact"
+                className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <a
+                href="/aboutus"
+                className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </a>
+              <a
+                href="/contact"
+                className="relative overflow-hidden bg-white/10 backdrop-blur-sm text-black border-2 border-white/20 px-8 py-4 rounded-full font-medium flex items-center justify-center group"
+              >
+                <span className="relative z-10">Schedule a Demo</span>
+                <div className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <ArrowRight className="h-5 w-5 text-black" />
+                </div>
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Animated Background */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        {/* Static Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-blue-50 to-indigo-50"></div>
-
-          {/* Animated Circles */}
-          <motion.div
-            className="absolute top-1/4 right-1/4 w-64 h-64 bg-teal-300/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [0, 20, 0],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          />
-
-          <motion.div
-            className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              x: [0, -30, 0],
-              y: [0, 30, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              delay: 1,
-            }}
-          />
-
-          <motion.div
-            className="absolute top-1/2 right-1/3 w-72 h-72 bg-indigo-300/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.1, 1],
-              x: [0, 15, 0],
-              y: [0, 15, 0],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              delay: 2,
-            }}
-          />
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-teal-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-indigo-300/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial="hidden"
-              animate={heroInView ? "visible" : "hidden"}
-              variants={staggerContainer}
-              className="text-center md:text-left"
-            >
-              <motion.div
-                variants={fadeInUp}
-                className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20"
-              >
+            <div className="text-center md:text-left">
+              <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
                 <span className="text-teal-600 font-medium">Performance Marketing Excellence</span>
-              </motion.div>
+              </div>
 
-              <motion.h1
-                variants={fadeInUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600"
-              >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600">
                 Supercharge Your Brand's Growth with AfLynk Media
-              </motion.h1>
+              </h1>
 
-              <motion.h2 variants={fadeInUp} className="text-xl md:text-2xl font-medium text-gray-700 mb-8">
+              <h2 className="text-xl md:text-2xl font-medium text-gray-700 mb-8">
                 Unlock a world of performance-driven marketing with high-converting affiliates across multiple global
                 verticals. Your perfect advertising partner is just one click away.
-              </motion.h2>
+              </h2>
 
-              <motion.div
-                variants={fadeInUp}
-                className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12"
-              >
-                <motion.a
+              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12">
+                <a
                   href="#cta"
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  variants={buttonHover}
-                  className="relative overflow-hidden bg-gradient-to-r from-teal-500 to-blue-500 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group"
+                  className="relative overflow-hidden bg-gradient-to-r from-teal-500 to-blue-500 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group hover:shadow-2xl transition-shadow"
                 >
                   <span className="relative z-10 text-white mr-6">Start Advertising with AfLynk</span>
-                  <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <motion.div
-                    className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Number.POSITIVE_INFINITY,
-                      repeatType: "reverse",
-                    }}
-                  >
+                  <div className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-white" />
-                  </motion.div>
-                </motion.a>
+                  </div>
+                </a>
 
-                <motion.a
+                <a
                   href="#why-choose"
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  variants={buttonHover}
-                  className="relative overflow-hidden bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center group"
+                  className="relative overflow-hidden bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center group hover:bg-gray-50 transition-colors"
                 >
                   <span className="relative z-10 mr-6">Learn More</span>
-                  <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <motion.div
-                    className="absolute right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center"
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Number.POSITIVE_INFINITY,
-                      repeatType: "reverse",
-                    }}
-                  >
+                  <div className="absolute right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                     <ArrowRight className="h-5 w-5 text-gray-600" />
-                  </motion.div>
-                </motion.a>
-              </motion.div>
-            </motion.div>
+                  </div>
+                </a>
+              </div>
+            </div>
 
-            <motion.div
-              initial="hidden"
-              animate={heroInView ? "visible" : "visible"}
-              variants={fadeIn}
-              className="relative hidden md:block"
-            >
+            <div className="relative hidden md:block">
               <div className="relative">
                 {/* Decorative elements */}
-                <motion.div
-                  className="absolute -top-10 -right-10 w-20 h-20 bg-blue-500/30 rounded-full blur-xl"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                />
-                <motion.div
-                  className="absolute -bottom-5 -left-5 w-16 h-16 bg-teal-500/30 rounded-full blur-xl"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                    delay: 1,
-                  }}
-                />
+                <div className="absolute -top-10 -right-10 w-20 h-20 bg-blue-500/30 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-5 -left-5 w-16 h-16 bg-teal-500/30 rounded-full blur-xl"></div>
 
                 {/* Main image with frame */}
                 <div className="relative bg-gradient-to-r from-teal-500 to-blue-500 p-1 rounded-2xl shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-2xl opacity-70 blur-xl -z-10"></div>
 
                   <div className="relative bg-white rounded-2xl overflow-hidden">
-                    <motion.img
+                    <img
                       src="advertiser.png"
                       alt="AfLynk Advertiser Dashboard"
                       className="w-full h-[550px] object-contain z-10"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.3 }}
                     />
 
-                    {/* Animated overlay elements */}
-                    <motion.div
-                      className="absolute top-5 right-5 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg"
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                    >
+                    {/* Static overlay elements */}
+                    <div className="absolute top-5 right-5 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                       +450$ Today
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                      className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-medium shadow-lg flex items-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 1 }}
-                    >
+                    <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-medium shadow-lg flex items-center">
                       <TrendingUp className="h-4 w-4 text-teal-500 mr-2" />
                       <span className="text-gray-800">App Downloads: 100M+</span>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Floating elements */}
-                <motion.div
-                  className="absolute -right-10 top-1/3 bg-white rounded-xl shadow-lg p-3 flex items-center"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 1.2 }}
-                  style={{
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                  }}
-                >
+                <div className="absolute -right-10 top-1/3 bg-white rounded-xl shadow-lg p-3 flex items-center">
                   <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
                     <Users className="h-4 w-4 text-indigo-600" />
                   </div>
@@ -681,17 +405,9 @@ export default function AfLynkAdvertiser() {
                     <div className="text-xs text-gray-500">Verified Transactions</div>
                     <div className="text-sm font-semibold ml-4">3M+</div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className="absolute -left-10 bottom-1/4 bg-white rounded-xl shadow-lg p-3 flex items-center"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 1.4 }}
-                  style={{
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                  }}
-                >
+                <div className="absolute -left-10 bottom-1/4 bg-white rounded-xl shadow-lg p-3 flex items-center">
                   <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
                     <DollarSign className="h-4 w-4 text-teal-600" />
                   </div>
@@ -699,58 +415,30 @@ export default function AfLynkAdvertiser() {
                     <div className="text-xs text-gray-500">Qualified Lead</div>
                     <div className="text-sm font-semibold">10M+</div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Animated scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Number.POSITIVE_INFINITY,
-            repeatType: "reverse",
-          }}
-        >
+        {/* Static scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <div className="text-gray-500 text-sm mb-2">Scroll to explore</div>
           <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center pt-2">
-            <motion.div
-              className="w-1.5 h-1.5 bg-gray-400 rounded-full"
-              animate={{
-                y: [0, 12, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                repeatType: "reverse",
-              }}
-            />
+            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-16 bg-white overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-10">
               {stats.map((stat, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={scaleIn}
-                  custom={index}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 text-center relative overflow-hidden group"
+                  className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 text-center relative overflow-hidden group hover:shadow-2xl transition-shadow"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10">
@@ -760,27 +448,18 @@ export default function AfLynkAdvertiser() {
                     <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                     <div className="text-gray-600">{stat.label}</div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Introduction Section */}
-      <section
-        ref={introRef}
-        id="introduction"
-        className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
-      >
+      <section id="introduction" className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={introInView ? "visible" : "visible"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
               <div className="inline-block font-2xl mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
                 <span className="text-teal-600 font-bold">Why Choose AfLynk ?</span>
               </div>
@@ -793,14 +472,13 @@ export default function AfLynkAdvertiser() {
                 we offer high-converting traffic and data-driven insights to help you grow your brand and reach new
                 heights.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {painPoints.map((point, index) => (
-                <motion.div
+                <div
                   key={index}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100 group"
+                  className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100 group hover:shadow-2xl transition-shadow"
                 >
                   <div
                     className={`bg-gradient-to-r ${point.color} p-6 group-hover:scale-105 transition-transform duration-300`}
@@ -813,14 +491,11 @@ export default function AfLynkAdvertiser() {
                   <div className="p-6">
                     <p className="text-gray-700">{point.solution}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={fadeInUp}
-              className="mt-16 grid md:grid-cols-2 gap-12 items-center bg-white p-8 rounded-2xl shadow-xl"
-            >
+            <div className="mt-16 grid md:grid-cols-2 gap-12 items-center bg-white p-8 rounded-2xl shadow-xl">
               <div>
                 <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
                   <span className="text-teal-600 font-medium">Data-Driven Approach</span>
@@ -866,85 +541,40 @@ export default function AfLynkAdvertiser() {
               </div>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-300/20 to-blue-300/20 rounded-xl blur-xl -z-10"></div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative bg-white p-1 rounded-xl shadow-xl overflow-hidden"
-                >
+                <div className="relative bg-white p-1 rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform">
                   <img src="graph.png" alt="Performance Analytics" className="w-full h-auto rounded-lg" />
-                </motion.div>
-                <motion.div
-                  className="absolute -bottom-5 -right-5 w-20 h-20"
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  }}
-                >
+                </div>
+                <div className="absolute -bottom-5 -right-5 w-20 h-20">
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a1esmalp-eevTDvFEmLp7Lv3d7BoqvFCAv0Tprc.png"
                     alt="Money Icon"
                     className="w-full h-full object-contain drop-shadow-xl"
                   />
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Why Choose AfLynk Section - Enhanced UI */}
-      <section ref={whyChooseRef} id="why-choose" className="py-24 md:py-36 overflow-hidden relative">
-        {/* Enhanced Background with deeper gradients */}
+      {/* Why Choose AfLynk Section */}
+      <section id="why-choose" className="py-24 md:py-36 overflow-hidden relative">
+        {/* Static Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950"></div>
+          <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-teal-500/20 via-blue-500/20 to-indigo-500/20"></div>
 
-          {/* Enhanced animated gradient overlay with more vibrant colors */}
-          <motion.div
-            className="absolute inset-0 opacity-40"
-            animate={{
-              background: [
-                "radial-gradient(circle at 20% 30%, rgba(20, 184, 166, 0.4) 0%, transparent 60%)",
-                "radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.4) 0%, transparent 60%)",
-                "radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.4) 0%, transparent 60%)",
-                "radial-gradient(circle at 20% 30%, rgba(20, 184, 166, 0.4) 0%, transparent 60%)",
-              ],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "loop",
-            }}
-          />
-
-          {/* Enhanced particle effect with more particles */}
+          {/* Static particle effect */}
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(30)].map((_, i) => (
-              <motion.div
+              <div
                 key={i}
-                className="absolute bg-white rounded-full"
+                className="absolute bg-white rounded-full opacity-60"
                 style={{
                   width: Math.random() * 3 + 1 + "px",
                   height: Math.random() * 3 + 1 + "px",
-                }}
-                initial={{
-                  x: Math.random() * 100 + "%",
-                  y: Math.random() * 100 + "%",
-                  opacity: Math.random() * 0.6 + 0.4,
-                  scale: Math.random() * 2 + 1,
-                }}
-                animate={{
-                  y: [null, "-100%"],
-                  opacity: [null, 0],
-                }}
-                transition={{
-                  duration: Math.random() * 15 + 10,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                  delay: Math.random() * 10,
+                  left: Math.random() * 100 + "%",
+                  top: Math.random() * 100 + "%",
                 }}
               />
             ))}
@@ -973,13 +603,8 @@ export default function AfLynkAdvertiser() {
         </div>
 
         <div className="container mx-auto px-4 pt-16 md:pt-20">
-          <motion.div
-            initial="hidden"
-            animate={whyChooseInView ? "visible" : "visible"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
               <div className="inline-block mb-4 px-6 py-2 bg-white/15 rounded-full backdrop-blur-md border border-white/30 shadow-lg">
                 <span className="text-gray-600 font-medium tracking-wide text-base md:text-lg">PREMIUM ADVANTAGE</span>
               </div>
@@ -992,19 +617,14 @@ export default function AfLynkAdvertiser() {
                 AfLynk Media delivers transparent, data-driven, and high-performance advertising solutions that elevate
                 your marketing strategy to new heights.
               </p>
-            </motion.div>
+            </div>
 
             <div className="space-y-8 md:space-y-12">
               {whyChooseItems.map((item, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={index % 2 === 0 ? slideInLeft : slideInRight}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="bg-white/15 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/30 relative overflow-hidden group shadow-xl"
+                  className="bg-white/15 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/30 relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow"
                 >
-                  {/* Enhanced hover effect */}
-                  <motion.div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                   <div className="flex flex-col md:flex-row gap-8 relative z-10">
                     <div className="flex justify-center md:justify-start">
                       <div
@@ -1016,26 +636,15 @@ export default function AfLynkAdvertiser() {
                     <div className="flex-1">
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black tracking-tight">{item.title}</h3>
                       <p className="text-blue-400 text-lg leading-relaxed">{item.description}</p>
-
-                      {/* Added feature list */}
-                      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {item.features &&
-                          item.features.map((feature, i) => (
-                            <div key={i} className="flex items-center">
-                              <CheckIcon className="w-5 h-5 text-teal-400 mr-2 flex-shrink-0" />
-                              <span className="text-blue-100">{feature}</span>
-                            </div>
-                          ))}
-                      </div>
                     </div>
                   </div>
 
-                  {/* Enhanced decorative corner */}
+                  {/* Decorative corner */}
                   <div
                     className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} rounded-bl-3xl opacity-40`}
                   ></div>
 
-                  {/* Added subtle pattern */}
+                  {/* Pattern */}
                   <div className="absolute bottom-0 left-0 w-full h-24 opacity-10">
                     <svg width="100%" height="100%" className="text-white">
                       <defs>
@@ -1053,28 +662,13 @@ export default function AfLynkAdvertiser() {
                       <rect width="100%" height="100%" fill={`url(#pattern-${index})`} />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-20 text-center">
+            <div className="mt-20 text-center">
               <div className="bg-white/15 backdrop-blur-md rounded-2xl p-10 border border-white/30 max-w-4xl mx-auto relative overflow-hidden shadow-2xl">
-                {/* Enhanced animated background */}
-                <motion.div
-                  className="absolute inset-0 opacity-70"
-                  animate={{
-                    background: [
-                      "radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.3) 0%, transparent 70%)",
-                      "radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.3) 0%, transparent 70%)",
-                      "radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.3) 0%, transparent 70%)",
-                    ],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "loop",
-                  }}
-                />
+                <div className="absolute inset-0 opacity-70 bg-gradient-to-br from-teal-500/30 via-blue-500/30 to-indigo-500/30"></div>
 
                 <div className="relative z-10">
                   <div className="flex justify-center mb-8">
@@ -1084,18 +678,7 @@ export default function AfLynkAdvertiser() {
                         alt="Team Collaboration"
                         className="w-56 h-auto object-contain rounded-lg shadow-lg"
                       />
-                      {/* Added glowing effect */}
-                      <motion.div
-                        className="absolute -inset-1 rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 opacity-30 blur-lg"
-                        animate={{
-                          opacity: [0.3, 0.6, 0.3],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Number.POSITIVE_INFINITY,
-                          repeatType: "reverse",
-                        }}
-                      />
+                      <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 opacity-30 blur-lg"></div>
                     </div>
                   </div>
                   <h3 className="text-3xl font-bold mb-4 text-black tracking-tight">
@@ -1106,36 +689,18 @@ export default function AfLynkAdvertiser() {
                     AfLynk. Our expert team is ready to help you achieve exceptional results.
                   </p>
 
-                  {/* Enhanced CTA button */}
-                  <motion.a
+                  <a
                     href="#cta"
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={buttonHover}
-                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-600 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl group"
+                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-600 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl group hover:shadow-3xl transition-shadow"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       Become an Advertiser Today
                       <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                    <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-full opacity-30 blur-md"></div>
+                  </a>
 
-                    {/* Enhanced glow effect */}
-                    <motion.div
-                      className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-full opacity-30 blur-md group-hover:opacity-40"
-                      animate={{
-                        scale: [1, 1.05, 1],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "reverse",
-                      }}
-                    />
-                  </motion.a>
-
-                  {/* Added trust indicators */}
+                  {/* Trust indicators */}
                   <div className="mt-8 flex flex-wrap justify-center gap-4">
                     <div className="bg-white/10 px-4 py-2 rounded-full flex items-center">
                       <ShieldCheckIcon className="w-5 h-5 text-teal-400 mr-2" />
@@ -1152,13 +717,10 @@ export default function AfLynkAdvertiser() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Added testimonial banner */}
-            <motion.div
-              variants={fadeInUp}
-              className="mt-16 bg-gradient-to-r from-blue-900 to-indigo-900 rounded-xl p-6 shadow-xl border border-white/10"
-            >
+            {/* Testimonial banner */}
+            <div className="mt-16 bg-gradient-to-r from-blue-900 to-indigo-900 rounded-xl p-6 shadow-xl border border-white/10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex mb-2">
@@ -1172,19 +734,16 @@ export default function AfLynkAdvertiser() {
                   <div className="mt-2 text-blue-200 text-sm">Sarah Johnson, CMO at TechLead Solutions</div>
                 </div>
                 <div className="flex-shrink-0">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white text-blue-900 font-bold py-3 px-6 rounded-full"
-                  >
+                  <button className="bg-white text-blue-900 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors">
                     Read Success Stories
-                  </motion.button>
+                  </button>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
-        {/* Added wave divider at bottom */}
+        {/* Wave divider at bottom */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20">
             <path
@@ -1204,15 +763,10 @@ export default function AfLynkAdvertiser() {
       </section>
 
       {/* How It Works Section */}
-      <section ref={howItWorksRef} id="how-it-works" className="py-20 md:py-32 bg-white overflow-hidden">
+      <section id="how-it-works" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={howItWorksInView ? "visible" : "visible"}
-            variants={staggerContainer}
-            className="max-w-6xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
               <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
                 <span className="text-teal-600 font-medium">Simple Process</span>
               </div>
@@ -1220,7 +774,7 @@ export default function AfLynkAdvertiser() {
               <p className="text-xl text-gray-700 max-w-4xl mx-auto">
                 Getting started with AfLynk as an advertiser is easy. Here's how it works:
               </p>
-            </motion.div>
+            </div>
 
             <div className="relative">
               {/* Connection Line - desktop only */}
@@ -1228,18 +782,14 @@ export default function AfLynkAdvertiser() {
 
               <div className="space-y-16 md:space-y-24 relative">
                 {howItWorksSteps.map((step, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={howItWorksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ delay: 0.2 * index, duration: 0.6 }}
                     className={`flex flex-col ${
                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                     } items-center gap-8`}
                   >
                     <div className={`md:w-1/2 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <div className="bg-white p-6 rounded-xl shadow-xl inline-block relative group">
-                        {/* Decorative gradient border on hover */}
+                      <div className="bg-white p-6 rounded-xl shadow-xl inline-block relative group hover:shadow-2xl transition-shadow">
                         <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 -z-10 blur-xl transition-opacity duration-300"></div>
 
                         {/* Mobile version - number to the left of heading */}
@@ -1280,39 +830,23 @@ export default function AfLynkAdvertiser() {
 
                     {/* Number circles - desktop only */}
                     <div className="md:w-12 relative hidden md:block">
-                      <motion.div
-                        className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl z-10 relative shadow-lg`}
-                        whileHover={{
-                          scale: 1.2,
-                          boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                        }}
-                        transition={{ duration: 0.3 }}
+                      <div
+                        className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl z-10 relative shadow-lg hover:scale-120 transition-transform`}
                       >
                         {index + 1}
-                      </motion.div>
-
-                      {/* Pulse animation */}
-                      <motion.div
+                      </div>
+                      <div
                         className={`absolute top-0 left-0 w-12 h-12 rounded-full bg-gradient-to-r ${step.color} opacity-60`}
-                        animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.6, 0, 0.6],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Number.POSITIVE_INFINITY,
-                          repeatType: "loop",
-                        }}
                       />
                     </div>
 
                     <div className="md:w-1/2"></div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-20 text-center">
+            <div className="mt-20 text-center">
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl max-w-4xl mx-auto shadow-xl relative overflow-hidden">
                 {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-teal-300/20 rounded-full blur-xl -z-10"></div>
@@ -1320,46 +854,37 @@ export default function AfLynkAdvertiser() {
 
                 <div className="relative z-10">
                   <div className="flex justify-center mb-6">
-                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }} transition={{ duration: 0.3 }}>
+                    <div className="hover:scale-110 hover:rotate-5 transition-transform">
                       <img
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ai16tfmt-LdN1PGv0ei4nxw0k2wftycQAEe7edY.png"
                         alt="Network Reach"
                         className="w-32 h-auto object-contain"
                       />
-                    </motion.div>
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-gray-900">Ready to Amplify Your Marketing?</h3>
                   <p className="text-gray-700 mb-8">
                     Join our network of successful advertisers and start seeing real results. Our team is ready to help
                     you launch your first campaign.
                   </p>
-                  <motion.a
+                  <a
                     href="#cta"
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={buttonHover}
-                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group md:h-16 "
+                    className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group md:h-16 hover:shadow-2xl transition-shadow"
                   >
                     <span className="relative z-10">Start Advertising with AfLynk</span>
-                    <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.a>
+                  </a>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
+
       {/* FAQ Section */}
-      <section ref={faqRef} id="faq" className="py-20 md:py-32 bg-white overflow-hidden">
+      <section id="faq" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={faqInView ? "visible" : "visible"}
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="text-center mb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
               <div className="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-full backdrop-blur-sm border border-teal-500/20">
                 <span className="text-teal-600 font-medium">Common Questions</span>
               </div>
@@ -1367,14 +892,12 @@ export default function AfLynkAdvertiser() {
               <p className="text-xl text-gray-700">
                 Got questions? We've got answers. If you don't see what you're looking for, reach out to our team.
               </p>
-            </motion.div>
+            </div>
 
             <div className="space-y-4">
               {faqItems.map((faq, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={fadeInUp}
-                  custom={index}
                   className={`border ${
                     activeFaq === index ? "border-teal-500 shadow-lg" : "border-gray-200"
                   } rounded-xl overflow-hidden transition-all duration-300 bg-white`}
@@ -1400,183 +923,82 @@ export default function AfLynkAdvertiser() {
                       />
                     </div>
                   </button>
-                  <AnimatePresence>
-                    {activeFaq === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="px-6 pb-4"
-                      >
-                        <p className="text-gray-600">{faq.answer}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+                  {activeFaq === index && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-12 text-center">
+            <div className="mt-12 text-center">
               <p className="text-gray-700 mb-6">
                 Still have questions? Our team is here to help you get started with AfLynk.
               </p>
-              <motion.a
+              <a
                 href="/contact"
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonHover}
                 className="inline-flex items-center text-teal-600 font-medium hover:text-teal-700 group"
               >
                 Contact our support team
-                <motion.span className="ml-2 group-hover:ml-3 transition-all duration-300">
+                <span className="ml-2 group-hover:ml-3 transition-all duration-300">
                   <ArrowRight className="h-4 w-4" />
-                </motion.span>
-              </motion.a>
-            </motion.div>
-          </motion.div>
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} id="cta" className="py-20 md:py-32 relative overflow-hidden">
-        {/* Animated Background */}
+      <section id="cta" className="py-20 md:py-32 relative overflow-hidden">
+        {/* Static Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-blue-600 to-indigo-700"></div>
+          <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-white/30 via-white/20 to-white/10"></div>
 
-          {/* Animated gradient overlay */}
-          <motion.div
-            className="absolute inset-0 opacity-30"
-            animate={{
-              background: [
-                "radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 70%)",
-                "radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 70%)",
-                "radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 70%)",
-                "radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 70%)",
-              ],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "loop",
-            }}
-          />
-
-          {/* Floating elements */}
-          <motion.div
-            className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/10 rounded-full blur-3xl"
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 30, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          />
-
-          <motion.div
-            className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-white/5 rounded-full blur-3xl"
-            animate={{
-              y: [0, 40, 0],
-              x: [0, -40, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              delay: 1,
-            }}
-          />
+          {/* Static floating elements */}
+          <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container  mx-auto px-4 relative">
-          <motion.div
-            initial="hidden"
-            animate={ctaInView ? "visible" : "visible"}
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div
-              variants={fadeInUp}
-              className="inline-block mb-6 px-6 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20"
-            >
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-block mb-6 px-6 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
               <span className="text-black text-2xl font-medium">Take the Next Step</span>
-            </motion.div>
+            </div>
 
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold mb-6 text-black">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
               Stop Missing Out on High-Quality Affiliates, Global Reach, and Maximum ROI
-            </motion.h2>
+            </h2>
 
-            <motion.p variants={fadeInUp} className="text-xl text-black mb-12">
+            <p className="text-xl text-black mb-12">
               AfLynk Media is the perfect partner to help you scale your brand with data-driven results. Take your
               advertising campaigns to the next level with AfLynk.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col md:flex-row justify-center gap-6">
-              <motion.a
+            <div className="flex flex-col md:flex-row justify-center gap-6">
+              <a
                 href="/contact"
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonHover}
-                className="relative overflow-hidden text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group"
+                className="relative overflow-hidden text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group hover:shadow-2xl transition-shadow"
               >
-                <span className="relative z-10 md:mr-6 ">Start Advertising Now</span>
-                <motion.div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <motion.div
-                  className="absolute right-4 w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center"
-                  animate={{
-                    x: [0, 5, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                >
+                <span className="relative z-10 md:mr-6">Start Advertising Now</span>
+                <div className="absolute right-4 w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
                   <ArrowRight className="h-5 w-5 text-teal-600" />
-                </motion.div>
-              </motion.a>
+                </div>
+              </a>
 
-              <motion.a
+              <a
                 href="/contact"
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonHover}
-                className="relative overflow-hidden bg-white/10 backdrop-blur-sm text-black border-2 border-white/20 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center group"
+                className="relative overflow-hidden bg-white/10 backdrop-blur-sm text-black border-2 border-white/20 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center group hover:bg-white/20 transition-colors"
               >
-                {/* <span className="relative z-10">Schedule a Demo</span> */}
-                <motion.div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <motion.div
-                  className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
-                  animate={{
-                    x: [0, 5, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                >
-                  {/* <ArrowRight className="h-5 w-5 text-black" /> */}
-                </motion.div>
-              </motion.a>
-            </motion.div>
+                <div className="absolute right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"></div>
+              </a>
+            </div>
 
-            {/* Floating badges */}
+            {/* Static floating badges */}
             <div className="mt-16 relative">
-              <motion.div
-                className="hidden md:flex absolute -top-10 -left-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center"
-                initial={{ opacity: 0, x: -20 }}
-                animate={ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
+              <div className="hidden md:flex absolute -top-10 -left-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center">
                 <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
                   <Star className="h-4 w-4 text-teal-600" />
                 </div>
@@ -1584,26 +1006,22 @@ export default function AfLynkAdvertiser() {
                   <div className="text-xs text-gray-500">Trusted by</div>
                   <div className="text-sm font-semibold">500+ Advertisers</div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="hidden md:flex absolute mb-4 -bottom-10 -right-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center"
-                initial={{ opacity: 0, x: 20 }}
-                animate={ctaInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 ">
+              <div className="hidden md:flex absolute mb-4 -bottom-10 -right-20 text-black backdrop-blur-sm rounded-lg shadow-lg p-3 items-center">
+                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                   <Globe className="h-4 w-4 text-blue-600" />
                 </div>
                 <div>
                   <div className="text-xs text-gray-500">Global Reach</div>
                   <div className="text-sm font-semibold">50+ Countries</div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 w-full">
         <div className="container mx-auto px-4">
@@ -1633,7 +1051,6 @@ export default function AfLynkAdvertiser() {
                     <span className="text-gray-400">Publisher</span>
                   </a>
                 </li>
-
                 <li>
                   <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
                     <span className="text-gray-400">Contact Us</span>
@@ -1750,13 +1167,9 @@ export default function AfLynkAdvertiser() {
       </footer>
 
       {/* Back to Top Button */}
-      <motion.a
+      <a
         href="#"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-teal-500 to-blue-500 text-white p-3 rounded-full shadow-lg z-50"
+        className="fixed bottom-8 right-8 bg-gradient-to-r from-teal-500 to-blue-500 text-white p-3 rounded-full shadow-lg z-50 hover:scale-110 hover:shadow-xl transition-all"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -1767,7 +1180,7 @@ export default function AfLynkAdvertiser() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
         </svg>
-      </motion.a>
+      </a>
     </div>
   )
 }
