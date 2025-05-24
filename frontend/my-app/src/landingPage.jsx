@@ -1524,6 +1524,7 @@ export default function AfLynkLandingPage() {
         animate={{ opacity: 1 }}
         className="fixed bottom-8 right-8 bg-teal-600 text-white p-3 rounded-full shadow-lg z-50"
       >
+      {/* no more svgs */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
