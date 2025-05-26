@@ -488,18 +488,14 @@ export default function AfLynkTerms() {
         </div>
       </section>
 
-      {/* Footer */}
-     <footer className="bg-gray-900 text-white py-12 w-full">
+           {/* Footer */}
+        <footer className="bg-gray-900 text-white py-12 w-full">
   <div className="container mx-auto px-4">
     <div className="grid md:grid-cols-4 gap-8">
       <div>
-        <img
-          src='footer.png'
-          alt="AfLynk Media Logo"
-          className="h-22 w-32 mb-4"
-        />
-                <p className="text-gray-400 text-sm">Growth Mantra Labs LLP</p>
-                <p className="text-gray-400 text-sm">D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309</p>
+        <img src="footer.png" alt="AfLynk Media Logo" className="h-18 w-48 mb-4" />
+        <p className="text-gray-400 text-sm">Growth Mantra Labs LLP</p>
+        <p className="text-gray-400 text-sm">D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309</p>
         <p className="text-gray-400 text-sm">contact@aflynk.com</p>
       </div>
 
@@ -507,43 +503,27 @@ export default function AfLynkTerms() {
         <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
         <ul className="space-y-2">
           <li>
-            <a
-              href="/"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
+            <a href="/" className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Home</span>
             </a>
           </li>
           <li>
-            <a
-              href="/advertiser"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
+            <a href="/advertiser" className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Advertiser</span>
             </a>
           </li>
           <li>
-            <a
-              href="/publisher"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
+            <a href="/publisher" className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Publisher</span>
             </a>
           </li>
-         
           <li>
-            <a
-              href="/contact"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
+            <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">Contact Us</span>
             </a>
           </li>
           <li>
-            <a
-              href="/aboutus"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
+            <a href="/aboutus" className="text-gray-400 hover:text-white transition-colors">
               <span className="text-gray-400">About Us</span>
             </a>
           </li>
@@ -554,21 +534,21 @@ export default function AfLynkTerms() {
         <h4 className="text-lg font-semibold mb-4">Legal</h4>
         <ul className="space-y-2">
           <li>
-            <Link to ='/policy' className="text-gray-400 hover:text-white transition-colors">
-              <span className="text-gray-400">Privacy and Policy</span> 
+            <Link to="/policy" className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Privacy and Policy</span>
             </Link>
           </li>
           <li>
-           <Link to ='/tandc' className="text-gray-400 hover:text-white transition-colors">
-              <span className="text-gray-400">Terms and Conditions</span>
-            </Link>
+            <a href="/tandc" className="text-gray-400 hover:text-white transition-colors">
+              <span className="text-gray-400">Terms and conditions</span>
+            </a>
           </li>
         </ul>
       </div>
 
       <div>
         <h4 className="text-lg font-semibold mb-4">Contact</h4>
-        <ul className="space-y-2">
+        <ul className="space-y-2 mb-6">
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -601,25 +581,25 @@ export default function AfLynkTerms() {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-             +91-7988540592
+            +91-7988540592
           </li>
-           <li className="flex items-center text-gray-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  +91-85058 465555
-                </li>
+          <li className="flex items-center text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            +91-85058 465555
+          </li>
           <li className="flex items-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -638,26 +618,68 @@ export default function AfLynkTerms() {
             www.aflynk.com
           </li>
         </ul>
+
+        {/* Social Media Links */}
+        <div>
+          <h5 className="text-md font-semibold mb-3">Follow Us</h5>
+          <div className="flex flex-wrap gap-3">
+            <a 
+              href="https://www.facebook.com/aflynkmedia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full transition-colors duration-300"
+              aria-label="Facebook"
+            >
+              {/* Facebook Icon Placeholder */}
+<img src='facebook.png' alt="Instagram Icon" className="w-5 h-5" />            </a>
+            
+            <a 
+              href="https://www.instagram.com/aflynkmedia/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-pink-600 rounded-full transition-colors duration-300"
+              aria-label="Instagram"
+            >
+              {/* Instagram Icon Placeholder */}
+              <img src='instagram.png' alt="Instagram Icon" className="w-5 h-5" />
+            </a>
+            
+            <a 
+              href="https://www.linkedin.com/company/aflynk-media/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-blue-700 rounded-full transition-colors duration-300"
+              aria-label="LinkedIn"
+            >
+              {/* LinkedIn Icon Placeholder */}
+              <img src='linkedin.png' alt="Instagram Icon" className="w-5 h-5" />
+            </a>
+             <a 
+              href="https://api.whatsapp.com/send?phone=918505846555" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-green-600 rounded-full transition-colors duration-300"
+              aria-label="WhatsApp"
+            >
+              <img src='whatsapp.png' alt="WhatsApp Icon" className="w-5 h-5" />
+            </a>
+            
+          </div>
+        </div>
       </div>
     </div>
-<div className="relative border-t border-gray-800 mt-12 pt-8">
-            <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-              <p className="text-gray-400 text-sm text-center md:text-left">
-                &copy; 2025 Growth Mantra Labs LLP
-              </p>
 
-              <p className="text-gray-400 text-sm text-center order-3 md:order-none">
-                Made with ❤️ in India
-              </p>
+    <div className="relative border-t border-gray-800 mt-12 pt-8">
+      <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
+        <p className="text-gray-400 text-sm text-center md:text-left">&copy; 2025 Growth Mantra Labs LLP</p>
 
-              <p className="text-gray-400 text-sm text-center md:text-right">
-                All rights reserved.
-              </p>
-            </div>
-          </div>
+        <p className="text-gray-400 text-sm text-center order-3 md:order-none">Made with ❤️ in India</p>
+
+        <p className="text-gray-400 text-sm text-center md:text-right">All rights reserved.</p>
+      </div>
+    </div>
   </div>
 </footer>
-
       {/* Back to Top Button - Appears when scrolling down */}
       <AnimatePresence>
         {showBackToTop && (
