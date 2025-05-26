@@ -405,7 +405,8 @@ export default function AfLynkContact() {
                   <MapPin className="h-6 w-6 text-teal-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Visit Us</h3>
-                <p className="text-gray-700">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+                <p className="text-gray-700">                          D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309
+</p>
                 <p className="text-gray-600 mt-3">India</p>
               </div>
             </motion.div>

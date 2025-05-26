@@ -1049,7 +1049,7 @@ export default function AfLynkLandingPage() {
                         <p className="text-gray-600">
                           Growth Mantra Labs LLP
                           <br />
-                          Plot No 20, Block H-1/A, Sec-63, Noida
+                          D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309
                         </p>
                       </div>
                     </div>

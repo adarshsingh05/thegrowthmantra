@@ -62,14 +62,7 @@ export default function AfLynkAbout() {
     setIsVisible(true);
   }, []);
   
-  // const fadeInUp = {
-  //   hidden: { opacity: 0, y: 20 },
-  //   visible: { 
-  //     opacity: 1, 
-  //     y: 0,
-  //     transition: { duration: 0.8 }
-  //   }
-  // };
+
   
   const staggerChildren = {
     hidden: { opacity: 0 },
@@ -293,13 +286,7 @@ export default function AfLynkAbout() {
                 <Link to="/publisher" className="text-gray-700 hover:text-orange-500 transition-colors font-medium">
                   Publisher
                 </Link>
-                {/* <a
-                  href="#case-studies"
-                  className="text-gray-700 hover:text-purple-600 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Case Studies
-                </a> */}
+                
                 <a
                   href="/contact"
                   className="text-gray-700 hover:text-blue-600 font-medium py-2"
