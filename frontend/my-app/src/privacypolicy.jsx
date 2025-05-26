@@ -488,9 +488,8 @@ export default function AfLynkPrivacyPolicy() {
           alt="AfLynk Media Logo"
           className="h-12 md:h-14"
         />
-        <p className="text-gray-400 text-sm">
-AfLynk Media LLP        </p>
-        <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+            <p className="text-gray-400 text-sm">Growth Mantra Labs LLP</p>
+                <p className="text-gray-400 text-sm">D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309</p>
         <p className="text-gray-400 text-sm">contact@aflynk.com</p>
       </div>
 
@@ -635,7 +634,7 @@ AfLynk Media LLP        </p>
     <div className="relative border-t border-gray-800 mt-12 pt-8">
             <div className="flex justify-between items-center">
               <p className="text-gray-400 text-sm">
-                &copy; 2025 AfLynk Media LLP
+                &copy; 2025 Growth Mantra Labs LLP
               </p>
 
               {/* Invisible placeholder to keep spacing balanced */}

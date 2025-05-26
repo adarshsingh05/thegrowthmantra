@@ -1028,8 +1028,8 @@ export default function AfLynkAdvertiser() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <img src="footer.png" alt="AfLynk Media Logo" className="h-22 w-36 mb-4" />
-              <p className="text-gray-400 text-sm">AfLynk Media LLP </p>
-              <p className="text-gray-400 text-sm">Plot No 20, Block H-1/A, Sec-63, Noida</p>
+               <p className="text-gray-400 text-sm">Growth Mantra Labs LLP</p>
+                <p className="text-gray-400 text-sm">D4, 505, 5F, Smart City-Kingswood, Plot No. GH02, Sector-4, Greater Noida- 201309</p>
               <p className="text-gray-400 text-sm">contact@aflynk.com</p>
             </div>
 
@@ -1156,7 +1156,7 @@ export default function AfLynkAdvertiser() {
           </div>
           <div className="relative border-t border-gray-800 mt-12 pt-8">
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-              <p className="text-gray-400 text-sm text-center md:text-left">&copy; 2025 AfLynk Media LLP</p>
+              <p className="text-gray-400 text-sm text-center md:text-left">&copy; 2025 Growth Mantra Labs LLP</p>
 
               <p className="text-gray-400 text-sm text-center order-3 md:order-none">Made with ❤️ in India</p>
 
