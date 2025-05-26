@@ -218,7 +218,7 @@ export default function AfLynkPrivacyPolicy() {
                   Introduction
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                  Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media". We
+                  Welcome to Growth Mantra Labs LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media". We
                   respect your privacy and are committed to protecting the personal information you share with us. This
                   Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our
                   website, use our services, or interact with our platform.

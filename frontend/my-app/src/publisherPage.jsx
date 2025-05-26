@@ -948,7 +948,7 @@ export default function AfLynkPublisherPage() {
                     <div>
                       <h4 className="text-lg font-medium text-gray-800">Address</h4>
                       <p className="text-orange-600">
-                        AfLynk Media LLP
+                        Growth Mantra Labs LLP
                         <br />
                         Plot No 20, Block H-1/A, Sec-63, Noida
                       </p>

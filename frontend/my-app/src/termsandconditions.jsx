@@ -224,7 +224,7 @@ export default function AfLynkTerms() {
                   Introduction
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="text-gray-700 mb-4">
-                  Welcome to AfLynk Media LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media".
+                  Welcome to Growth Mantra Labs LLP, a venture by 93Communications. Hereby referred to as "Aflynk Media".
                   These Terms and Conditions ("Terms") govern your use of our website, platform, and affiliate services.
                   By using our services, you agree to comply with these Terms.
                 </motion.p>
