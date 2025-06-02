@@ -961,7 +961,7 @@ export default function AfLynkAbout() {
   className="mt-8 flex justify-center space-x-4"
 >
   <a
-    href="https://aflynk-partner.aftrad-ui.com/auth/login"
+    href="/contact"
     rel="noopener noreferrer"
     className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:-translate-y-1"
   >

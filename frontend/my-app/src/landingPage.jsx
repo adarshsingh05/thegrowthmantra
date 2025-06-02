@@ -177,7 +177,7 @@ export default function AfLynkLandingPage() {
             {/* Get Started Button */}
             <div className="hidden md:flex flex-shrink-0">
               <a
-                  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+                  href="#get-started"
 
                 className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center hover:shadow-lg transition-shadow"
               >
@@ -586,7 +586,7 @@ export default function AfLynkLandingPage() {
               <div className="text-center mb-16">
                 <div className="hover:scale-105 transition-transform">
                   <a
-  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  href="/contact"
                     className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transition-shadow"
                   >
                     <span className="text-white mr-3">🚀 I'm an Advertiser — Let's Talk Scale</span>
@@ -913,7 +913,7 @@ export default function AfLynkLandingPage() {
 
               <div className="grid sm:grid-cols-3 gap-4">
                 <a
-  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  href="/contact"
                   className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-4 rounded-xl font-medium text-lg flex items-center justify-center hover:shadow-lg transition-shadow"
                 >
                   <span className="text-white">🚀 I'm an Advertiser</span>
