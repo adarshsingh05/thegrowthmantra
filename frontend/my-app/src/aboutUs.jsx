@@ -237,8 +237,13 @@ export default function AfLynkAbout() {
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center"
             >
-              <Link to='/contact'>
-              Get Started </Link> <ChevronRight className="ml-1 h-4 w-4 text-white" />
+             <a
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"
+>
+  Get Started
+</a>
+ <ChevronRight className="ml-1 h-4 w-4 text-white" />
             </motion.a>
           </div>
 
@@ -952,16 +957,24 @@ export default function AfLynkAbout() {
         </motion.div>
         
         <motion.div
-          variants={fadeInUp} 
-          className="mt-8 flex justify-center space-x-4"
-        >
-          <button className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:-translate-y-1">
-            Partner With Us
-          </button>
-          <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transform transition hover:-translate-y-1">
-            Learn More
-          </button>
-        </motion.div>
+  variants={fadeInUp}
+  className="mt-8 flex justify-center space-x-4"
+>
+  <a
+    href="https://aflynk-partner.aftrad-ui.com/auth/login"
+    rel="noopener noreferrer"
+    className="bg-white text-blue-900 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg shadow-lg transform transition hover:-translate-y-1"
+  >
+    Partner With Us
+  </a>
+  <a
+    href="/contact"
+    className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transform transition hover:-translate-y-1"
+  >
+    Learn More
+  </a>
+</motion.div>
+
       </div>
     </motion.div>
           </motion.div>
@@ -1071,23 +1084,32 @@ export default function AfLynkAbout() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col md:flex-row justify-center gap-6">
-              <motion.a
-                href="/publisher-page"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-lg"
-              >
-                I'm a Publisher <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.a>
+           <motion.div
+  variants={fadeInUp}
+  className="flex flex-col md:flex-row justify-center gap-6"
+>
+  <motion.a
+    href="https://aflynk-partner.aftrad-ui.com/auth/login"
+    rel="noopener noreferrer"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-white text-teal-600 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-lg"
+  >
+    I'm a Publisher <ArrowRight className="ml-2 h-5 w-5" />
+  </motion.a>
 
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center"
-              >
-                I'm an Advertiser <ArrowRight className="ml-2 h-5 w-5" />
-              </motion.a>
+  <motion.a
+    href="/contact"
+    rel="noopener noreferrer"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center"
+  >
+    I'm an Advertiser <ArrowRight className="ml-2 h-5 w-5" />
+  </motion.a>
+</motion.div>
+
+
 
               <motion.a
                 href="/contact"

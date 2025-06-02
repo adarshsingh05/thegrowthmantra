@@ -177,7 +177,8 @@ export default function AfLynkLandingPage() {
             {/* Get Started Button */}
             <div className="hidden md:flex flex-shrink-0">
               <a
-                href="#get-started"
+                  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+
                 className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-2 rounded-full font-medium flex items-center hover:shadow-lg transition-shadow"
               >
                 Get Started <ChevronRight className="ml-1 h-4 w-4 text-white" />
@@ -260,13 +261,14 @@ export default function AfLynkLandingPage() {
                     <span className="text-white">🚀 Start Scaling with AfLynk</span>{" "}
                     <ArrowRight className="ml-2 h-5 w-5 text-white" />
                   </a>
+<a
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"
+  className="bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+>
+  💼 Become a Publisher <ArrowRight className="ml-2 h-5 w-5" />
+</a>
 
-                  <a
-                    href="#publishers"
-                    className="bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-                  >
-                    💼 Become a Publisher <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
                 </div>
               </div>
 
@@ -584,7 +586,7 @@ export default function AfLynkLandingPage() {
               <div className="text-center mb-16">
                 <div className="hover:scale-105 transition-transform">
                   <a
-                    href="#contact"
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
                     className="inline-flex items-center group bg-gradient-to-r from-teal-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transition-shadow"
                   >
                     <span className="text-white mr-3">🚀 I'm an Advertiser — Let's Talk Scale</span>
@@ -675,12 +677,14 @@ export default function AfLynkLandingPage() {
                 </div>
 
                 <div className="mt-12 text-center">
-                  <a
-                    href="#contact"
-                    className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-shadow"
-                  >
-                    <span className="text-white">💼 Become a Publisher Today</span>
-                  </a>
+<a
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"
+  className="bg-white text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+>💼 Become a Publisher Today
+</a>
+
+                 
                 </div>
               </div>
             </div>
@@ -909,14 +913,14 @@ export default function AfLynkLandingPage() {
 
               <div className="grid sm:grid-cols-3 gap-4">
                 <a
-                  href="#contact"
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
                   className="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-4 rounded-xl font-medium text-lg flex items-center justify-center hover:shadow-lg transition-shadow"
                 >
                   <span className="text-white">🚀 I'm an Advertiser</span>
                 </a>
 
                 <a
-                  href="#contact"
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
                   className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-4 rounded-xl font-medium text-lg flex items-center justify-center hover:shadow-lg transition-shadow"
                 >
                   <span className="text-white">💼 I'm a Publisher</span>

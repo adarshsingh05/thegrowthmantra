@@ -118,7 +118,7 @@ export default function AfLynkContact() {
           {/* Right-aligned Get Started Button */}
           <div className="hidden md:flex z-20">
             <motion.a
-              href="#"
+    href="https://aflynk-partner.aftrad-ui.com/auth/login"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2 rounded-full font-medium flex items-center shadow-md hover:shadow-lg transition-all"

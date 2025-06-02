@@ -294,7 +294,7 @@ export default function AfLynkPublisherPage() {
 
     {/* CTA Button */}
     <motion.a
-      href="#cta"
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="hidden md:flex bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium items-center"
@@ -405,8 +405,8 @@ export default function AfLynkPublisherPage() {
                 className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12"
               >
                 <motion.a
-                  href="#cta"
-                  whileHover={{ scale: 1.05 }}
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-orange-500 to-red-500 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center"
                 >
@@ -578,13 +578,16 @@ export default function AfLynkPublisherPage() {
     </p>
     
     {/* CTA button */}
-    <motion.button
-      whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#f97316" }}
-      whileTap={{ scale: 0.98 }}
-      className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-white hover:text-orange-500"
-    >
-      Join AfLynk Today
-    </motion.button>
+ <motion.a
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"
+  whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#f97316" }}
+  whileTap={{ scale: 0.98 }}
+  className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-white hover:text-orange-500"
+>
+  Join AfLynk Today
+</motion.a>
+
   </div>
   
   {/* Accent corners */}
@@ -744,7 +747,7 @@ export default function AfLynkPublisherPage() {
 
       <motion.div variants={fadeInUp} className="mt-20 text-center">
         <motion.a
-          href="#cta"
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-medium text-lg"
@@ -839,8 +842,8 @@ export default function AfLynkPublisherPage() {
 
             <motion.div variants={fadeInUp}>
               <motion.a
-                href="#"
-                whileHover={{ scale: 1.05 }}
+  href="https://aflynk-partner.aftrad-ui.com/auth/login"
+  rel="noopener noreferrer"                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-red-600 px-8 py-4 rounded-full font-medium text-lg shadow-lg"
               >

@@ -254,7 +254,7 @@ export default function AfLynkAdvertiser() {
 
           {/* CTA Button */}
           <a
-            href="#cta"
+            href="/contact"
             className="hidden md:flex bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full font-medium items-center hover:shadow-lg transition-shadow"
           >
             <span>Start Advertising</span>
@@ -346,7 +346,7 @@ export default function AfLynkAdvertiser() {
 
               <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-12">
                 <a
-                  href="#cta"
+            href="/contact"
                   className="relative overflow-hidden bg-gradient-to-r from-teal-500 to-blue-500 px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center shadow-xl group hover:shadow-2xl transition-shadow"
                 >
                   <span className="relative z-10 text-white mr-6">Start Advertising with AfLynk</span>
@@ -690,7 +690,7 @@ export default function AfLynkAdvertiser() {
                   </p>
 
                   <a
-                    href="#cta"
+            href="/contact"
                     className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-600 text-white px-10 py-5 rounded-full font-bold text-xl shadow-2xl group hover:shadow-3xl transition-shadow"
                   >
                     <span className="relative z-10 flex items-center justify-center">
@@ -868,7 +868,7 @@ export default function AfLynkAdvertiser() {
                     you launch your first campaign.
                   </p>
                   <a
-                    href="#cta"
+            href="/contact"
                     className="relative overflow-hidden inline-block bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl group md:h-16 hover:shadow-2xl transition-shadow"
                   >
                     <span className="relative z-10">Start Advertising with AfLynk</span>
